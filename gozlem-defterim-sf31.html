@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gözlem Defterim: Çevreni Keşfet — sf. 31</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--yellow:#F3D308;--teal:#1f9aa6;--teal-d:#0e6b75;--green:#1f6b32;--mx:16mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+  .page{position:relative; width:210mm; min-height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+  .band{padding:11mm var(--mx) 7mm; background:var(--teal);}
+  .band .disp{color:#fff;}
+  .kick{display:inline-block; color:var(--teal-d); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#fff;}
+  h1.disp{font-weight:800; text-transform:uppercase; font-size:33px; letter-spacing:-.01em; line-height:1.05; margin:0;}
+  h2.sub{font-weight:800; text-transform:uppercase; font-size:18px; color:var(--teal-d); margin:0 0 6px; display:flex; align-items:center; gap:8px;}
+  .lead{font-size:16.5px; line-height:1.5; font-weight:700; color:#1e1e1e;}
+  strong{color:var(--teal-d); font-weight:800;}
+
+  .fields{display:flex; gap:12px;}
+  .field{flex:1; background:#f0fafb; border:2px solid #bfe6ea; border-radius:11px; padding:9px 12px;}
+  .field .l{font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--teal-d);}
+  .field .ln{height:16px; border-bottom:2px dashed #bcd9dd; margin-top:6px;}
+  .field.w .opts{font-size:12px; font-weight:700; color:#2f4a4a; letter-spacing:0; margin-top:4px;}
+
+  table.obs{width:100%; border-collapse:collapse; margin-top:2px;}
+  table.obs th{background:#e7f6f7; color:var(--teal-d); font-size:12.5px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; padding:7px 10px; text-align:left; border:1px solid #cfe7ea;}
+  table.obs td{height:11mm; border:1px solid #e2eff0; padding:0 10px;}
+  table.obs td:first-child{width:52%;}
+
+  .draw{border:3px dashed #bcd9dd; border-radius:14px; background:#fbfeff; height:46mm; display:flex; align-items:flex-start; justify-content:flex-end;}
+  .draw span{font-size:12px; font-weight:700; color:#a7c4c8; padding:8px 12px;}
+
+  .tips{display:flex; gap:10px;}
+  .tip{flex:1; background:#fff7e6; border:2px solid #f6d99a; border-radius:11px; padding:10px 9px; text-align:center;}
+  .tip .e{width:13px;height:13px;border-radius:50%;background:var(--teal-d);display:inline-block;margin:0 auto 3px;font-size:0;}
+  .tip p{margin:5px 0 0; font-size:11.6px; font-weight:700; color:#9a6a12; line-height:1.3;}
+
+  .note{border-radius:12px; padding:13px 17px; background:var(--ink); color:#eee;}
+  .note .nl{font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--yellow); margin-bottom:4px; display:flex; gap:7px;}
+  .note p{margin:0; font-size:14.5px;} .note strong{color:#7AC22B;}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.field,.note,table.obs th,.tip{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Gözlem Defterim · sf. 31</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Köşe · Etkinlik</span>
+    <h1 class="disp">Gözlem Defterim: Çevreni Keşfet</h1>
+  </div>
+  <div class="px fill" style="padding-top:2mm;">
+    <p class="lead">Bir doğa dedektifi gibi dışarı çık! Bahçe, park ya da balkon — etrafındaki canlıları gözle, say ve bu sayfaya kaydet.</p>
+
+    <div class="fields">
+      <div class="field"><div class="l">Tarih</div><div class="ln"></div></div>
+      <div class="field"><div class="l">Yer</div><div class="ln"></div></div>
+      <div class="field w"><div class="l">Hava (yuvarlak içine al)</div><div class="opts">Güneşli &nbsp; Bulutlu &nbsp; Yağmurlu &nbsp; Karlı</div></div>
+    </div>
+
+    <div>
+      <h2 class="sub">Gördüğüm Canlılar</h2>
+      <table class="obs">
+        <tr><th>Canlının adı</th><th>Kaç tane?</th><th>Nerede gördüm?</th></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h2 class="sub">Bir Canlıyı Çiz</h2>
+      <div class="draw"><span>buraya çiz</span></div>
+    </div>
+
+    <div class="tips" style="margin-top: 12px; margin-bottom: 12px;">
+      <div class="tip"><div class="e"></div><p>Yavaş ve sessiz yürü</p></div>
+      <div class="tip"><div class="e"></div><p>Dürbün/büyüteç kullan</p></div>
+      <div class="tip"><div class="e"></div><p>Dokunma, sadece izle</p></div>
+      <div class="tip"><div class="e"></div><p>Hemen not al ve çiz</p></div>
+    </div>
+
+    <div class="note">
+      <div class="nl">İyi gözlemler!</div>
+      <p>Ne kadar çok gözlem yaparsan, çevrendeki <strong>biyoçeşitliliği</strong> o kadar iyi tanırsın. Defterini her gezide yanına al!</p>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">32</span></div>
+</section>
+
+</body>
+</html>

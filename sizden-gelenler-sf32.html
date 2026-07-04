@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sizden Gelenler — sf. 32</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;--green:#1f6b32;--lime:#7AC22B;--mx:16mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+  .page{position:relative; width:210mm; min-height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+  .band{padding:11mm var(--mx) 7mm; background:var(--orange);}
+  .band .disp{color:#fff;}
+  .kick{display:inline-block; color:var(--orange-d); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#fff;}
+  h1.disp{font-weight:800; text-transform:uppercase; font-size:33px; letter-spacing:-.01em; line-height:1.05; margin:0;}
+  h2.sub{font-weight:800; text-transform:uppercase; font-size:19px; color:var(--orange-d); margin:0 0 7px; display:flex; align-items:center; gap:8px;}
+  .lead{font-size:17px; line-height:1.5; font-weight:700; color:#1e1e1e;}
+  strong{color:var(--orange-d); font-weight:800;}
+
+  .frames{display:flex; gap:12px;}
+  .frame{flex:1; background:#fff; border:1px solid #eee; box-shadow:0 5px 16px rgba(0,0,0,.12); padding:9px 9px 11px; border-radius:5px;}
+  .frame .ph{height:48mm; border:2px dashed #e0d4c2; border-radius:4px; background:#fffdf8; display:flex; align-items:center; justify-content:center; text-align:center; color:#c9b79a; font-weight:800; font-size:12px; padding:8px;}
+  .frame .cap{margin-top:9px; border-top:1px dashed #e7e0d4; padding-top:7px; font-size:11px; font-weight:700; color:#9a8c72;}
+
+  .grid2{display:flex; gap:12px;}
+  .box{flex:1; border-radius:13px; padding:13px 15px;}
+  .box.how{background:#fff3e6; border:2px solid #f6c98f;} .box.how h2{color:var(--orange-d);}
+  .box.what{background:#eef8e6; border:2px solid #cfe8b8;} .box.what h2{color:var(--green);}
+  .box ol{margin:0; padding-left:20px;} .box ol li{font-size:14px; line-height:1.5; margin-bottom:5px;}
+  .chips{margin-top:2px;} .chips span{display:inline-block; margin:0 6px 7px 0; background:#fff; border:2px solid #cfe8b8; border-radius:18px; padding:4px 12px; font-weight:700; font-size:12.5px; color:#2f6b33;}
+
+  .note{border-radius:12px; padding:14px 18px; background:var(--ink); color:#eee;}
+  .note .nl{font-weight:900; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--yellow); margin-bottom:4px; display:flex; gap:7px;}
+  .note p{margin:0; font-size:15px;} .note strong{color:var(--lime);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.frame,.box,.note,.chips span{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Sizden Gelenler · sf. 32</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Okur Köşesi</span>
+    <h1 class="disp">Sizden Gelenler</h1>
+  </div>
+  <div class="px fill" style="padding-top:7mm;">
+    <p class="lead">Bu bizim <strong>ilk sayımız</strong> — yani bu köşe seninle dolacak! Doğa çizimlerini, gözlemlerini ve sorularını gönder; bir sonraki sayıda tam burada yayımlayalım. </p>
+
+    <div>
+      <h2 class="sub">Galeri</h2>
+      <div class="frames">
+        <div class="frame"><div class="ph">Senin çiziminin yeri</div><div class="cap">Ad · Yaş · Şehir</div></div>
+        <div class="frame"><div class="ph">Senin çiziminin yeri</div><div class="cap">Ad · Yaş · Şehir</div></div>
+        <div class="frame"><div class="ph">Senin çiziminin yeri</div><div class="cap">Ad · Yaş · Şehir</div></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="box how">
+        <h2 class="sub">Nasıl Gönderirim?</h2>
+        <ol>
+          <li>Doğayla ilgili bir resim çiz ya da kısa bir mektup yaz.</li>
+          <li>Üstüne <strong>adını, yaşını ve şehrini</strong> ekle.</li>
+          <li>Bir büyüğünden izin al; fotoğrafını çekip dergimize ulaştır.</li>
+        </ol>
+      </div>
+      <div class="box what">
+        <h2 class="sub">Ne Çizebilirim?</h2>
+        <div class="chips">
+          <span>En sevdiğin hayvan</span><span>Bahçendeki bir böcek</span><span>Hayalindeki orman</span><span>Bir endemik canlı</span><span>Deniz altı</span><span>Bir arı &amp; çiçek</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="nl">Hadi başla!</div>
+      <p>Bir sonraki sayıda belki <strong>senin çizimin</strong> bu sayfada olur. Kalemleri kap ve doğayı anlat!</p>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">33</span></div>
+</section>
+
+</body>
+</html>

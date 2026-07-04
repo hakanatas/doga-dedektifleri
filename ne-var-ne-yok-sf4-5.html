@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ne Var Ne Yok? — sf. 4–5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#2BB6B0;--teal-d:#0e7d8a;--teal-dd:#06545e;--blue:#1f8fbf;--coral:#DD3762;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:6mm; padding-bottom:24mm;}
+  .fill > *{flex-shrink:0;}
+
+  .band{padding:10mm var(--mx) 7mm; background:var(--teal); display:flex; align-items:flex-end; justify-content:space-between;}
+  .kick{display:inline-block; color:#fff; background:var(--teal-dd); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px;}
+  .band h1{font-weight:900; text-transform:uppercase; font-size:36px; line-height:.96; letter-spacing:-.01em; color:#06363a; margin:0;}
+  .band .r{color:#063b40; font-weight:800; font-size:11px; letter-spacing:.08em; text-transform:uppercase; text-align:right; line-height:1.5; opacity:.85;}
+
+  .conthead{padding:7mm var(--mx) 0; display:flex; align-items:center; gap:10px;}
+  .conthead .tag{font-weight:900; font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--teal-d);}
+  .conthead .ln{flex:1; height:3px; border-radius:2px; background:#d8eef0;}
+
+  .lead{font-size:15.5px; line-height:1.5; font-weight:800; color:var(--teal-dd); margin:0;}
+
+  /* öne çıkan haber */
+  .feature{display:flex; gap:14px; background:#f1fafb; border:2px solid #cfe9ec; border-radius:14px; padding:12px; align-items:center;}
+  .feature .ph{width:82mm; height:50mm; flex:none; border-radius:10px; overflow:hidden; box-shadow:0 5px 14px rgba(0,0,0,.16);}
+  .feature .ph img{width:100%; height:100%; object-fit:cover; display:block;}
+  .feature .ft .lbl{display:inline-block; background:var(--coral); color:#fff; font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:6px;}
+  .feature h2{margin:0 0 6px; font-weight:900; font-size:20px; line-height:1.05; color:var(--teal-dd); text-transform:uppercase;}
+  .feature p{margin:0; font-size:12.8px; line-height:1.5; font-weight:600; color:#3a4a4c;}
+  .feature p strong{color:var(--orange-d); font-weight:800;}
+
+  /* bilgi kartları */
+  .cards3{display:flex; gap:11px;}
+  .nc{flex:1; min-height:30mm; display:flex; align-items:center; gap:12px; background:#fff; border:2px solid #e6eef0; border-radius:13px; padding:13px 15px; box-shadow:0 4px 12px rgba(0,0,0,.07);}
+  .nc .e{font-size:30px; flex:none; line-height:1;}
+  .nc .tx{flex:1;}
+  .nc h3{margin:0 0 3px; font-weight:900; font-size:14px; color:var(--teal-dd); line-height:1.2;}
+  .nc p{margin:0; font-size:11.8px; line-height:1.45; font-weight:600; color:#445;}
+  .nc p strong{color:var(--orange-d); font-weight:800;}
+  .nc.o{border-color:#f6d9b8;} .nc.o h3{color:var(--orange-d);}
+  .nc.g{border-color:#cfe8b8;} .nc.g h3{color:var(--green);}
+  .nc.b{border-color:#bfe0ef;} .nc.b h3{color:var(--blue);}
+  .cards2{display:flex; gap:11px;}
+
+  /* öne çıkan büyük */
+  .feature.hero .ph{height:58mm;}
+
+  /* doğa rekorları */
+  .recs{display:flex; gap:11px;}
+  .rec{flex:1; background:#f1fafb; border:2px solid #cfe9ec; border-radius:13px; padding:10px 12px; display:flex; align-items:center; gap:11px;}
+  .rec .e{font-size:30px; flex:none; line-height:1;}
+  .rec .n{font-weight:900; font-size:19px; color:var(--teal-d); line-height:1; margin-bottom:2px;}
+  .rec .t{font-weight:700; font-size:10.8px; color:#3a4a4c; line-height:1.22;}
+  .rec.o{border-color:#f6d9b8;} .rec.o .n{color:var(--orange-d);}
+  .rec.g{border-color:#cfe8b8;} .rec.g .n{color:var(--green);}
+
+  /* doğa takvimi */
+  .twocol{display:flex; gap:11mm;}
+  .cal{flex:1; background:#eef8e6; border:2px solid #cfe8b8; border-radius:14px; padding:13px 15px;}
+  .cal h3{margin:0 0 9px; font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:.03em; color:var(--green); display:flex; align-items:center; gap:8px;}
+  .cal .row{display:flex; align-items:center; gap:11px; padding:6px 0; border-bottom:1px dashed #d2e6c3;}
+  .cal .row:last-child{border-bottom:0;}
+  .cal .d{flex:none; width:24mm; font-weight:900; font-size:12px; color:var(--green-d);}
+  .cal .ev{flex:1; font-weight:700; font-size:12.5px; color:#2f4a2f;}
+  .cal .ic{font-size:17px;}
+
+  .know{flex:1; background:#06545e; color:#eafafb; border-radius:14px; padding:13px 15px;}
+  .know h3{margin:0 0 9px; font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:.03em; color:var(--yellow); display:flex; align-items:center; gap:8px;}
+  .know .b{display:flex; gap:10px; padding:6px 0; border-bottom:1px dashed rgba(255,255,255,.18);}
+  .know .b:last-child{border-bottom:0;}
+  .know .b .e{font-size:18px; flex:none;}
+  .know .b p{margin:0; font-size:12px; line-height:1.42; font-weight:600;}
+  .know .b p b{color:var(--lime);}
+
+  /* sayılarla doğa */
+  .nums{display:flex; gap:11px;}
+  .num{flex:1; background:#f1fafb; border:2px solid #cfe9ec; border-radius:13px; padding:11px 8px; text-align:center;}
+  .num .n{font-weight:900; font-size:26px; color:var(--teal-d); line-height:1;}
+  .num p{margin:5px 0 0; font-size:10.8px; font-weight:700; color:#3a4a4c; line-height:1.28;}
+  .num:nth-child(2) .n{color:var(--orange-d);} .num:nth-child(3) .n{color:var(--green);} .num:nth-child(4) .n{color:var(--coral);}
+
+  .teaser{display:flex; align-items:center; gap:12px; background:var(--ink); color:#eee; border-radius:13px; padding:12px 16px;}
+  .teaser .e{font-size:28px; flex:none;}
+  .teaser p{margin:0; font-size:13.5px; line-height:1.42; font-weight:600;}
+  .teaser p b{color:var(--yellow);} .teaser p strong{color:var(--lime);}
+
+  .sech{font-weight:900; text-transform:uppercase; font-size:13px; letter-spacing:.04em; color:var(--teal-d); margin:0 0 7px; display:flex; align-items:center; gap:8px;}
+  .sech::before{content:""; width:18px; height:4px; border-radius:3px; background:var(--yellow);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.feature,.feature .lbl,.nc,.cal,.know,.num,.teaser{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  /* emoji ikonları PDF'te kaydığı için renkli noktalara çevrildi */
+  .nc .e{width:18px; height:18px; border-radius:50%; background:var(--teal-dd); flex:none; align-self:center; font-size:0 !important;}
+  .nc.o .e{background:var(--orange);} .nc.g .e{background:var(--green);} .nc.b .e{background:var(--blue);}
+  .rec .e{width:18px; height:18px; border-radius:50%; background:var(--teal-d); flex:none; align-self:center; font-size:0 !important;}
+  .rec.o .e{background:var(--orange-d);} .rec.g .e{background:var(--green);}
+  .cal .ic{width:10px; height:10px; border-radius:50%; background:var(--green); flex:none; font-size:0 !important;}
+  .know .b .e{width:10px; height:10px; border-radius:50%; background:var(--lime); flex:none; margin-top:3px; font-size:0 !important;}
+  .teaser .e{width:16px; height:16px; border-radius:50%; background:var(--yellow); flex:none; font-size:0 !important;}
+  .cal h3 .hd, .know h3 .hd{width:12px; height:12px; border-radius:3px; flex:none; display:inline-block;}
+  .cal h3 .hd{background:var(--green);} .know h3 .hd{background:var(--yellow);}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Ne Var Ne Yok? · sf. 4–5</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<!-- ================= SAYFA 4 ================= -->
+<section class="page">
+  <div class="band">
+    <div><span class="kick">Köşe · Doğadan Haberler</span><h1>Ne Var Ne Yok?</h1></div>
+    <div class="r">Doğa dünyasından<br>kısa kısa</div>
+  </div>
+
+  <div class="px fill">
+    <p class="lead">Gezegenimizde her gün şaşırtıcı şeyler oluyor. İşte doğa dünyasından merak uyandıran haberler ve bilgiler!</p>
+
+    <!-- ÖNE ÇIKAN -->
+    <div class="feature hero" style="margin-top:6mm;">
+      <div class="ph"><img src="g3.png" alt=""></div>
+      <div class="ft">
+        <span class="lbl">★ Haftanın Haberi</span>
+        <h2>Doğa Hâlâ Sürprizlerle Dolu!</h2>
+        <p>Bilim insanları her yıl <strong>on binlerce yeni tür</strong> keşfediyor — yağmur ormanlarının derinliklerinde, okyanus diplerinde, hatta şehirlerin içinde! Bugüne dek yaklaşık 2 milyon tür tanımlandı; ama uzmanlar gezegende belki de <strong>8 milyondan fazla</strong> tür olduğunu düşünüyor. Yani keşfedilmeyi bekleyen milyonlarca canlı var. Belki birini de sen bulursun!</p>
+      </div>
+    </div>
+
+    <!-- DOĞA REKORLARI -->
+    <div style="margin-top:15mm;">
+      <h3 class="sech">Doğa Rekorları</h3>
+      <div class="recs">
+        <div class="rec"><span class="e"></span><div><div class="n">110 km/s</div><div class="t">En hızlı kara hayvanı: çita</div></div></div>
+        <div class="rec o"><span class="e"></span><div><div class="n">5,5 metre</div><div class="t">En uzun boylu hayvan: zürafa</div></div></div>
+        <div class="rec g"><span class="e"></span><div><div class="n">6 ton</div><div class="t">En büyük kara hayvanı: Afrika fili</div></div></div>
+      </div>
+    </div>
+
+    <!-- KISA KISA (4 kart) -->
+    <div style="margin-top:15mm;">
+      <h3 class="sech">Kısa Kısa</h3>
+      <div class="cards2">
+        <div class="nc">
+          <span class="e"></span>
+          <div class="tx"><h3>Üç Kalpli Kâşif</h3><p>Ahtapotun <strong>üç kalbi</strong> ve mavi kanı vardır. Üstelik kollarıyla dokunduğu şeyin tadına bakabilir!</p></div>
+        </div>
+        <div class="nc o">
+          <span class="e"></span>
+          <div class="tx"><h3>Uzaya Dayanıklı</h3><p>"Su ayısı" denen minik canlı (tardigrad) kaynar suya da, <strong>uzayın boşluğuna</strong> da dayanabilir.</p></div>
+        </div>
+      </div>
+      <div class="cards2" style="margin-top:11px;">
+        <div class="nc g">
+          <span class="e"></span>
+          <div class="tx"><h3>Ağaçlar Konuşur</h3><p>Ağaçlar, toprak altındaki mantar ağıyla birbirine besin ve haber yollar. Buna <strong>"Orman İnterneti"</strong> deniyor.</p></div>
+        </div>
+        <div class="nc b">
+          <span class="e"></span>
+          <div class="tx"><h3>En Derinde Bile Yaşam</h3><p>Okyanusun <strong>11 km</strong> derinliğindeki en dipte bile, minik canlılar yüzmeye devam ediyor!</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">04</span></div>
+</section>
+
+<!-- ================= SAYFA 5 ================= -->
+<section class="page">
+  <div class="conthead"><span class="tag">Ne Var Ne Yok?</span><span class="ln"></span><span class="tag" style="color:#9aa">devam</span></div>
+
+  <div class="px fill" style="padding-top:5mm;">
+
+    <div class="twocol">
+      <div class="cal">
+        <h3><span class="hd"></span>Doğa Takvimi</h3>
+        <div class="row"><span class="d">2 Şubat</span><span class="ev">Dünya Sulak Alanlar Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">21 Mart</span><span class="ev">Dünya Ormancılık Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">22 Mart</span><span class="ev">Dünya Su Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">20 Mayıs</span><span class="ev">Dünya Arılar Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">22 Mayıs</span><span class="ev">Biyoçeşitlilik Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">5 Haziran</span><span class="ev">Dünya Çevre Günü</span><span class="ic"></span></div>
+        <div class="row"><span class="d">8 Haziran</span><span class="ev">Dünya Okyanus Günü</span><span class="ic"></span></div>
+      </div>
+
+      <div class="know">
+        <h3><span class="hd"></span>Biliyor muydun?</h3>
+        <div class="b"><span class="e"></span><p>Arılar, sevdikleri <b>insan yüzlerini</b> hatırlayabilir!</p></div>
+        <div class="b"><span class="e"></span><p>Bir mavi balinanın kalbi neredeyse bir <b>küçük araba</b> büyüklüğündedir.</p></div>
+        <div class="b"><span class="e"></span><p>Yarasalar, zararlı böcekleri yiyerek <b>çiftçilere</b> yardım eder.</p></div>
+        <div class="b"><span class="e"></span><p>Karıncalar, kendi ağırlığının <b>50 katını</b> taşıyabilir.</p></div>
+        <div class="b"><span class="e"></span><p>Kelebekler tatları <b>ayaklarıyla</b> alır — bir çiçeğe konunca hemen anlarlar!</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 15px; margin-bottom: 15px;">
+      <h3 class="sech" style="margin-bottom: 20px;">Sayılarla Doğa</h3>
+      <div class="nums">
+        <div class="num"><div class="n">8,7 milyon</div><p>Dünyadaki tahmini tür sayısı</p></div>
+        <div class="num"><div class="n">3.000+</div><p>Türkiye'ye özgü (endemik) bitki türü</p></div>
+        <div class="num"><div class="n">2 milyon</div><p>Bir kavanoz bal için ziyaret edilen çiçek</p></div>
+        <div class="num"><div class="n">%80</div><p>Karadaki türlerin ormanlarda yaşayan oranı</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+      <h3 class="sech" style="margin-bottom: 10px;">Haftanın Doğa Görevi</h3>
+      <div class="nc" style="background: #fffdf3; border-color: var(--yellow); min-height: auto; padding: 12px 15px;">
+        <span class="e"></span>
+        <div class="tx">
+          <h3 style="color: var(--orange-d); font-size: 13.5px;">Büyüteç Başına, Dedektif!</h3>
+          <p style="font-size: 12.2px; color: #3a4a4c;">Bu hafta sonu en yakın parka veya bahçeye git; yerdeki toprak veya yaprak kalıntılarını dikkatlice incele. Birbirinden tamamen farklı <b>en az 3 böcek türü</b> bulup hareketlerini gözlemle. Unutma, gerçek bir doğa dedektifi canlılara asla zarar vermez!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature" style="background:#eef8e6; border-color:#cfe8b8; margin-bottom: 15px;">
+      <div class="ph"><img src="e3.png" alt=""></div>
+      <div class="ft">
+        <span class="lbl" style="background:var(--green);">İyi Haber</span>
+        <h2 style="color:var(--green-d);">Koruma İşe Yarıyor!</h2>
+        <p>İnsanlar el ele verince doğa kendini onarabiliyor. Koruma altına alınan ormanlar yeniden yeşeriyor, sayısı azalan bazı hayvanlar <strong>yeniden çoğalıyor</strong>. Demek ki herkesin attığı küçük adımlar, büyük bir fark yaratıyor.</p>
+      </div>
+    </div>
+
+    <div class="teaser">
+      <span class="e"></span>
+      <p>Sıradaki sayfada kapak konumuza dalıyoruz: <b>Canopy</b> — ağaçların tepesindeki, yere hiç inmeyen <strong>gizli dünya!</strong></p>
+    </div>
+
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">05</span></div>
+</section>
+
+</body>
+</html>

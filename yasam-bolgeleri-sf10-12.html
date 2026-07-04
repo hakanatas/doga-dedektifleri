@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dünyanın Yaşam Bölgeleri — LPR stili (sf. 10–12)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a; --body:#2b2b2b; --soft:#f3f6ef;
+    --orange:#F36F0D; --yellow:#F3D308;
+    --teal:#2BB6B0; --sky:#51C2E7;
+    --green:#1f6b32; --green-mid:#63B752; --lime:#7AC22B; --coral:#DD3762;
+    --page-w:210mm; --page-h:297mm; --mx:16mm;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body);
+    font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; align-items:center;
+    justify-content:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff;
+    font-weight:700; box-shadow:0 2px 14px rgba(0,0,0,.18);}
+  .toolbar span{opacity:.9; font-weight:600; font-size:14px;}
+  .toolbar button{font-family:'Archivo'; font-weight:800; font-size:13px; border:0; border-radius:6px;
+    padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase; letter-spacing:.05em;}
+  .toolbar button:hover{background:var(--orange); color:#fff;}
+
+  .page{position:relative; width:var(--page-w); min-height:var(--page-h); background:#fff;
+    margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.20);
+    display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+
+  .band{padding:11mm var(--mx) 7mm;}
+  .band.g{background:var(--green);} .band.g .disp{color:#fff;}
+  .band.t{background:var(--teal);} .band.t .disp{color:#06363a;}
+  .band.o{background:var(--orange);} .band.o .disp{color:#fff;}
+
+  .kick{display:inline-block; color:#fff; font-weight:800; font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:var(--orange);}
+  .band.o .kick{background:#fff; color:var(--orange);}
+  .band.t .kick{background:#06363a; color:#fff;}
+
+  h1.disp{font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase;
+    line-height:.96; letter-spacing:.005em; margin:0; font-size:40px; color:var(--ink);}
+  h2.sub{font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.01em;
+    font-size:24px; margin:0 0 7px; color:var(--green);}
+  h2.sub.or{color:#C4560A;} h2.sub.bl{color:#1d77a8;}
+
+  p{font-size:14.5px; line-height:1.6; margin:0 0 11px; color:var(--body);}
+  .lead{font-size:16px; line-height:1.55; font-weight:600; color:#1e1e1e;}
+  .cols{column-count:2; column-gap:9mm;}
+  .cols p:first-child{margin-top:0;}
+  strong{color:var(--green); font-weight:800;}
+
+  .hero-map{width:100%; height:150mm; background:url('b1.png') center/cover no-repeat; flex:none;}
+
+  /* image + text row — fixed image column (reliable in print) */
+  .duo{display:grid; grid-template-columns:106mm 1fr; gap:0 7mm; align-items:center;}
+  .duo.rev{grid-template-columns:1fr 106mm;}
+  .duo img,.duo figure svg{display:block; width:100%; height:auto; border-radius:8px; border:5px solid #fff;
+    box-shadow:0 5px 16px rgba(0,0,0,.18); outline:1px solid #e7e7e7;}
+  .duo .txt p{margin-bottom:0;}
+
+  .note{border-radius:10px; padding:13px 17px;}
+  .note .nl{font-family:'Archivo'; font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; display:flex; align-items:center; gap:7px;}
+  .note p{margin:0; font-size:13.5px;}
+  .note.def{background:var(--teal); color:#06363a;} .note.def .nl{color:#06363a;} .note.def strong{color:#063;}
+  .note.know{background:#FFF6D6; border:2px solid var(--yellow); color:var(--body);} .note.know .nl{color:#C4560A;} .note.know strong{color:var(--green);}
+  .note.next{background:var(--ink); color:#eee;} .note.next .nl{color:var(--yellow);} .note.next strong{color:var(--lime);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm; display:block;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center;
+    justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-family:'Anton'; font-size:15px; color:#fff; background:var(--green); width:24px; height:24px;
+    border-radius:6px; display:flex; align-items:center; justify-content:center; letter-spacing:0;}
+
+  @page{size:A4; margin:0;}
+  @media print{
+    body{background:#fff; padding:0;}
+    .toolbar{display:none;}
+    .page{margin:0; box-shadow:none;}
+  }
+  .page,.band,.note,.duo,.hero-map{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  /* === Font + doluluk: Montserrat === */
+  *{font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif !important;}
+  p{font-size:13.8px !important; line-height:1.5 !important;}
+  .lead{font-size:15.2px !important; line-height:1.42 !important;}
+  h1.disp{font-weight:800 !important; font-size:28px !important; letter-spacing:-.01em !important; line-height:1.04 !important;}
+  h1.disp.sm{font-size:24px !important;}
+  h2.sub{font-weight:800 !important; font-size:18px !important; line-height:1.08 !important; margin-bottom:6px !important;}
+  .note p, .goodnews p, .bigstat p{font-size:13.2px !important;}
+  .note .nl, .goodnews .gl{font-size:12.5px !important;}
+  .bigstat .n, .stat .num, .sb .num{font-weight:900 !important;}
+  .card h3{font-weight:800 !important; font-size:15px !important;}
+  .card p, .chip p, .threat p, .tip p, .role p{font-size:11.8px !important;}
+  .term .h{font-size:15px !important;} .term p{font-size:12.8px !important;} .cap{font-size:11.5px !important;}
+  .ph b{font-weight:800 !important;} .folio .pg{font-weight:800 !important;}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><span>Yaşam Bölgeleri · LPR stili · sf. 10–12</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<!-- ================= SAYFA 10 ================= -->
+<section class="page">
+  <div class="band t">
+    <span class="kick">Bölüm · Yaşam Bölgeleri</span>
+    <h1 class="disp">Dünyanın Yaşam Bölgeleri</h1>
+  </div>
+  <div class="hero-map" role="img" aria-label="Dünya biyom haritası"></div>
+  <div class="px fill" style="padding-top:8mm;">
+    <div class="cols">
+      <p class="lead" style="margin-bottom:9px;">Biyoçeşitlilik, Dünya'daki canlıların ne kadar çeşitli olduğu demek. Peki bu çeşitlilik nerede saklı? Cevap: Dünya'nın birbirinden çok farklı yaşam bölgelerinde!</p>
+      <p>Bir yaşam bölgesi — bilim insanları buna <strong>biyom</strong> der — benzer iklime, bitkilere ve hayvanlara sahip kocaman bir bölgedir. Her canlı yaşadığı yere uyum sağlamıştır: kutup ayısı buza, deve kuma, mercan sıcak denize... Dünya, her mahallesinde farklı sakinlerin yaşadığı renkli bir şehir gibidir. Hadi birkaç mahalleyi gezelim!</p>
+    </div>
+    <div class="note def">
+      <div class="nl">🌍 Bir bakışta</div>
+      <p><strong>Biyom (yaşam bölgesi):</strong> Benzer iklim, bitki ve hayvanlara sahip büyük doğa bölgesi. Orman, çöl, okyanus, kutup... hepsi birer biyom.</p>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">10</span></div>
+</section>
+
+<!-- ================= SAYFA 11 ================= -->
+<section class="page">
+  <div class="band g">
+    <span class="kick">Yaşam Bölgeleri · Orman & Okyanus</span>
+    <h1 class="disp">En Zengin İki Bölge</h1>
+  </div>
+  
+  <!-- justify-content: space-between ile elemanlar dikeyde sayfaya tam yayılır -->
+  <div class="px fill" style="padding-top:8mm; padding-bottom:24mm; justify-content: space-between;">
+    <div class="duo">
+      <figure><img src="b2.png" alt="Yağmur ormanı"></figure>
+      <div class="txt">
+        <h2 class="sub">Ormanlar: Karaların Akciğerleri</h2>
+        <p>Tropikal yağmur ormanları karadaki en çeşitli biyomdur (hatırla — <strong>canopy!</strong>). Ilıman ormanlar, soğuk iğne yapraklı ormanlar derken her biri farklı canlılara yuva olur. Ağaçlar oksijen üretir, toprağı korur ve sayısız canlıyı barındırır.</p>
+      </div>
+    </div>
+    
+    <div class="duo rev">
+      <div class="txt">
+        <h2 class="sub bl">Okyanuslar: Mavi Gezegenin Kalbi</h2>
+        <p>Dünya'nın yaklaşık dörtte üçü suyla kaplı! Okyanuslar minik planktonlardan dev balinalara kadar yaşam dolu. <strong>Mercan resifleri</strong> "denizin yağmur ormanları" diye anılır: okyanusun çok küçük bir kısmını kaplar ama deniz canlılarının yaklaşık dörtte birine ev sahipliği yapar.</p>
+      </div>
+      <figure><img src="b3.png" alt="Mercan resifi"></figure>
+    </div>
+
+    <!-- Sayfa 11'deki boşluğu kapatmak için eklenen yeni okyanus bilgi kartı -->
+    <div style="background: #eef7f9; border-left: 5px solid var(--sky); border-radius: 4px; padding: 11px 15px;">
+      <div class="nl" style="font-family:'Archivo'; font-weight:900; font-size:12.5px; color:#125b7a; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px;">🌊 Okyanusların Derinlikleri</div>
+      <p style="margin:0; font-size:13.2px !important; line-height:1.45; color:#234454;">Okyanusların derinlikleri tamamen karanlık ve çok soğuktur. Burada yaşayan bazı özel balıklar, kendi ışıklarını üreterek (biyolüminesans) karanlıkta yollarını bulurlar ve avlanırlar!</p>
+    </div>
+    
+    <div class="note know">
+      <div class="nl">💡 Bunu biliyor muydun?</div>
+      <p>Bir mercan resifi aslında binlerce minik canlının (<strong>mercan poliplerinin</strong>) birlikte kurduğu canlı bir şehirdir!</p>
+    </div>
+  </div>
+  
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">11</span></div>
+</section>
+
+<!-- ================= SAYFA 12 ================= -->
+<section class="page">
+  <div class="band o">
+    <span class="kick">Yaşam Bölgeleri · Çöl & Kutup</span>
+    <h1 class="disp">Zorlu Ama Yaşam Dolu</h1>
+  </div>
+  
+  <!-- justify-content: space-between ve düzenlenen alt padding ile dikey yayılım kusursuzlaştırıldı -->
+  <div class="px fill" style="padding-top:8mm; padding-bottom:24mm; justify-content: space-between;">
+    <div class="duo">
+      <figure><img src="b4.png" alt="Çöl"></figure>
+      <div class="txt">
+        <h2 class="sub or">Çöller: Az Suyla Yaşamak</h2>
+        <p>Çöller çok az yağmur alır, ama yine de yaşam vardır! <strong>Develer</strong> suyu uzun süre idareli kullanır, <strong>kaktüsler</strong> suyu gövdesinde depolar, pek çok hayvan sıcaktan kaçmak için geceleri ortaya çıkar.</p>
+      </div>
+    </div>
+    
+    <div class="duo rev">
+      <div class="txt">
+        <h2 class="sub bl">Kutuplar: Buzdan Diyarlar</h2>
+        <p>Dünya'nın en soğuk bölgeleri. <strong>Kutup ayıları</strong> kalın kürkü ve yağ tabakasıyla, <strong>penguenler</strong> birbirine sokularak ısınır. Tür sayısı azdır ama her biri buza ustaca uyum sağlamıştır.</p>
+      </div>
+      <figure><img src="b5.png" alt="Kutuplar: kutup ayısı ve penguenler"></figure>
+    </div>
+
+    <!-- Sayfa 12'deki boşluğu kapatmak için eklenen yeni çöl bitkileri bilgi kutusu -->
+    <div style="background: #fff5eb; border-left: 5px solid var(--orange); border-radius: 4px; padding: 11px 15px;">
+      <div class="nl" style="font-family:'Archivo'; font-weight:900; font-size:12.5px; color:var(--orange); letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px;">🌵 Muhteşem Kaktüsler</div>
+      <p style="margin:0; font-size:13.2px !important; line-height:1.45; color:#663300;">Kaktüslerin yaprakları, su kaybını önlemek için iğne şeklini almıştır. Ayrıca çok geniş köklere sahiptirler; böylece nadiren yağan yağmurları toprağın yüzeyinden hızla emebilirler.</p>
+    </div>
+    
+    <div class="note know">
+      <div class="nl">💡 Bunu biliyor muydun?</div>
+      <p>Kutup ayıları yalnızca kuzeyde (Arktik), penguenler yalnızca güneyde (Antarktika) yaşar — doğada <strong>hiç karşılaşmazlar!</strong></p>
+    </div>
+    
+    <!-- Okunabilirliği, kontrastı ve renkleri tamamen düzeltilmiş siyah alt kutu -->
+    <div class="note next" style="background:#1a1a1a; color:#ffffff; border-radius:10px; padding:14px 18px;">
+      <div class="nl" style="color:#F3D308; font-family:'Archivo'; font-weight:900; font-size:13px !important; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px;">🧩 Ama Dahası Var</div>
+      <p style="color:#ffffff !important; font-size:13.5px !important; line-height:1.5 !important; margin:0;">
+        Dev biyomları gezdik — peki ya gözle görülmeyenler? Bir su damlası, hatta çürümüş bir kütük bile başlı başına bir yaşam bölgesidir. <strong style="color:#51C2E7 !important; font-weight:800;">Sıradaki sayfada: küçük alanlar, büyük dünyalar! →</strong>
+      </p>
+    </div>
+  </div>
+  
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">12</span></div>
+</section>
+
+<!-- ================= SAYFA 12 ================= -->
+<section class="page">
+  <div class="band g">
+    <span class="kick">Yaşam Bölgeleri · Mikro Dünyalar</span>
+    <h1 class="disp">Küçük Alanlar Büyük Dünyalar</h1>
+  </div>
+  
+  <div class="px fill" style="padding-top:8mm; padding-bottom:24mm; justify-content: space-between;">
+    
+    <div class="duo">
+      <figure style="margin:0"><img src="b6.png" alt="Çürüyen kütükte mini yaşam bölgesi" style="display:block;width:100%;height:auto;border-radius:9px;border:5px solid #fff;box-shadow:0 5px 16px rgba(0,0,0,.18);outline:1px solid #e7e7e7;"></figure>
+      <div class="txt">
+        <h2 class="sub">Mikro Biyomlar: Gözle Görülmeyen Yaşam</h2>
+        <p>Biyomlar sadece dev kıtalar veya okyanuslar olmak zorunda değil! Tek bir su damlası veya çürümüş bir ağaç kütüğü bile kendi içinde küçük bir yaşam bölgesidir. Burada milyonlarca mikroskobik canlı, bakteriler ve mantarlar kendilerine özel bir ekosistem kurarlar.</p>
+      </div>
+    </div>
+    
+    <div class="duo rev">
+      <div class="txt">
+        <h2 class="sub bl">Şehir Biyomları: Betonun Arasındaki Doğa</h2>
+        <p>İnsanların kurduğu şehirler de artık yeni birer yaşam bölgesi sayılıyor. Parklar, çatılar ve eski duvar çatlakları; güvercinler, kirpiler, kargalar ve şehir bitkileri için zorlu ama yeni birer sığınak haline geldi. Doğa, betonun arasında bile kendine bir yol buluyor!</p>
+      </div>
+      <figure style="margin:0"><img src="b7.png" alt="Betonun arasında hayat bulan şehir doğası" style="display:block;width:100%;height:auto;border-radius:9px;border:5px solid #fff;box-shadow:0 5px 16px rgba(0,0,0,.18);outline:1px solid #e7e7e7;"></figure>
+    </div>
+
+    <div style="background: #fdfae6; border: 1px dashed var(--orange); border-radius: 8px; padding: 12px 16px;">
+      <div class="nl" style="font-family:'Archivo'; font-weight:900; font-size:12.5px; color:var(--orange); letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px;">🕵️‍♂️ Doğa Dedektifi Görevi</div>
+      <p style="margin:0; font-size:13.2px !important; line-height:1.45; color:#5a3d1a;">Bahçenizdeki veya mahallenizdeki eski bir ağaç kütüğünü inceleyin. Altında yaşayan karıncaları, mantarları ve böcekleri gözlemleyin. Tebrikler, kendi mikro biyomunuzu keşfettiniz!</p>
+    </div>
+    
+    <div class="note know">
+      <div class="nl">💡 Bunu biliyor muydun?</div>
+      <p>Vücudumuzun içi de (özellikle midemiz ve cildimiz) milyarlarca yararlı bakterinin yaşadığı, <strong>"mikrobiyom"</strong> adı verilen devasa bir mikro yaşam bölgesidir!</p>
+    </div>
+    
+    <div class="note next" style="background:#1a1a1a; color:#ffffff; border-radius:10px; padding:14px 18px;">
+      <div class="nl" style="color:#F3D308; font-family:'Archivo'; font-weight:900; font-size:13px !important; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px;">🧩 Sonraki Bölüm</div>
+      <p style="color:#ffffff !important; font-size:13.5px !important; line-height:1.5 !important; margin:0;">
+        Dev biyomlardan gözle görülmeyen mikro dünyalara kadar harika bir yolculuk yaptık. Her yaşam bölgesi, biyoçeşitlilik yapbozunun bir parçası. <strong style="color:#51C2E7 !important; font-weight:800;">Sıradaki sayfada: bir damla suda koca bir dünya! →</strong>
+      </p>
+    </div>
+  </div>
+  
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">13</span></div>
+</section>
+
+</body>
+</html>

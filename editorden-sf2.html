@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editörden — sf. 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#1f9aa6;--teal-d:#0e6b75;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+
+  .band{padding:10mm var(--mx) 8mm; background:var(--yellow); display:flex; align-items:flex-end; justify-content:space-between;}
+  .band .kick{display:inline-block; color:#fff; background:var(--green); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:9px;}
+  .band h1{font-weight:900; text-transform:uppercase; font-size:34px; line-height:.98; letter-spacing:-.01em; color:#5a4a00; margin:0;}
+  .band .r{font-size:42px; flex:none;}
+
+  .body{flex:1; display:flex; gap:11mm; padding-top:7mm; padding-bottom:24mm;}
+  .main{flex:1.42;}
+  .aside{flex:1; display:flex; flex-direction:column; gap:10px;}
+
+  .lead{font-size:16.5px; line-height:1.5; font-weight:800; color:var(--green-d); margin:0 0 9px;}
+  .main p{font-size:13.4px; line-height:1.5; margin:0 0 7px; color:#333;}
+  .main p strong{color:var(--orange-d); font-weight:800;}
+  .main em{font-style:normal; font-weight:800; color:var(--teal-d);}
+
+  .photo{width:100%; height:40mm; object-fit:cover; border-radius:11px; border:5px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,.16); outline:1px solid #ececec; margin:2px 0 9px;}
+
+  .sign{margin-top:14px; padding-top:8px; border-top:2px dashed #e2e7df;}
+  .sign .sg{font-family:'Montserrat'; font-weight:900; font-size:20px; color:var(--green); font-style:italic; transform:skewX(-6deg); display:inline-block;}
+  .sign .nm{font-weight:800; font-size:13px; color:#222; margin-top:3px;}
+  .sign .ro{font-weight:600; font-size:11px; color:#7a847a; text-transform:uppercase; letter-spacing:.05em;}
+
+  /* aside boxes */
+  .box{border-radius:13px; padding:12px 14px;}
+  .box.hi{background:#eef8e6; border:2px solid #cfe8b8;}
+  .box.hi h3{margin:0 0 8px; font-weight:900; font-size:13px; text-transform:uppercase; letter-spacing:.03em; color:var(--green); display:flex; align-items:center; gap:7px;}
+  .hirow{display:flex; align-items:center; gap:9px; padding:5px 0; border-bottom:1px dashed #d4e6c6;}
+  .hirow:last-child{border-bottom:0;}
+  .hirow .e{width:9px; height:9px; border-radius:50%; background:var(--green); flex:none; font-size:0; margin:0 6px 0 2px;}
+  .hirow:nth-child(3) .e{background:var(--orange);} .hirow:nth-child(4) .e{background:var(--teal);} .hirow:nth-child(5) .e{background:var(--orange-d);} .hirow:nth-child(6) .e{background:var(--lime);}
+  .hirow .t{flex:1; font-weight:700; font-size:12px; line-height:1.2; color:#2f4a2f;}
+  .hirow .pg{font-weight:900; font-size:15px; color:var(--orange-d); flex:none;}
+
+  .box.kunye{background:#f4f6f3; border:2px solid #e0e5da; flex:1;}
+  .box.kunye h3{margin:0 0 8px; font-weight:900; font-size:13px; text-transform:uppercase; letter-spacing:.03em; color:var(--green-d); display:flex; align-items:center; gap:7px;}
+  .kline{display:flex; gap:8px; padding:3.5px 0; font-size:11px; line-height:1.3;}
+  .kline .kk{flex:none; width:33mm; font-weight:800; color:#6a756a; text-transform:uppercase; letter-spacing:.02em; font-size:9.8px; padding-top:1px;}
+  .kline .kv{flex:1; font-weight:600; color:#2c2c2c;}
+  .kunye .foot{margin-top:9px; padding-top:8px; border-top:1px solid #e0e5da; font-size:10px; font-weight:600; color:#8a948a; line-height:1.4;}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.photo,.box,.hirow .e{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Editörden · sf. 2</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <div><span class="kick">Editörden</span><h1>Merhaba,<br>Doğa Dedektifi!</h1></div>
+    <div class="r">🌿</div>
+  </div>
+
+  <div class="px body">
+
+    <!-- ANA MEKTUP -->
+    <div class="main">
+      <p class="lead">Elinde tuttuğun bu ilk sayıyı, robotik takımımız <strong>FTC 24230 AG Robotik</strong> olarak sana hazırladık — çünkü sen de artık bir doğa dedektifisin!</p>
+      <p>Görevin mi? Çevremizdeki inanılmaz canlı çeşitliliğini, yani <em>biyoçeşitliliği</em>, tanımak, sevmek ve korumak. Dünyamız şaşırtıcı bir yaşamla dolu: yağmur ormanlarının tepesinde uçan rengârenk kuşlardan, bir damla suyun içindeki gözle görülmeyen minik canlılara kadar <strong>milyonlarca tür</strong> var.</p>
+
+      <img class="photo" src="a1.png" alt="">
+
+      <p>Kapak konumuz <strong>Canopy</strong>, yani ağaçların tepe örtüsü — çünkü bu, <strong>FIRST Tech Challenge</strong> yolculuğumuzun bu yılki ilham kaynağı! Bu sayıda ağaçların tepesindeki gizli dünyayı gezecek, çalışkan arılarla tanışacak, endemik canlıları keşfedecek ve kendi mini ekosistemini kuracaksın.</p>
+      <p>Sana küçük bir sır vereyim: doğayı korumak için kahraman olmana gerek yok. Merak etmek, gözlemlemek ve öğrenmek — işte gerçek dedektiflik bu! Hazırsan büyütecini al ve sayfaları çevir. <strong>Macera başlıyor!</strong></p>
+
+      <div class="sign">
+        <div class="sg">Sevgiyle,</div>
+        <div class="nm">AG Robotik · FTC 24230</div>
+        <div class="ro">Doğa Dedektifleri Ekibi</div>
+      </div>
+    </div>
+
+    <!-- KENAR: BU SAYIDA + KÜNYE -->
+    <div class="aside">
+      <div class="box hi">
+        <h3>⭐ Bu Sayıda Seni Neler Bekliyor?</h3>
+        <div class="hirow"><span class="e">🌳</span><span class="t">Canopy: Ağaçların gizli katı</span><span class="pg">6</span></div>
+        <div class="hirow"><span class="e">🐝</span><span class="t">Çalışkan bal arıları</span><span class="pg">15</span></div>
+        <div class="hirow"><span class="e">🦎</span><span class="t">Endemik canlılar</span><span class="pg">19</span></div>
+        <div class="hirow"><span class="e">🫙</span><span class="t">Şişede mini ekosistem</span><span class="pg">25</span></div>
+        <div class="hirow"><span class="e">🧩</span><span class="t">Bulmaca & etkinlikler</span><span class="pg">29</span></div>
+      </div>
+
+      <div class="box kunye">
+        <h3>📋 Künye</h3>
+        <div class="kline"><span class="kk">Yayın Adı</span><span class="kv">Doğa Dedektifleri</span></div>
+        <div class="kline"><span class="kk">Sayı / Tarih</span><span class="kv">Sayı 1 · 2026</span></div>
+        <div class="kline"><span class="kk">Yayın Türü</span><span class="kv">İki aylık çocuk dergisi (9+ yaş)</span></div>
+        <div class="kline"><span class="kk">İmtiyaz Sahibi</span><span class="kv">FTC 24230 AG Robotik Takımı</span></div>
+        <div class="kline"><span class="kk">Genel Yayın Yön.</span><span class="kv">24230 Mentörleri</span></div>
+        <div class="kline"><span class="kk">Yazı İşleri</span><span class="kv">24230 Takımı</span></div>
+        <div class="kline"><span class="kk">Tasarım</span><span class="kv">24230 Takımı</span></div>
+        <div class="kline"><span class="kk">İllüstrasyon</span><span class="kv">Google Gemini</span></div>
+        <div class="kline"><span class="kk">İletişim</span><span class="kv">merhaba@dogadedektifleri.dergi</span></div>
+        <div class="foot">Bu dergi, FTC 24230 AG Robotik takımı tarafından çocuklar için eğitim amacıyla hazırlanmıştır. Görseller yapay zekâ (Google Gemini) desteğiyle üretilmiştir.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">02</span></div>
+</section>
+
+</body>
+</html>

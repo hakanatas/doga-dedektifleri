@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canopy — Doğa Dedektifleri · Sayı 1 (sf. 6–9)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1b4332; --forest2:#2d6a4f; --green:#40916c; --leaf:#74c69d;
+    --leaf-light:#b7e4c7; --leaf-pale:#d8f3dc;
+    --cream:#f7fbf3; --paper:#ffffff;
+    --sun:#ffb703; --sun-deep:#fb8500; --sky:#48cae4; --bark:#8d6e63;
+    --ink:#1d2e2a; --ink-soft:#46564f;
+    --page-w:210mm; --page-h:297mm; --pad:15mm;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#e7ece4;
+    font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    padding:26px 0 60px;
+  }
+
+  /* ---------- toolbar (screen only) ---------- */
+  .toolbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:10px; align-items:center; justify-content:center;
+    padding:10px; margin:-26px 0 22px; background:rgba(27,67,50,.96);
+    color:#fff; font-weight:700; box-shadow:0 2px 14px rgba(0,0,0,.18);
+  }
+  .toolbar span{opacity:.85; font-weight:600; font-size:14px;}
+  .toolbar button{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14px;
+    border:0; border-radius:999px; padding:8px 18px; cursor:pointer;
+    background:var(--sun); color:#3a2a00;
+  }
+  .toolbar button:hover{background:var(--sun-deep); color:#fff;}
+
+  /* ---------- page frame ---------- */
+  .page{
+    position:relative; width:var(--page-w); min-height:var(--page-h);
+    margin:0 auto 24px; background:var(--cream); overflow:hidden;
+    box-shadow:0 10px 34px rgba(0,0,0,.20); padding:var(--pad);
+    display:flex; flex-direction:column;
+  }
+  .folio{
+    position:absolute; left:0; right:0; bottom:0; height:11mm;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 var(--pad); font-family:'Baloo 2',sans-serif; font-size:11px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--forest2);
+  }
+  .folio .mast{font-weight:700;}
+  .folio .pg{font-weight:800; color:#fff; background:var(--green);
+    width:24px;height:24px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center; letter-spacing:0; font-size:13px;}
+  .folio--light .mast{color:#eaf6ee;}
+  .folio--light .pg{background:#fff;color:var(--forest);}
+
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12px;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--sun-deep);
+  }
+  .kicker::before{content:""; width:22px; height:3px; border-radius:3px; background:var(--sun);}
+
+  h1,h2,h3,h4{font-family:'Baloo 2',sans-serif; margin:0; line-height:1.05;}
+  h2.title{font-size:42px; font-weight:800; color:var(--forest); margin:.18em 0 .35em;}
+  h3.sub{font-size:25px; font-weight:700; color:var(--forest2); margin:.2em 0 .35em;}
+  p{font-size:15px; line-height:1.6; margin:0 0 12px; color:var(--ink);}
+  .lead{font-size:16.5px;}
+  .drop::first-letter{
+    font-family:'Baloo 2',sans-serif; font-weight:800; color:var(--sun-deep);
+    font-size:62px; line-height:.72; float:left; margin:6px 10px 0 0;
+  }
+  strong{color:var(--forest);}
+  .content{flex:1; padding-bottom:11mm;}
+
+  /* ---------- HERO (page 6) ---------- */
+  .page--hero{padding:0; background:#0c1f17;}
+  .hero-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .hero-shade{position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(7,20,14,.10) 0%, rgba(7,20,14,0) 28%, rgba(7,20,14,.30) 60%, rgba(7,20,14,.92) 100%);}
+  .hero-top{position:absolute; top:14mm; left:14mm; right:14mm;
+    display:flex; justify-content:space-between; align-items:flex-start; color:#fff;}
+  .hero-top .kicker{color:#ffe39a;}
+  .hero-top .kicker::before{background:var(--sun);}
+  .hero-badge{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:12px;
+    letter-spacing:.1em; color:#0c1f17; background:#fff; border-radius:999px; padding:6px 13px;}
+  .hero-panel{position:absolute; left:14mm; right:14mm; bottom:16mm; color:#f3fff8;}
+  .hero-panel .sub-en{font-family:'Baloo 2',sans-serif; font-weight:600; font-size:20px;
+    color:#bdeacb; letter-spacing:.02em; margin-bottom:10px;}
+  .hero-panel p{color:#eafff2; font-size:15.5px; text-shadow:0 1px 10px rgba(0,0,0,.5); max-width:150mm;}
+  .hero-panel .drop::first-letter{color:var(--sun);}
+  .glass{margin-top:14px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.30);
+    backdrop-filter:blur(3px); border-radius:16px; padding:14px 18px; max-width:155mm;}
+  .glass .lbl{font-family:'Baloo 2',sans-serif; font-weight:800; color:var(--sun);
+    font-size:12px; letter-spacing:.12em; text-transform:uppercase;}
+  .glass p{margin:4px 0 0; color:#fff; font-size:14.5px; text-shadow:none;}
+
+  /* ---------- generic image ---------- */
+  figure{margin:0;}
+  .img-wide{display:block; margin:0 auto; max-width:100%; max-height:70mm; width:auto; height:auto;
+    border-radius:16px; box-shadow:0 6px 18px rgba(27,67,50,.22); border:4px solid #fff;}
+  .cap{font-size:12px; color:var(--ink-soft); font-style:italic; margin-top:6px;}
+  .tag-g{position:absolute; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:11px;
+    color:#fff; background:var(--green); border-radius:7px; padding:2px 8px; letter-spacing:.04em;}
+
+  /* ---------- layer cards (page 7) ---------- */
+  .layers{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0 16px;}
+  .layer{position:relative; background:var(--paper); border-radius:14px; padding:13px 14px 13px 52px;
+    box-shadow:0 3px 10px rgba(27,67,50,.10); border-left:7px solid var(--green);}
+  .layer .n{position:absolute; left:12px; top:12px; width:30px; height:30px; border-radius:50%;
+    background:var(--green); color:#fff; font-family:'Baloo 2',sans-serif; font-weight:800;
+    display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .layer h4{font-size:17px; color:var(--forest); margin-bottom:3px;}
+  .layer p{font-size:13px; margin:0; line-height:1.45;}
+  .layer.l1{border-color:var(--bark);} .layer.l1 .n{background:var(--bark);}
+  .layer.l2{border-color:#6a994e;} .layer.l2 .n{background:#6a994e;}
+  .layer.l3{border-color:var(--green);} .layer.l3 .n{background:var(--green);}
+  .layer.l4{border-color:var(--forest);} .layer.l4 .n{background:var(--forest);}
+
+  /* ---------- boxes ---------- */
+  .box{border-radius:16px; padding:15px 18px; margin:4px 0 14px;}
+  .box .box-lbl{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:13px;
+    letter-spacing:.06em; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin-bottom:5px;}
+  .box p{margin:0; font-size:14px;}
+  .box--bridge{background:linear-gradient(100deg,var(--forest2),var(--green)); color:#fff;}
+  .box--bridge .box-lbl{color:#fff;} .box--bridge p{color:#eafff2;}
+  .box--bridge strong{color:#ffe39a;}
+  .box--know{background:var(--leaf-pale); border:2px dashed var(--green);}
+  .box--know .box-lbl{color:var(--sun-deep);}
+  .box--sun{background:#fff6df; border:2px solid var(--sun);}
+  .box--sun .box-lbl{color:var(--sun-deep);}
+  .box--next{background:var(--forest); color:#eafff2;}
+  .box--next .box-lbl{color:var(--sun);} .box--next p{color:#dff3e6;}
+  .ico{font-size:16px;}
+
+  /* ---------- adaptations list (page 8) ---------- */
+  ul.crit{list-style:none; padding:0; margin:6px 0 14px;}
+  ul.crit li{position:relative; padding:7px 0 7px 30px; font-size:14px; line-height:1.5;
+    border-bottom:1px dashed #cfe3d4;}
+  ul.crit li:last-child{border-bottom:0;}
+  ul.crit li::before{content:"🍃"; position:absolute; left:0; top:6px; font-size:15px;}
+
+  .know-card{display:grid; grid-template-columns:200px 1fr; gap:16px; align-items:center;
+    background:var(--leaf-pale); border:2px dashed var(--green); border-radius:18px; padding:14px; margin-top:4px;}
+  .know-card img{width:200px; height:150px; object-fit:cover; border-radius:12px; border:3px solid #fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);}
+  .know-card .box-lbl{color:var(--sun-deep); font-family:'Baloo 2',sans-serif; font-weight:800;
+    font-size:13px; letter-spacing:.06em; text-transform:uppercase; display:flex; gap:8px; margin-bottom:5px;}
+
+  /* ---------- G7 placeholder ---------- */
+  .ph{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    gap:8px; width:100%; height:185px; border-radius:16px; color:var(--forest2);
+    background:repeating-linear-gradient(45deg,#eef6ec,#eef6ec 14px,#e4efe1 14px,#e4efe1 28px);
+    border:3px dashed var(--green);}
+  .ph .pico{font-size:34px;}
+  .ph .ph-code{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:18px; color:var(--green);}
+  .ph small{font-size:12px; color:var(--ink-soft); max-width:80%;}
+
+  /* ---------- stat cards ---------- */
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:4px 0 14px;}
+  .stat{background:var(--paper); border-radius:14px; padding:14px 12px; text-align:center;
+    box-shadow:0 3px 10px rgba(27,67,50,.10); border-top:5px solid var(--sun);}
+  .stat .big{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:30px; color:var(--green); line-height:1;}
+  .stat .lab{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.35;}
+
+  .two-col{column-count:2; column-gap:20px;}
+  .two-col p{margin-top:0;}
+
+  /* decorative corner leaf */
+  .leafdeco{position:absolute; opacity:.10; pointer-events:none;}
+
+  /* ---------- print ---------- */
+  @page{size:A4; margin:0;}
+  @media print{
+    body{background:#fff; padding:0;}
+    .toolbar{display:none;}
+    .page{margin:0; box-shadow:none; page-break-after:always; break-after:page;}
+    .page:last-child{page-break-after:auto;}
+    .img-wide,.know-card img,.stat,.layer{box-shadow:none;}
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <span>Canopy · Sayfa 6–9 — önizleme</span>
+  <button onclick="window.print()">🖨️ Yazdır / PDF kaydet</button>
+</div>
+
+<!-- ===================== SAYFA 6 — HERO ===================== -->
+<section class="page page--hero">
+  <img class="hero-img" src="g1.png" alt="Yukarıdan görünen yağmur ormanı tepe örtüsü">
+  <div class="hero-shade"></div>
+  <span class="tag-g" style="top:13mm; right:13mm; background:rgba(64,145,108,.92)">G1</span>
+  <div class="hero-top">
+    <span class="kicker">Kapak Konusu · Biyoçeşitlilik</span>
+    <span class="hero-badge">SAYI 1</span>
+  </div>
+  <div class="hero-panel">
+    <div class="sub-en">Ormanın Gizli Gökyüzü Katı</div>
+    <p class="drop">Bir ağaca tırmandığını hayal et. Bir dal, iki dal, derken yerden 30 metre yukarıdasın — neredeyse 10 katlı bir binanın tepesinde! Aşağıdaki loş orman zemininden eser yok. Burası bambaşka bir dünya: güneşli, rüzgârlı, cıvıl cıvıl ve yaşam dolu. İşte ormanın bu en üst katına bilim insanları <strong style="color:#ffe39a">canopy</strong> (okunuşu: <em>ke-nı-pi</em>), yani <strong style="color:#ffe39a">tepe örtüsü</strong> diyor. O kadar geniş ve kalabalıktır ki bazıları ona şaka yollu “Dünya’nın sekizinci kıtası” der.</p>
+    <div class="glass">
+      <div class="lbl">🌿 Bir bakışta</div>
+      <p><strong style="color:#fff">Tepe örtüsü (canopy):</strong> Ağaç taçlarının oluşturduğu, ormanın güneş gören en üst ve en kalabalık katmanı.</p>
+    </div>
+  </div>
+  <div class="folio folio--light"><span class="mast">Doğa Dedektifleri</span><span class="pg">6</span></div>
+</section>
+
+<!-- ===================== SAYFA 7 — KATMANLAR ===================== -->
+<section class="page">
+  <div class="content">
+    <span class="kicker">Canopy · Ormanın Katları</span>
+    <h2 class="title">Her Ormanın Katları Vardır</h2>
+    <p class="lead">İster senin şehrinin yakınındaki bir orman olsun, ister uzaktaki bir yağmur ormanı — <strong>her orman, tıpkı bir apartman gibi katlardan oluşur.</strong> Hadi bizim ormanlarımızdan örnekle, aşağıdan yukarı çıkalım:</p>
+
+    <figure style="position:relative; width:fit-content; max-width:100%; margin:10px auto 4px;">
+      <span class="tag-g" style="top:10px; left:10px;">G2</span>
+      <img class="img-wide" src="g2.png" alt="Ormanın katmanları infografiği">
+      <figcaption class="cap">Ormanın yandan kesiti: orman tabanından fışkıran katmana kadar dört kat.</figcaption>
+    </figure>
+
+    <div class="layers">
+      <div class="layer l1"><span class="n">1</span><h4>Orman tabanı</h4><p>En alt, en loş kat. Yaprak çürükleri, mantarlar ve böceklerle dolu. <strong>Yaban domuzları</strong> toprağı eşeleyerek yiyecek arar.</p></div>
+      <div class="layer l2"><span class="n">2</span><h4>Alt katman</h4><p>Genç ağaçlar ve çalılar. Gölgeyi seven <strong>karacalar</strong> burada otlanır.</p></div>
+      <div class="layer l3"><span class="n">3</span><h4>Tepe örtüsü</h4><p><strong>Kayın, gürgen ve meşelerin</strong> tepeleri birbirine değer; en hareketli kat. <strong>Ağaçkakanlar</strong> “tak tak” gagalar, sincaplar dallarda koşturur.</p></div>
+      <div class="layer l4"><span class="n">4</span><h4>Fışkıran katman</h4><p>En yüksek <strong>sedir ve çamlar</strong> bu yeşil çatıyı delip uzanır. <strong>Kaya kartalı</strong> en tepeden bütün ormanı izler.</p></div>
+    </div>
+
+    <div class="box box--bridge">
+      <div class="box-lbl"><span class="ico">➜</span> Köprü</div>
+      <p>Bizim ormanlarımızda tepe örtüsü 30–40 metreye çıkar. Peki dünyanın <strong>en kalabalık, en yüksek</strong> tepe örtüsü nerede? Sıcacık, yemyeşil tropik kuşakta — <strong>yağmur ormanlarında!</strong> Hadi oraya gidelim. →</p>
+    </div>
+  </div>
+  <div class="folio"><span class="mast">Doğa Dedektifleri · Sayı 1</span><span class="pg">7</span></div>
+</section>
+
+<!-- ===================== SAYFA 8 — YAĞMUR ORMANI ===================== -->
+<section class="page">
+  <div class="content">
+    <span class="kicker">Canopy · Yağmur Ormanı</span>
+    <h2 class="title">Dünyanın En Kalabalık Çatısı</h2>
+    <p class="lead">Tropikal yağmur ormanında ağaçlar <strong>60 metreye — 20 katlı bir binaya — kadar</strong> uzar. Burada tepe örtüsü o kadar yoğun ve yaşam doludur ki adeta gökyüzünde asılı bir şehirdir. Sakinleri de bu yüksek hayata göre özel yetenekler geliştirmiştir:</p>
+
+    <figure style="position:relative; width:fit-content; max-width:100%; margin:8px auto 6px;">
+      <span class="tag-g" style="top:10px; left:10px;">G3</span>
+      <img class="img-wide" src="g3.png" alt="Tukan, tembel hayvan ve maymun kolajı">
+    </figure>
+
+    <h3 class="sub">Yukarıda Kimler Yaşıyor?</h3>
+    <ul class="crit">
+      <li><strong>Maymunlar</strong> daldan dala atlarken kavrayıcı kuyruklarını beşinci bir el gibi kullanır.</li>
+      <li><strong>Tembel hayvan</strong> uzun, kanca gibi pençeleriyle dallara asılı; ters dururken bile uyur.</li>
+      <li><strong>Tukan</strong> ve papağanlar rengârenk gagalarıyla meyveleri toplar.</li>
+      <li><strong>Ağaç kurbağaları</strong>nın parmak uçlarında minik vantuzlar vardır; ıslak yapraklara yapışıp kalırlar.</li>
+      <li>Tepenin kralı <strong>harpi kartalı</strong>, dev pençeleriyle maymun bile avlayabilir.</li>
+    </ul>
+    <p>Ve burada bitkiler bile ağaçların üstünde yaşar! <strong>Orkideler, bromelyalar</strong> ve eğrelti otları dallara tutunup yağmur ve havadan beslenir; ağaca zarar vermezler. Bunlara <strong>epifit</strong> denir.</p>
+
+    <div class="know-card">
+      <img src="g6.jpeg" alt="Bromelya bitkisi ve içindeki minik gölet">
+      <div>
+        <div class="box-lbl"><span class="ico">💡</span> Bunu biliyor muydun?</div>
+        <p>Bazı bromelya bitkileri yapraklarının ortasında minik bir gölet biriktirir. Bu küçük havuzda kurbağalar yumurtlar, böcekler yüzer — koca bir ağacın tepesinde, bir avuç suda kurulu mini bir ekosistem! <span style="color:var(--ink-soft); font-size:12px;">(G6)</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><span class="mast">Doğa Dedektifleri · Sayı 1</span><span class="pg">8</span></div>
+</section>
+
+<!-- ===================== SAYFA 9 — KEŞİF & ÖNEM ===================== -->
+<section class="page">
+  <div class="content">
+    <span class="kicker">Canopy · Keşif & Önem</span>
+    <h2 class="title" style="font-size:36px;">Bilim İnsanları Oraya Nasıl Çıkıyor?</h2>
+    <p>Yıllarca kimse tepe örtüsüne ulaşamadı — o yüzden “ormanın son keşfedilmemiş sınırı” denirdi. Bugün araştırmacılar <strong>dev vinçler</strong>, ağaçlar arasına kurulan <strong>asma köprüler</strong>, <strong>tırmanış ipleri</strong>, hatta tepeye konan <strong>balon-sallar</strong> ve <strong>dronlar</strong> sayesinde bu dünyayı inceliyor. Tepe örtüsü biliminin öncülerinden biri, ağaçların arasına ilk yürüyüş yollarını kuran biyolog <strong>Meg Lowman</strong>’dır.</p>
+
+    <div class="ph">
+      <div class="pico">📷🌉</div>
+      <div class="ph-code">G7 — buraya gelecek</div>
+      <small>Asma köprü ya da vinç üzerinde, tepe örtüsünü inceleyen bir bilim insanı fotoğrafı.</small>
+    </div>
+
+    <h3 class="sub" style="margin-top:16px;">Peki Neden Bu Kadar Önemli?</h3>
+    <p>Tepe örtüsü sadece güzel değil, <strong>hayati</strong>. Yağmur ormanları kara yüzeyinin yalnızca %6’sını kaplar; ama Dünya’daki bitki ve hayvan türlerinin <strong>yarısından fazlasına</strong> ev sahipliği yapar — ve bunların çoğu tepe örtüsünde. Bu kat aynı zamanda havayı temizler, oksijen üretir ve yağmurların oluşmasına yardım eder. Ne yazık ki ağaç kesimi ve iklim değişikliği bu yeşil çatıyı tehdit ediyor. Bir ağaç kesildiğinde, üstündeki o kalabalık şehir de yok oluyor. İyi haber şu: <strong>ormanları korumak, aynı anda binlerce canlıyı korumak demek.</strong> 🌳</p>
+
+    <div class="box-lbl" style="font-family:'Baloo 2',sans-serif; font-weight:800; font-size:14px; color:var(--sun-deep); letter-spacing:.06em; text-transform:uppercase; margin:6px 0 8px;">📊 Rakamlarla canopy</div>
+    <div class="stats">
+      <div class="stat"><div class="big">~30 m</div><div class="lab">tepe örtüsünün yaklaşık yüksekliği</div></div>
+      <div class="stat"><div class="big">%50+</div><div class="lab">yağmur ormanlarında yaşayan tür oranı</div></div>
+      <div class="stat"><div class="big">1 ağaç</div><div class="lab">koca bir ülke kadar çok karınca türüne ev olabilir</div></div>
+    </div>
+
+    <div class="box box--next">
+      <div class="box-lbl"><span class="ico">📖</span> Sonraki sayfalarda</div>
+      <p>Tepe örtüsü, biyoçeşitliliğin en güzel örneklerinden biri. Peki “biyoçeşitlilik” tam olarak ne demek? Sayfaları çevirmeye devam et!</p>
+    </div>
+  </div>
+  <div class="folio"><span class="mast">Doğa Dedektifleri · Sayı 1</span><span class="pg">9</span></div>
+</section>
+
+</body>
+</html>

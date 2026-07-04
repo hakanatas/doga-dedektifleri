@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Söyleşi: Bir Biyologla Tanışalım — sf. 26–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a; --body:#2b2b2b;
+    --orange:#F36F0D; --orange-d:#b3560a; --yellow:#F3D308;
+    --green:#1f6b32; --lime:#7AC22B;
+    --page-w:210mm; --page-h:297mm; --mx:16mm;
+  }
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; align-items:center;
+    justify-content:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff;
+    font-weight:700; box-shadow:0 2px 14px rgba(0,0,0,.18);}
+  .toolbar span{opacity:.9; font-weight:600; font-size:14px;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px;
+    padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase; letter-spacing:.05em;}
+
+  .page{position:relative; width:var(--page-w); min-height:var(--page-h); background:#fff;
+    margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.20);
+    display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+
+  .band{padding:11mm var(--mx) 7mm; background:var(--orange);}
+  .band .disp{color:#fff;}
+  .kick{display:inline-block; color:var(--orange-d); font-weight:800; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#fff;}
+  h1.disp{font-weight:800; text-transform:uppercase; line-height:1.05; letter-spacing:-.01em; margin:0; font-size:33px;}
+
+  p{font-size:13.8px; line-height:1.5; margin:0 0 9px; color:var(--body);}
+  .lead{font-size:15.2px; line-height:1.42; font-weight:700; color:#1e1e1e;}
+  strong{color:var(--orange-d); font-weight:800;}
+
+  .duo{display:grid; grid-template-columns:94mm 1fr; gap:0 9mm; align-items:start; margin-top:4px;}
+  .duo img{display:block; width:100%; height:auto; border-radius:10px; border:5px solid #fff;
+    box-shadow:0 5px 16px rgba(0,0,0,.18); outline:1px solid #e7e7e7;}
+
+  .hero{width:100%; height:70mm; background-size:cover; background-position:center 42%;}
+
+  .namecard{background:#fff3e6; border:2px solid #f6c98f; border-radius:11px; padding:9px 13px; margin-bottom:10px;}
+  .namecard b{color:var(--orange-d); font-size:16.5px; font-weight:800;}
+  .namecard span{display:block; font-size:11.5px; color:#7a6a55; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-top:1px;}
+
+  .qa{margin:0 0 11px;}
+  .qa .q{font-weight:800; color:var(--orange-d); font-size:16px; margin:0 0 1px; line-height:1.3;}
+  .qa .a{margin:0; font-size:15.3px; line-height:1.6;}
+  .qa .a::before{content:"— "; color:#aaa;}
+
+  .note{border-radius:12px; padding:14px 18px;}
+  .note .nl{font-weight:900; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; display:flex; align-items:center; gap:7px;}
+  .note p{margin:0; font-size:15px;}
+  .note.next{background:var(--ink); color:#eee;} .note.next .nl{color:var(--yellow);} .note.next strong{color:var(--lime);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm; display:block;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center;
+    justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px;
+    border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;}
+  @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.note,.namecard{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><span>Söyleşi · sf. 26–27</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<!-- ================= SAYFA 26 ================= -->
+<section class="page">
+  <div class="band">
+    <span class="kick">Söyleşi · Röportaj</span>
+    <h1 class="disp">Bir Biyologla Tanışalım</h1>
+  </div>
+  <div class="px fill" style="padding-top:7mm;">
+    <p class="lead" style="margin-bottom: 15px;">Doğayı meslek edinmek nasıl bir şey? Yaban hayatı biyoloğu <strong>Dr. Elif Yıldız</strong> ile konuştuk.</p>
+
+    <div class="duo" style="margin-bottom: 20px;">
+      <img src="s1.png" alt="Biyolog Dr. Elif Yıldız">
+      <div>
+        <div class="namecard"><b>Dr. Elif Yıldız</b><span>Yaban Hayatı Biyoloğu</span></div>
+        <div class="qa"><p class="q">Biyolog ne yapar?</p><p class="a">Biz canlıları inceleriz — nerede yaşadıklarını, nasıl beslendiklerini, birbirleriyle nasıl etkileştiklerini. Ben özellikle yaban hayvanlarını ve yaşam alanlarını araştırıyorum.</p></div>
+        <div class="qa"><p class="q">Çocukken neyi merak ederdin?</p><p class="a">Bahçedeki böcekleri saatlerce izlerdim! Taşların altına bakmayı çok severdim. Merak, bir biyoloğun en önemli aracıdır.</p></div>
+      </div>
+    </div>
+
+    <div class="qa"><p class="q">Sahada bir günün nasıl geçer?</p><p class="a">Güneş doğmadan kalkar, dürbünüm ve defterimle yola çıkarım. Hayvanları rahatsız etmeden gözlemler, iz ve yuva ararım. Bazen tüm gün tek bir kuşu beklerim!</p></div>
+    <div class="qa" style="margin-bottom: 25px;"><p class="q">En heyecan verici anın neydi?</p><p class="a">Yıllarca görülmediği sanılan bir kelebeği yeniden bulmak... O an kalbim küt küt attı. Doğa hep sürprizlerle dolu.</p></div>
+
+    <div style="background: #fffdf3; border: 2px dashed var(--orange); border-radius: 11px; padding: 12px 15px; margin-bottom: 10px;">
+      <b style="color: var(--orange-d); font-size: 14.5px; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 6px;">🎒 Bir Biyoloğun Saha Çantasında Ne Olur?</b>
+      <p style="font-size: 13px; line-height: 1.45; margin: 0; color: #4a3c31;">
+        Uzakları görmek için güçlü bir <b>dürbün</b>, gözlemleri unutmamak için suya dayanıklı bir <b>not defteri</b>, izlerin boyutunu ölçmek için küçük bir <b>cetvel</b>, gizli hayvanları gece görüntüleyen <b>fotokapan pilleri</b> ve tabii ki doğada uzun saatler yürümek için mataramda taze bir <b>su</b>!
+      </p>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">27</span></div>
+</section>
+
+<!-- ================= SAYFA 27 ================= -->
+<section class="page">
+  <div class="band">
+    <span class="kick">Söyleşi · Devam</span>
+    <h1 class="disp">Doğanın Sırları Sabırla Açılır</h1>
+  </div>
+  <div class="hero" style="background-image:url('s2.png')"></div>
+  <div class="px fill" style="padding-top:6mm;">
+    <div class="qa"><p class="q">Biyoçeşitlilik neden bu kadar önemli?</p><p class="a">Çünkü her canlı bir bağ. Arılar olmasa meyve olmaz, ağaçlar olmasa temiz hava olmaz. Çeşitlilik doğayı — ve bizi — sağlıklı tutar.</p></div>
+    <div class="qa"><p class="q">Biz çocuklar ne yapabiliriz?</p><p class="a">Çok şey! Doğayı gözlemleyin, çöpünüzü toplayın, çiçek ekin, canlıları tanıyın. <strong>Tanıdığınız şeyi korursunuz.</strong></p></div>
+    <div class="qa"><p class="q">Biyolog olmak isteyenlere tavsiyen?</p><p class="a">Meraklı kalın, sorular sorun, doğaya çıkın. Ve sabırlı olun — doğa sırlarını acele etmeyenlere gösterir. 🌱</p></div>
+    <div class="qa" style="margin-bottom: 25px;"><p class="q">En sevdiğin canlı hangisi?</p><p class="a">Zor soru! Ama arıları çok severim — minicik bedenleriyle koca bir ekosistemi ayakta tutuyorlar. Bence onlar doğanın sessiz kahramanları. 🐝</p></div>
+
+    <div style="background: #eef8e6; border: 2px solid #cfe8b8; border-radius: 12px; padding: 12px 16px; margin-bottom: 25px;">
+      <b style="color: var(--green); font-size: 14.5px; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 4px;">🏅 Doğa Dedektifi Sözü</b>
+      <p style="font-size: 13.2px; line-height: 1.5; margin: 0; color: #2f4a2f;">
+        Gittiğim yerde sadece ayak izimi bırakacağıma, canlıların yuvalarına saygı duyacağıma, koparmak yerine fotoğraflayıp koruyacağıma ve Dr. Elif Yıldız gibi her zaman <b>meraklı ve sabırlı bir araştırmacı</b> olacağıma söz veriyorum!
+      </p>
+    </div>
+
+    <div class="note next" style="background: #FFF2E6; border: 2px solid var(--orange); color: var(--ink);">
+  <div class="nl" style="color: var(--orange-d); font-weight: 900;">🧩 Sonraki sayfada</div>
+  <p style="color: var(--body) !important; font-weight: 600;">Öğrendiklerini sına: <strong>Bulmaca Bahçesi!</strong></p>
+</div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">28</span></div>
+</section>
+
+</body>
+</html>

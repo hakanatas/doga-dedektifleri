@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulmaca Bahçesi — sf. 28–29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--yellow:#F3D308;--green:#1f6b32;--lime:#7AC22B;--gold:#a9820a;--mx:16mm;}
+  *{box-sizing:border-box;font-family:'Montserrat',system-ui,sans-serif;}
+  html,body{margin:0;padding:0;} body{background:#dfe3da;color:var(--body);padding:24px 0 60px;-webkit-font-smoothing:antialiased;}
+  .toolbar{position:sticky;top:0;z-index:50;display:flex;gap:10px;justify-content:center;align-items:center;padding:10px;margin:-24px 0 22px;background:#1f6b32;color:#fff;font-weight:700;}
+  .toolbar button{font-weight:800;font-size:13px;border:0;border-radius:6px;padding:8px 16px;cursor:pointer;background:var(--yellow);color:#3a2a00;text-transform:uppercase;}
+  .page{position:relative;width:210mm;min-height:297mm;background:#fff;margin:0 auto 24px;overflow:hidden;box-shadow:0 10px 34px rgba(0,0,0,.2);display:flex;flex-direction:column;}
+  .px{padding-left:var(--mx);padding-right:var(--mx);}
+  .fill{flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding-bottom:30mm;} .fill>*{flex-shrink:0;}
+  .band{padding:11mm var(--mx) 7mm;background:var(--yellow);} .band .disp{color:var(--ink);}
+  .kick{display:inline-block;background:var(--ink);color:var(--yellow);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:4px;margin-bottom:8px;}
+  h1.disp{font-weight:800;text-transform:uppercase;font-size:33px;letter-spacing:-.01em;line-height:1.05;margin:0;}
+  h2.sub{font-weight:800;text-transform:uppercase;font-size:20px;color:var(--gold);margin:0 0 4px;display:flex;align-items:center;gap:9px;}
+  h2.sub .b{background:var(--orange);color:#fff;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex:none;}
+  p{font-size:15px;line-height:1.55;margin:0 0 8px;} .lead{font-size:16.5px;font-weight:700;color:#1e1e1e;}
+  strong{color:var(--gold);font-weight:800;}
+  .wl{margin:4px 0 8px;} .wl span{display:inline-block;margin:0 6px 6px 0;background:#fff7d6;border:2px solid #f0d97a;border-radius:20px;padding:3px 12px;font-weight:800;font-size:13px;color:#7a5a10;}
+  table.ws{margin:2px auto 0;border-collapse:collapse;} table.ws td{width:11mm;height:11mm;text-align:center;vertical-align:middle;font-weight:700;font-size:17px;border:1px solid #e6e0c8;color:#333;}
+  .tf{margin-top:2px;} .tfi{display:flex;align-items:center;gap:12px;padding:6px 0;border-bottom:1px dashed #ece6cf;} .tfi:last-child{border-bottom:0;}
+  .tfi .s{flex:1;font-size:15px;} .tfi .o{width:28px;height:28px;border:2px solid #d6c98c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#b08a20;font-size:13px;}
+  .match{display:flex;justify-content:space-between;padding:4px 4mm 0;} .mcol{display:flex;flex-direction:column;gap:4mm;} .mcol.l{width:64mm;} .mcol.l .mi{justify-content:space-between;}
+  .mi{display:flex;align-items:center;gap:9px;min-height:10mm;font-weight:700;font-size:15px;} .dot{display:inline-block;width:14px;height:14px;border:2px solid var(--orange);border-radius:50%;flex:none;background:#fff;}
+  .maze{display:block;margin:2px auto 0;}
+  .bfwrap{display:block;margin:2px auto 0;background:#f3faf3;border:2px solid #d7ebcf;border-radius:12px;}
+  .ansline{font-size:14px;font-weight:700;color:#555;margin-top:6px;}
+  .ansline .box{display:inline-block;width:30px;height:26px;border:2px solid #bbb;border-radius:6px;vertical-align:middle;margin-left:6px;}
+  .foot{font-size:12.5px;font-weight:700;color:#8a7a3a;text-align:center;}
+  .strip{position:absolute;left:0;right:0;bottom:9mm;width:100%;height:20mm;}
+  .folio{position:absolute;left:0;right:0;bottom:0;height:9mm;display:flex;align-items:center;justify-content:space-between;padding:0 var(--mx);font-weight:800;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);}
+  .folio .pg{font-weight:800;font-size:14px;color:#fff;background:var(--green);width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;}
+  @page{size:A4;margin:0;} @media print{body{background:#fff;padding:0;}.toolbar{display:none;}.page{margin:0;box-shadow:none;}}
+  .page,.band,.tfi .o,.wl span,table.ws td{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .legend{display:flex;gap:14px;margin:2px 0 4px;font-size:12.5px;font-weight:700;color:#5a4a10;}
+  .legend span{display:flex;align-items:center;gap:5px;}
+  .legend i{width:12px;height:12px;border-radius:50%;display:inline-block;}
+</style></head><body>
+<div class="toolbar"><span>Bulmaca Bahçesi · sf. 28–29</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band"><span class="kick">Köşe · Etkinlik</span><h1 class="disp">Bulmaca Bahçesi</h1></div>
+  <div class="px fill" style="padding-top:7mm;">
+    <div>
+      <h2 class="sub"><span class="b">1</span> Kelime Avı</h2>
+      <p>Aşağıdaki <strong>8 kelimeyi</strong> bulmacada bul ve işaretle (yatay, dikey, çapraz):</p>
+      <div class="wl"><span>BİYOM</span><span>TOZLAŞMA</span><span>ENDEMİK</span><span>NEKTAR</span><span>MERCAN</span><span>CANOPY</span><span>POLEN</span><span>TÜR</span></div>
+      <table class="ws"><tr><td>F</td><td>L</td><td>N</td><td>F</td><td>T</td><td>U</td><td>D</td><td>K</td><td>R</td><td>J</td><td>Ç</td></tr><tr><td>J</td><td>K</td><td>P</td><td>F</td><td>A</td><td>Ğ</td><td>Y</td><td>Ü</td><td>Ö</td><td>H</td><td>Z</td></tr><tr><td>A</td><td>T</td><td>O</td><td>F</td><td>E</td><td>J</td><td>Y</td><td>P</td><td>R</td><td>Ö</td><td>Ç</td></tr><tr><td>B</td><td>O</td><td>L</td><td>E</td><td>N</td><td>D</td><td>E</td><td>M</td><td>İ</td><td>K</td><td>D</td></tr><tr><td>F</td><td>Z</td><td>E</td><td>L</td><td>Ğ</td><td>C</td><td>A</td><td>U</td><td>P</td><td>I</td><td>V</td></tr><tr><td>B</td><td>L</td><td>N</td><td>H</td><td>J</td><td>C</td><td>A</td><td>C</td><td>C</td><td>F</td><td>Ö</td></tr><tr><td>İ</td><td>A</td><td>R</td><td>G</td><td>A</td><td>P</td><td>İ</td><td>N</td><td>İ</td><td>P</td><td>L</td></tr><tr><td>Y</td><td>Ş</td><td>D</td><td>Ö</td><td>M</td><td>V</td><td>Ö</td><td>D</td><td>O</td><td>Y</td><td>J</td></tr><tr><td>O</td><td>M</td><td>E</td><td>N</td><td>E</td><td>K</td><td>T</td><td>A</td><td>R</td><td>P</td><td>R</td></tr><tr><td>M</td><td>A</td><td>D</td><td>H</td><td>G</td><td>V</td><td>P</td><td>G</td><td>T</td><td>F</td><td>Y</td></tr><tr><td>E</td><td>M</td><td>E</td><td>R</td><td>C</td><td>A</td><td>N</td><td>T</td><td>T</td><td>Ü</td><td>R</td></tr></table>
+    </div>
+    <div>
+      <h2 class="sub"><span class="b">2</span> Doğru mu, Yanlış mı?</h2>
+      <div class="tf">
+        <div class="tfi"><div class="s">Arılar çiçekleri tozlaştırır.</div><div class="o">D</div><div class="o">Y</div></div>
+        <div class="tfi"><div class="s">Penguenler Kuzey Kutbu'nda yaşar.</div><div class="o">D</div><div class="o">Y</div></div>
+        <div class="tfi"><div class="s">Su ayısı çok dayanıklı bir canlıdır.</div><div class="o">D</div><div class="o">Y</div></div>
+        <div class="tfi"><div class="s">Mercan resifleri cansız kayalardır.</div><div class="o">D</div><div class="o">Y</div></div>
+        <div class="tfi"><div class="s">Endemik canlı yalnızca belirli bir bölgede yaşar.</div><div class="o">D</div><div class="o">Y</div></div>
+      </div>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="942" cy="86" r="7" fill="#F8A120"/></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">29</span></div>
+</section>
+
+<section class="page">
+  <div class="band"><span class="kick">Köşe · Etkinlik</span><h1 class="disp">Bulmaca Bahçesi</h1></div>
+  <div class="px fill" style="padding-top:7mm;">
+    <div>
+      <h2 class="sub"><span class="b">3</span> Eşleştir</h2>
+      <p>Her canlıyı yaşadığı yere <strong>çizgiyle</strong> birleştir. Bir cetvel kullanabilirsin!</p>
+      <div class="match">
+        <div class="mcol l">
+          <div class="mi">Kutup ayısı <span class="dot"></span></div>
+          <div class="mi">Deve <span class="dot"></span></div>
+          <div class="mi">Tukan <span class="dot"></span></div>
+          <div class="mi">Mercan <span class="dot"></span></div>
+          <div class="mi">Van inci kefali <span class="dot"></span></div>
+        </div>
+        <div class="mcol">
+          <div class="mi"><span class="dot"></span> Okyanus</div>
+          <div class="mi"><span class="dot"></span> Yağmur ormanı</div>
+          <div class="mi"><span class="dot"></span> Van Gölü</div>
+          <div class="mi"><span class="dot"></span> Kutup</div>
+          <div class="mi"><span class="dot"></span> Çöl</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="sub" style="margin-top:10px;"><span class="b">4</span> Labirent</h2>
+      <p>Küçük <strong>arı</strong>, bahçedeki <strong>çiçeğe</strong> ulaşmak istiyor. Doğru yolu kalemle çiz!</p>
+      <svg class="maze" viewBox="0 0 454 284" width="96mm"><rect x="0" y="0" width="454" height="284" rx="7" fill="#fbfdf7"/><g stroke="#1f6b32" stroke-width="3.4" stroke-linecap="round"><line x1="6" y1="6" x2="6" y2="40"/><line x1="6" y1="6" x2="40" y2="6"/><line x1="6" y1="40" x2="6" y2="74"/><line x1="6" y1="40" x2="40" y2="40"/><line x1="6" y1="74" x2="6" y2="108"/><line x1="6" y1="108" x2="6" y2="142"/><line x1="6" y1="142" x2="6" y2="176"/><line x1="6" y1="176" x2="6" y2="210"/><line x1="6" y1="210" x2="6" y2="244"/><line x1="6" y1="244" x2="6" y2="278"/><line x1="6" y1="244" x2="40" y2="244"/><line x1="6" y1="278" x2="40" y2="278"/><line x1="40" y1="6" x2="74" y2="6"/><line x1="40" y1="40" x2="40" y2="74"/><line x1="40" y1="74" x2="40" y2="108"/><line x1="40" y1="108" x2="74" y2="108"/><line x1="40" y1="142" x2="40" y2="176"/><line x1="40" y1="142" x2="74" y2="142"/><line x1="40" y1="176" x2="40" y2="210"/><line x1="40" y1="210" x2="74" y2="210"/><line x1="40" y1="278" x2="74" y2="278"/><line x1="74" y1="6" x2="74" y2="40"/><line x1="74" y1="6" x2="108" y2="6"/><line x1="74" y1="40" x2="74" y2="74"/><line x1="74" y1="74" x2="108" y2="74"/><line x1="74" y1="142" x2="108" y2="142"/><line x1="74" y1="176" x2="108" y2="176"/><line x1="74" y1="210" x2="74" y2="244"/><line x1="74" y1="244" x2="108" y2="244"/><line x1="74" y1="278" x2="108" y2="278"/><line x1="108" y1="6" x2="142" y2="6"/><line x1="108" y1="40" x2="142" y2="40"/><line x1="108" y1="74" x2="108" y2="108"/><line x1="108" y1="108" x2="108" y2="142"/><line x1="108" y1="142" x2="142" y2="142"/><line x1="108" y1="176" x2="108" y2="210"/><line x1="108" y1="210" x2="108" y2="244"/><line x1="108" y1="278" x2="142" y2="278"/><line x1="142" y1="6" x2="176" y2="6"/><line x1="142" y1="40" x2="176" y2="40"/><line x1="142" y1="74" x2="142" y2="108"/><line x1="142" y1="108" x2="142" y2="142"/><line x1="142" y1="142" x2="176" y2="142"/><line x1="142" y1="176" x2="142" y2="210"/><line x1="142" y1="210" x2="142" y2="244"/><line x1="142" y1="210" x2="176" y2="210"/><line x1="142" y1="244" x2="142" y2="278"/><line x1="142" y1="278" x2="176" y2="278"/><line x1="176" y1="6" x2="176" y2="40"/><line x1="176" y1="6" x2="210" y2="6"/><line x1="176" y1="40" x2="176" y2="74"/><line x1="176" y1="74" x2="176" y2="108"/><line x1="176" y1="142" x2="176" y2="176"/><line x1="176" y1="142" x2="210" y2="142"/><line x1="176" y1="210" x2="210" y2="210"/><line x1="176" y1="244" x2="210" y2="244"/><line x1="176" y1="278" x2="210" y2="278"/><line x1="210" y1="6" x2="244" y2="6"/><line x1="210" y1="40" x2="210" y2="74"/><line x1="210" y1="40" x2="244" y2="40"/><line x1="210" y1="74" x2="210" y2="108"/><line x1="210" y1="142" x2="244" y2="142"/><line x1="210" y1="176" x2="210" y2="210"/><line x1="210" y1="210" x2="210" y2="244"/><line x1="210" y1="278" x2="244" y2="278"/><line x1="244" y1="6" x2="278" y2="6"/><line x1="244" y1="40" x2="244" y2="74"/><line x1="244" y1="74" x2="244" y2="108"/><line x1="244" y1="74" x2="278" y2="74"/><line x1="244" y1="108" x2="244" y2="142"/><line x1="244" y1="142" x2="244" y2="176"/><line x1="244" y1="176" x2="244" y2="210"/><line x1="244" y1="210" x2="244" y2="244"/><line x1="244" y1="244" x2="278" y2="244"/><line x1="244" y1="278" x2="278" y2="278"/><line x1="278" y1="6" x2="312" y2="6"/><line x1="278" y1="40" x2="312" y2="40"/><line x1="278" y1="108" x2="278" y2="142"/><line x1="278" y1="108" x2="312" y2="108"/><line x1="278" y1="142" x2="278" y2="176"/><line x1="278" y1="176" x2="278" y2="210"/><line x1="278" y1="244" x2="312" y2="244"/><line x1="278" y1="278" x2="312" y2="278"/><line x1="312" y1="6" x2="346" y2="6"/><line x1="312" y1="40" x2="312" y2="74"/><line x1="312" y1="40" x2="346" y2="40"/><line x1="312" y1="74" x2="312" y2="108"/><line x1="312" y1="108" x2="346" y2="108"/><line x1="312" y1="142" x2="346" y2="142"/><line x1="312" y1="176" x2="312" y2="210"/><line x1="312" y1="176" x2="346" y2="176"/><line x1="312" y1="210" x2="312" y2="244"/><line x1="312" y1="244" x2="346" y2="244"/><line x1="312" y1="278" x2="346" y2="278"/><line x1="346" y1="6" x2="380" y2="6"/><line x1="346" y1="40" x2="380" y2="40"/><line x1="346" y1="74" x2="380" y2="74"/><line x1="346" y1="108" x2="380" y2="108"/><line x1="346" y1="142" x2="380" y2="142"/><line x1="346" y1="176" x2="380" y2="176"/><line x1="346" y1="210" x2="380" y2="210"/><line x1="346" y1="278" x2="380" y2="278"/><line x1="380" y1="6" x2="380" y2="40"/><line x1="380" y1="6" x2="414" y2="6"/><line x1="380" y1="74" x2="414" y2="74"/><line x1="380" y1="142" x2="414" y2="142"/><line x1="380" y1="176" x2="414" y2="176"/><line x1="380" y1="210" x2="380" y2="244"/><line x1="380" y1="210" x2="414" y2="210"/><line x1="380" y1="244" x2="380" y2="278"/><line x1="380" y1="278" x2="414" y2="278"/><line x1="414" y1="6" x2="448" y2="6"/><line x1="414" y1="40" x2="414" y2="74"/><line x1="414" y1="74" x2="414" y2="108"/><line x1="414" y1="108" x2="414" y2="142"/><line x1="414" y1="142" x2="414" y2="176"/><line x1="414" y1="210" x2="414" y2="244"/><line x1="414" y1="278" x2="448" y2="278"/><line x1="448" y1="6" x2="448" y2="40"/><line x1="448" y1="40" x2="448" y2="74"/><line x1="448" y1="74" x2="448" y2="108"/><line x1="448" y1="108" x2="448" y2="142"/><line x1="448" y1="142" x2="448" y2="176"/><line x1="448" y1="176" x2="448" y2="210"/><line x1="448" y1="210" x2="448" y2="244"/><line x1="448" y1="244" x2="448" y2="278"/></g><g transform="translate(23.0,23.0)"><ellipse cx="0" cy="0" rx="11" ry="8" fill="#FCC233" stroke="#3a2c08" stroke-width="1.3"/><rect x="-3.5" y="-8" width="2.6" height="16" fill="#3a2c08"/><rect x="2.6" y="-8" width="2.6" height="16" fill="#3a2c08"/><ellipse cx="-7" cy="-5" rx="6" ry="3.4" fill="#fff" opacity=".85"/><ellipse cx="7" cy="-5" rx="6" ry="3.4" fill="#fff" opacity=".85"/></g><g transform="translate(431.0,261.0)"><circle cx="10.0" cy="0.0" r="6" fill="#f2a6c6"/><circle cx="3.1" cy="9.5" r="6" fill="#f2a6c6"/><circle cx="-8.1" cy="5.9" r="6" fill="#f2a6c6"/><circle cx="-8.1" cy="-5.9" r="6" fill="#f2a6c6"/><circle cx="3.1" cy="-9.5" r="6" fill="#f2a6c6"/><circle cx="0" cy="0" r="5" fill="#F3D308"/></g></svg>
+    </div>
+    <div>
+      <h2 class="sub"><span class="b">5</span> Renk Sudoku</h2>
+      <p>Her <strong>satır</strong>, her <strong>sütun</strong> ve her <strong>2×2 kutuda</strong> dört rengin dördü de birer kez olmalı. Boş daireleri doğru renge boya!</p>
+      <div class="legend"><span><i style="background:#3f9a3f"></i>Yeşil</span><span><i style="background:#F36F0D"></i>Turuncu</span><span><i style="background:#2f8fd0"></i>Mavi</span><span><i style="background:#e06fae"></i>Pembe</span></div>
+      <div style="display:flex; gap:14px; align-items:center; margin-top:4px;"><div style="flex:none"><svg class="sudoku" viewBox="0 0 130 130" width="52mm"><rect x="5" y="5" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="20.0" cy="20.0" r="10.5" fill="#3f9a3f"/><rect x="35" y="5" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="50.0" cy="20.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="65" y="5" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="80.0" cy="20.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="95" y="5" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="110.0" cy="20.0" r="10.5" fill="#e06fae"/><rect x="5" y="35" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="20.0" cy="50.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="35" y="35" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="50.0" cy="50.0" r="10.5" fill="#e06fae"/><rect x="65" y="35" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="80.0" cy="50.0" r="10.5" fill="#3f9a3f"/><rect x="95" y="35" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="110.0" cy="50.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="5" y="65" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="20.0" cy="80.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="35" y="65" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="50.0" cy="80.0" r="10.5" fill="#3f9a3f"/><rect x="65" y="65" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="80.0" cy="80.0" r="10.5" fill="#e06fae"/><rect x="95" y="65" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="110.0" cy="80.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="5" y="95" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="20.0" cy="110.0" r="10.5" fill="#e06fae"/><rect x="35" y="95" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="50.0" cy="110.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="65" y="95" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="80.0" cy="110.0" r="10.5" fill="none" stroke="#d6c98c" stroke-width="1.5" stroke-dasharray="3 2"/><rect x="95" y="95" width="30" height="30" fill="#fff" stroke="#cdddd8" stroke-width="1"/><circle cx="110.0" cy="110.0" r="10.5" fill="#3f9a3f"/><line x1="5" y1="5" x2="5" y2="125" stroke="#1f6b32" stroke-width="3"/><line x1="5" y1="5" x2="125" y2="5" stroke="#1f6b32" stroke-width="3"/><line x1="65" y1="5" x2="65" y2="125" stroke="#1f6b32" stroke-width="3"/><line x1="5" y1="65" x2="125" y2="65" stroke="#1f6b32" stroke-width="3"/><line x1="125" y1="5" x2="125" y2="125" stroke="#1f6b32" stroke-width="3"/><line x1="5" y1="125" x2="125" y2="125" stroke="#1f6b32" stroke-width="3"/></svg></div><p style="font-size:13px; color:#555; font-weight:600; margin:0;">İpucu: Önce içinde en çok renk olan satır ya da sütuna bak. O satırda eksik olan tek renk hangisiyse, boş kareye o gelir. Adım adım ilerle!</p></div>
+    </div>
+    <div class="foot">Yanıtlar sayfa 34'te!</div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="942" cy="86" r="7" fill="#F8A120"/></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">30</span></div>
+</section>
+</body></html>

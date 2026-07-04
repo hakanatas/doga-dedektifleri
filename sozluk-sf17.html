@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biyoçeşitlilik Sözlüğüm — sf. 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a; --body:#2b2b2b;
+    --orange:#F36F0D; --yellow:#F3D308; --teal:#2BB6B0; --teal-d:#0e7d8a;
+    --green:#1f6b32; --green-mid:#4f9e4a; --blue:#1d77a8;
+    --page-w:210mm; --page-h:297mm; --mx:16mm;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body);
+    font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; align-items:center;
+    justify-content:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff;
+    font-weight:700; box-shadow:0 2px 14px rgba(0,0,0,.18);}
+  .toolbar span{opacity:.9; font-weight:600; font-size:14px;}
+  .toolbar button{font-family:'Archivo'; font-weight:800; font-size:13px; border:0; border-radius:6px;
+    padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase; letter-spacing:.05em;}
+
+  .page{position:relative; width:var(--page-w); height:var(--page-h); background:#fff;
+    margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.20); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+
+  .band{padding:11mm var(--mx) 7mm; background:var(--teal);}
+  .band .disp{color:#06363a;}
+  .kick{display:inline-block; color:#fff; font-weight:800; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#06363a;}
+  h1.disp{font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase;
+    line-height:.96; letter-spacing:.005em; margin:0; font-size:40px;}
+
+  .intro{font-size:14.5px; font-weight:700; color:var(--teal-d); margin:0 0 9px;}
+
+  .glossary{column-count:2; column-gap:8mm;}
+  .term{break-inside:avoid; -webkit-column-break-inside:avoid; margin:0 0 6px; padding:8px 12px;
+    background:#f3f9fa; border-left:5px solid var(--teal); border-radius:9px;}
+  .term:nth-child(2n){border-left-color:var(--green-mid); background:#f3faf3;}
+  .term .h{font-family:'Archivo'; font-weight:800; font-size:14.5px; color:var(--teal-d); margin:0;}
+  .term:nth-child(2n) .h{color:var(--green);}
+  .term .ic{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--teal-d); vertical-align:2px; margin-right:7px; font-size:0;}
+  .term:nth-child(2n) .ic{background:var(--green);}
+  .term p{margin:3px 0 0; font-size:12.5px; line-height:1.42; color:#333;}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm; display:block;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center;
+    justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-family:'Anton'; font-size:15px; color:#fff; background:var(--green); width:24px; height:24px;
+    border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;}
+  @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.term{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  /* === Font + doluluk: Montserrat === */
+  *{font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif !important;}
+  p{font-size:13.8px !important; line-height:1.5 !important;}
+  .lead{font-size:15.2px !important; line-height:1.42 !important;}
+  h1.disp{font-weight:800 !important; font-size:28px !important; letter-spacing:-.01em !important; line-height:1.04 !important;}
+  h1.disp.sm{font-size:24px !important;}
+  h2.sub{font-weight:800 !important; font-size:18px !important; line-height:1.08 !important; margin-bottom:6px !important;}
+  .note p, .goodnews p, .bigstat p{font-size:13.2px !important;}
+  .note .nl, .goodnews .gl{font-size:12.5px !important;}
+  .bigstat .n, .stat .num, .sb .num{font-weight:900 !important;}
+  .card h3{font-weight:800 !important; font-size:15px !important;}
+  .card p, .chip p, .threat p, .tip p, .role p{font-size:11.8px !important;}
+  .term .h{font-size:15px !important;} .term p{font-size:12.8px !important;} .cap{font-size:11.5px !important;}
+  .ph b{font-weight:800 !important;} .folio .pg{font-weight:800 !important;}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><span>Biyoçeşitlilik Sözlüğüm · sf. 17</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Köşe · Sözlük</span>
+    <h1 class="disp">Biyoçeşitlilik Sözlüğüm</h1>
+  </div>
+  <div class="px" style="padding-top:7mm; flex:1; display:flex; flex-direction:column;">
+    <p class="intro">Bu sayıda öğrendiğin sözcükler 👇</p>
+    <div class="glossary">
+      <div class="term"><p class="h"><span class="ic"></span>Adaptasyon (uyum)</p><p>Bir canlının yaşadığı ortama uygun özellikler geliştirmesi.</p>
+      </div>
+      <div class="term"><p class="h"><span class="ic"></span>Besin zinciri</p><p>Canlıların birbirini yiyerek bağlandığı sıra; doğadaki enerji yolculuğu.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Biyoçeşitlilik</p><p>Dünya'daki canlıların tür, yaşam alanı ve gen bakımından ne kadar çeşitli olduğu.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Biyom (yaşam bölgesi)</p><p>Benzer iklim, bitki ve hayvanlara sahip büyük doğa bölgesi. (Orman, çöl, okyanus...)</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Ekosistem</p><p>Canlılar ile yaşadıkları cansız çevrenin (su, toprak, hava) birlikte oluşturduğu sistem.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Endemik</p><p>Yalnızca belirli bir bölgede doğal olarak yaşayan, başka yerde bulunmayan canlı.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Epifit</p><p>Başka bir bitkinin üzerinde, ona zarar vermeden yaşayan bitki. (Orkide, bromelya.)</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Fotosentez</p><p>Bitkilerin güneş ışığı, su ve hava ile kendi besinini üretmesi.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Göç</p><p>Hayvanların mevsime göre uzak bölgelere toplu yolculuğu. (Kuş göçü gibi.)</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Habitat (yaşam alanı)</p><p>Bir canlının yaşadığı, beslendiği ve barındığı yer.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Koruma alanı</p><p>Canlıların güvenle yaşaması için ayrılan özel doğa bölgesi. (Millî park gibi.)</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Mikroorganizma</p><p>Gözle görülemeyen, ancak mikroskopla görülebilen minik canlı.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Nektar</p><p>Çiçeklerin ürettiği, arıların topladığı tatlı sıvı.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Polen (çiçek tozu)</p><p>Çiçeklerin üreyebilmek için birbirine taşıdığı toz.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Tepe örtüsü (canopy)</p><p>Ormanda ağaç tepelerinin oluşturduğu, güneş gören en üst katman.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Tozlaşma</p><p>Polenin bir çiçekten diğerine taşınıp tohum ve meyve oluşmasını sağlaması.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Tür</p><p>Birbirine benzeyen ve birbiriyle üreyebilen canlılar grubu.</p></div>
+      <div class="term"><p class="h"><span class="ic"></span>Yırtıcı (avcı)</p><p>Başka hayvanları avlayarak beslenen canlı. (Kartal, aslan...)</p></div>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">18</span></div>
+</section>
+
+</body>
+</html>

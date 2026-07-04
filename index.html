@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğa Dedektifleri — Çocuklar İçin Biyoçeşitlilik Dergisi</title>
+<meta name="description" content="Doğa Dedektifleri: FTC 24230 AG Robotik takımının çocuklar için hazırladığı biyoçeşitlilik dergisi. Oku, oyna, keşfet!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a; --body:#2b2b2b;
+  --orange:#F36F0D; --orange-d:#c25102;
+  --yellow:#F3D308;
+  --green:#1f6b32; --green-d:#0e4a22; --green-mid:#4f9e4a;
+  --lime:#7AC22B; --teal:#2BB6B0; --teal-d:#0e7d8a; --coral:#DD3762;
+  --paper:#f6f8f2; --card:#ffffff;
+}
+*{box-sizing:border-box; font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper); color:var(--body); -webkit-font-smoothing:antialiased;}
+img{max-width:100%;}
+a{color:var(--green);}
+
+/* ===== NAV ===== */
+.nav{position:sticky; top:0; z-index:100; background:var(--green-d); color:#fff; box-shadow:0 2px 14px rgba(0,0,0,.25);}
+.nav-in{max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:14px; padding:10px 20px;}
+.nav .brand{display:flex; align-items:center; gap:10px; font-weight:900; font-size:17px; color:#fff; text-decoration:none; letter-spacing:-.01em;}
+.nav .brand img{width:36px; height:36px; border-radius:50%; background:#fff;}
+.nav .links{margin-left:auto; display:flex; gap:4px; flex-wrap:wrap;}
+.nav .links a{color:#dff0e2; text-decoration:none; font-weight:700; font-size:13.5px; padding:8px 12px; border-radius:8px; transition:.15s;}
+.nav .links a:hover{background:rgba(255,255,255,.14); color:#fff;}
+.nav .links a.cta{background:var(--yellow); color:#3a2a00;}
+.nav .links a.cta:hover{background:#ffe33a;}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(160deg,#0e4a22 0%, #1f6b32 55%, #2f8a44 100%); color:#fff; overflow:hidden; position:relative;}
+.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 85% 15%, rgba(243,211,8,.14), transparent 55%); pointer-events:none;}
+.hero-in{max-width:1180px; margin:0 auto; padding:56px 20px 64px; display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; position:relative; z-index:1;}
+.hero .kick{display:inline-block; background:var(--orange); color:#fff; font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; padding:7px 14px; border-radius:7px; margin-bottom:16px;}
+.hero h1{font-weight:900; font-size:clamp(38px,5.5vw,64px); line-height:.95; letter-spacing:-.02em; margin:0 0 12px; text-transform:uppercase;}
+.hero h1 .y{color:var(--yellow);}
+.hero .sub{font-weight:800; font-size:clamp(17px,2.2vw,22px); margin:0 0 14px; color:#eafbe9;}
+.hero p.lead{font-weight:600; font-size:15.5px; line-height:1.6; color:#d7f0d9; max-width:560px; margin:0 0 26px;}
+.btns{display:flex; gap:12px; flex-wrap:wrap;}
+.btn{display:inline-flex; align-items:center; gap:9px; font-weight:800; font-size:15px; padding:14px 26px; border-radius:12px; text-decoration:none; transition:.15s; border:0; cursor:pointer;}
+.btn.primary{background:var(--yellow); color:#3a2a00; box-shadow:0 6px 20px rgba(243,211,8,.35);}
+.btn.primary:hover{transform:translateY(-2px); background:#ffe33a;}
+.btn.ghost{background:rgba(255,255,255,.13); color:#fff; border:2px solid rgba(255,255,255,.45);}
+.btn.ghost:hover{background:rgba(255,255,255,.22);}
+.hero .stats{display:flex; gap:26px; margin-top:30px; flex-wrap:wrap;}
+.hero .stat b{display:block; font-weight:900; font-size:26px; color:var(--yellow);}
+.hero .stat span{font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#cde8cf;}
+.hero .coverwrap{justify-self:center; position:relative;}
+.hero .cover{width:min(330px,80vw); border-radius:14px; box-shadow:0 24px 60px rgba(0,0,0,.45); transform:rotate(2.5deg); transition:.25s; display:block;}
+.hero .coverwrap:hover .cover{transform:rotate(0deg) scale(1.02);}
+.hero .badge{position:absolute; top:-18px; left:-24px; background:var(--yellow); color:var(--green-d); font-weight:900; font-size:14px; line-height:1.05; text-align:center; width:86px; height:86px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-12deg); box-shadow:0 8px 20px rgba(0,0,0,.3);}
+.badge small{font-weight:800; font-size:10px;}
+
+/* ===== SECTIONS ===== */
+section{padding:64px 20px;}
+.wrap{max-width:1180px; margin:0 auto;}
+.sec-kick{display:inline-block; font-weight:800; font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:#fff; padding:6px 13px; border-radius:6px; margin-bottom:12px;}
+h2.sec-title{font-weight:900; font-size:clamp(26px,3.6vw,38px); letter-spacing:-.015em; line-height:1.05; margin:0 0 10px; color:var(--ink); text-transform:uppercase;}
+p.sec-lead{font-weight:600; font-size:15.5px; line-height:1.6; color:#555; max-width:640px; margin:0 0 34px;}
+
+/* ===== CONTENTS GRID ===== */
+#dergi{background:#fff;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px;}
+.card{background:var(--card); border:1px solid #e4e9df; border-radius:16px; overflow:hidden; text-decoration:none; color:var(--body); display:flex; flex-direction:column; transition:.18s; position:relative;}
+.card:hover{transform:translateY(-5px); box-shadow:0 14px 34px rgba(20,60,30,.16); border-color:var(--lime);}
+.card .thumb{height:150px; overflow:hidden; background:#eaf2e4; display:flex; align-items:center; justify-content:center;}
+.card .thumb img{width:100%; height:100%; object-fit:cover; transition:.3s;}
+.card:hover .thumb img{transform:scale(1.06);}
+.card .cb{padding:14px 16px 16px; display:flex; flex-direction:column; gap:5px; flex:1;}
+.card .tag{align-self:flex-start; font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#fff; padding:4px 9px; border-radius:5px;}
+.tag.kesfet{background:var(--green-mid);} .tag.kose{background:var(--teal-d);} .tag.fun{background:var(--orange);} .tag.kapak{background:var(--coral);}
+.card h3{font-weight:800; font-size:15.5px; line-height:1.2; margin:2px 0 0; color:var(--ink);}
+.card .d{font-weight:600; font-size:12.5px; color:#6a6a6a;}
+.card .pg{margin-top:auto; font-weight:900; font-size:12px; color:var(--green); padding-top:8px;}
+.card.feature{grid-column:span 2;}
+.card.feature .thumb{height:220px;}
+@media(max-width:640px){.card.feature{grid-column:span 1;} .card.feature .thumb{height:160px;}}
+
+/* ===== GAMES ===== */
+#oyunlar{background:linear-gradient(180deg,#f6f8f2 0%, #eef4e6 100%);}
+.game{background:#fff; border-radius:20px; border:1px solid #e0e8d8; box-shadow:0 8px 28px rgba(20,60,30,.08); padding:28px; margin-bottom:28px;}
+.game h3{display:flex; align-items:center; gap:10px; font-weight:900; font-size:21px; margin:0 0 6px; color:var(--ink);}
+.game h3 .e{font-size:26px;}
+.game > p.gd{font-weight:600; font-size:14px; color:#666; margin:0 0 20px;}
+
+/* Quiz */
+.q-progress{display:flex; gap:6px; margin-bottom:18px;}
+.q-progress i{flex:1; height:7px; border-radius:4px; background:#e6ecdf;}
+.q-progress i.done{background:var(--lime);} .q-progress i.cur{background:var(--yellow);}
+.q-question{font-weight:800; font-size:18px; color:var(--ink); margin:0 0 16px; line-height:1.35;}
+.q-opts{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+@media(max-width:640px){.q-opts{grid-template-columns:1fr;}}
+.q-opt{text-align:left; font-weight:700; font-size:14.5px; padding:14px 16px; border-radius:12px; border:2px solid #dde5d4; background:#fafcf7; cursor:pointer; transition:.12s; line-height:1.3;}
+.q-opt:hover{border-color:var(--lime); background:#f2f9ea;}
+.q-opt.correct{border-color:var(--green-mid); background:#e2f5e2; color:var(--green-d);}
+.q-opt.wrong{border-color:var(--coral); background:#fdeaf0; color:#8f1e3c;}
+.q-opt:disabled{cursor:default;}
+.q-feedback{min-height:26px; font-weight:800; font-size:14px; margin-top:14px;}
+.q-feedback.ok{color:var(--green);} .q-feedback.no{color:var(--coral);}
+.q-next{margin-top:10px;}
+.q-result{text-align:center; padding:18px 0 6px;}
+.q-result .big{font-size:56px;}
+.q-result h4{font-weight:900; font-size:24px; margin:8px 0 4px; color:var(--ink);}
+.q-result p{font-weight:600; color:#555; margin:0 0 18px;}
+.mini-btn{display:inline-flex; align-items:center; gap:7px; font-weight:800; font-size:13.5px; padding:11px 20px; border-radius:10px; border:0; cursor:pointer; background:var(--green); color:#fff; transition:.15s;}
+.mini-btn:hover{background:var(--green-d);}
+.mini-btn.alt{background:var(--teal);} .mini-btn.alt:hover{background:var(--teal-d);}
+
+/* Food chain */
+.fc-pool,.fc-chain{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
+.fc-item{display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:14.5px; padding:11px 16px; border-radius:30px; border:2px solid #dde5d4; background:#fafcf7; cursor:pointer; transition:.15s; user-select:none;}
+.fc-item .e{font-size:20px;}
+.fc-item:hover{border-color:var(--lime); transform:translateY(-2px);}
+.fc-item.used{opacity:.28; pointer-events:none;}
+.fc-item.shake{animation:shake .35s; border-color:var(--coral); background:#fdeaf0;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fc-chain{min-height:56px; background:#eef6e6; border:2px dashed #b9d3a3; border-radius:14px; padding:10px; align-items:center;}
+.fc-slot{display:inline-flex; align-items:center; gap:7px; font-weight:800; font-size:14.5px; padding:10px 15px; border-radius:30px; background:var(--green); color:#fff; animation:pop .3s;}
+.fc-slot .e{font-size:19px;}
+.fc-arrow{font-weight:900; color:var(--green-mid); font-size:18px;}
+@keyframes pop{0%{transform:scale(.5); opacity:0}100%{transform:scale(1); opacity:1}}
+.fc-msg{font-weight:800; font-size:14.5px; min-height:24px;}
+.fc-msg.ok{color:var(--green);} .fc-msg.no{color:var(--coral);}
+
+/* Canopy layers */
+.cl-wrap{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:stretch;}
+@media(max-width:760px){.cl-wrap{grid-template-columns:1fr;}}
+.cl-layers{display:flex; flex-direction:column; gap:8px;}
+.cl-layer{border:0; text-align:left; border-radius:14px; padding:16px 18px; cursor:pointer; font-weight:800; font-size:15.5px; color:#fff; display:flex; align-items:center; gap:12px; transition:.15s; opacity:.82;}
+.cl-layer .e{font-size:24px;}
+.cl-layer small{display:block; font-weight:700; font-size:11px; opacity:.85; letter-spacing:.06em; text-transform:uppercase;}
+.cl-layer:hover{opacity:1; transform:translateX(4px);}
+.cl-layer.active{opacity:1; outline:3px solid var(--yellow); transform:translateX(6px);}
+.cl-1{background:#2e9be0;} .cl-2{background:#1f6b32;} .cl-3{background:#4f7d2c;} .cl-4{background:#6b4a2a;}
+.cl-info{background:#f2f8ec; border:1px solid #dbe8cd; border-radius:16px; padding:22px 24px;}
+.cl-info h4{font-weight:900; font-size:20px; margin:0 0 8px; color:var(--green-d);}
+.cl-info p{font-weight:600; font-size:14.5px; line-height:1.6; margin:0 0 14px;}
+.cl-info .chips{display:flex; flex-wrap:wrap; gap:8px;}
+.cl-info .chip{font-weight:800; font-size:13px; background:#fff; border:1.5px solid var(--lime); color:var(--green-d); border-radius:20px; padding:6px 13px;}
+
+/* Memory */
+.mem-top{display:flex; align-items:center; gap:16px; margin-bottom:16px; flex-wrap:wrap;}
+.mem-top .score{font-weight:800; font-size:14px; color:var(--green-d); background:#e8f3dd; border-radius:9px; padding:8px 14px;}
+.mem-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:520px;}
+@media(max-width:520px){.mem-grid{grid-template-columns:repeat(3,1fr);}}
+.mem-card{aspect-ratio:1; border-radius:13px; border:0; cursor:pointer; perspective:600px; background:none; padding:0;}
+.mem-in{position:relative; width:100%; height:100%; transition:transform .4s; transform-style:preserve-3d;}
+.mem-card.flip .mem-in{transform:rotateY(180deg);}
+.mem-face{position:absolute; inset:0; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:34px; backface-visibility:hidden;}
+.mem-front{background:var(--green); color:#fff; font-weight:900; font-size:22px;}
+.mem-back{background:#fff; border:2.5px solid var(--lime); transform:rotateY(180deg);}
+.mem-card.matched .mem-back{background:#e8f7d9; border-color:var(--green-mid);}
+.mem-card.matched{pointer-events:none;}
+.mem-done{font-weight:900; font-size:17px; color:var(--green); margin-top:14px; min-height:24px;}
+
+/* Notebook */
+#defter .game{margin-bottom:0;}
+.nb-form{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px;}
+@media(max-width:640px){.nb-form{grid-template-columns:1fr;}}
+.nb-form input,.nb-form select,.nb-form textarea{font-weight:600; font-size:14px; padding:12px 14px; border-radius:10px; border:2px solid #dde5d4; background:#fafcf7; color:var(--body); outline:none; transition:.15s;}
+.nb-form input:focus,.nb-form select:focus,.nb-form textarea:focus{border-color:var(--lime);}
+.nb-form textarea{grid-column:1/-1; resize:vertical; min-height:70px;}
+.nb-actions{grid-column:1/-1; display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+.nb-list{display:flex; flex-direction:column; gap:10px;}
+.nb-entry{display:flex; gap:14px; align-items:flex-start; background:#f7faf3; border:1px solid #e2ead8; border-left:6px solid var(--lime); border-radius:12px; padding:13px 16px;}
+.nb-entry .e{font-size:26px;}
+.nb-entry .t{flex:1;}
+.nb-entry b{font-weight:800; font-size:15px; color:var(--ink);}
+.nb-entry .meta{font-weight:700; font-size:11.5px; color:#7d8a72; letter-spacing:.04em; margin:2px 0 4px; text-transform:uppercase;}
+.nb-entry p{margin:0; font-weight:600; font-size:13.5px; line-height:1.5;}
+.nb-del{border:0; background:none; cursor:pointer; font-size:16px; opacity:.45;}
+.nb-del:hover{opacity:1;}
+.nb-empty{font-weight:600; font-size:14px; color:#889; padding:8px 2px;}
+
+/* ===== TEAM ===== */
+#ekip{background:var(--green-d); color:#fff;}
+#ekip .sec-title{color:#fff;}
+#ekip p.sec-lead{color:#cfe6d2;}
+.team{display:grid; grid-template-columns:auto 1fr; gap:36px; align-items:center;}
+@media(max-width:760px){.team{grid-template-columns:1fr; text-align:center;} .team .logos{justify-content:center;}}
+.team .logos{display:flex; gap:20px; align-items:center;}
+.team .logos img{width:120px; height:120px; object-fit:contain; background:#fff; border-radius:20px; padding:10px; box-shadow:0 10px 26px rgba(0,0,0,.3);}
+.team p{font-weight:600; font-size:15px; line-height:1.7; color:#dff0e2; max-width:640px; margin:0 0 18px;}
+.team b{color:var(--yellow);}
+
+/* ===== FOOTER ===== */
+footer{background:#0a3518; color:#9fc4a6; padding:26px 20px; text-align:center; font-weight:600; font-size:13px; line-height:1.7;}
+footer b{color:#fff;}
+footer .m{color:var(--yellow); font-weight:800;}
+
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr; text-align:center; gap:38px;}
+  .hero p.lead{margin-left:auto; margin-right:auto;}
+  .btns{justify-content:center;}
+  .hero .stats{justify-content:center;}
+  .nav .links a:not(.cta){display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#"><img src="takim-logo.png" alt="Doğa Dedektifleri logo">Doğa Dedektifleri</a>
+    <div class="links">
+      <a href="#dergi">Dergi</a>
+      <a href="#oyunlar">Oyunlar</a>
+      <a href="#defter">Gözlem Defteri</a>
+      <a href="#ekip">Ekibimiz</a>
+      <a class="cta" href="oku.html">📖 Dergiyi Oku</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="kick">★ Sayı 1 · 2026 · 9+ Yaş</span>
+      <h1>Doğa<br>Dedektifleri<span class="y">.</span></h1>
+      <p class="sub">Çocuklar için biyoçeşitlilik dergisi 🌿</p>
+      <p class="lead">Yağmur ormanlarının tepesindeki gizli dünyadan bir damla sudaki minik canlılara... Merak et, keşfet, koru! Dergiyi oku, interaktif oyunları oyna ve gerçek bir doğa dedektifi ol.</p>
+      <div class="btns">
+        <a class="btn primary" href="oku.html">📖 Dergiyi Oku</a>
+        <a class="btn ghost" href="Doga-Dedektifleri-Sayi1.pdf" download>⬇️ PDF İndir</a>
+        <a class="btn ghost" href="#oyunlar">🎮 Oyunlar</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>37</b><span>Sayfa</span></div>
+        <div class="stat"><b>18</b><span>Yeni Sözcük</span></div>
+        <div class="stat"><b>4</b><span>İnteraktif Oyun</span></div>
+        <div class="stat"><b>2</b><span>Kendin Yap Deney</span></div>
+      </div>
+    </div>
+    <div class="coverwrap">
+      <a href="oku.html"><img class="cover" src="kapak.png" alt="Doğa Dedektifleri Sayı 1 kapağı — Canopy"></a>
+      <div class="badge">İLK<br>SAYI!<small>2026</small></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CONTENTS ============ -->
+<section id="dergi">
+  <div class="wrap">
+    <span class="sec-kick" style="background:var(--green-mid)">Bu sayıda neler var?</span>
+    <h2 class="sec-title">Dergiyi Keşfet</h2>
+    <p class="sec-lead">Karta tıkla, o bölüm okuyucuda açılsın. İstersen en baştan başla ve sayfa sayfa ilerle!</p>
+    <div class="grid">
+      <a class="card feature" href="oku.html#5">
+        <div class="thumb"><img src="g1_crop.png" alt="Canopy"></div>
+        <div class="cb">
+          <span class="tag kapak">★ Kapak Konusu</span>
+          <h3>Canopy: Ağaçların Tepesindeki Gizli Dünya</h3>
+          <span class="d">Yağmur ormanının en üst katında, yere hiç inmeden yaşayan binlerce canlı seni bekliyor.</span>
+          <span class="pg">Sayfa 6–9 →</span>
+        </div>
+      </a>
+      <a class="card" href="oku.html#4">
+        <div class="thumb"><img src="g3.png" alt=""></div>
+        <div class="cb"><span class="tag kose">Köşe</span><h3>Ne Var Ne Yok?</h3><span class="d">Doğadan güncel haberler</span><span class="pg">Sayfa 4–5 →</span></div>
+      </a>
+      <a class="card" href="oku.html#6">
+        <div class="thumb"><img src="b2.png" alt=""></div>
+        <div class="cb"><span class="tag kesfet">Keşfet</span><h3>Dünyanın Yaşam Bölgeleri</h3><span class="d">Ormandan çöle, biyomlar</span><span class="pg">Sayfa 10–12 →</span></div>
+      </a>
+      <a class="card" href="oku.html#7">
+        <div class="thumb"><img src="damla.png" alt=""></div>
+        <div class="cb"><span class="tag kesfet">Keşfet</span><h3>Bir Damla Suda Koca Bir Dünya</h3><span class="d">Mikroskobik yaşam</span><span class="pg">Sayfa 13 →</span></div>
+      </a>
+      <a class="card" href="oku.html#8">
+        <div class="thumb"><img src="a1.png" alt=""></div>
+        <div class="cb"><span class="tag kesfet">Keşfet</span><h3>Çalışkan Bal Arıları</h3><span class="d">Doğanın tozlayıcıları</span><span class="pg">Sayfa 14–16 →</span></div>
+      </a>
+      <a class="card" href="oku.html#9">
+        <div class="thumb"><img src="ic-sozluk.png" alt=""></div>
+        <div class="cb"><span class="tag kose">Köşe</span><h3>Biyoçeşitlilik Sözlüğüm</h3><span class="d">18 yeni sözcük</span><span class="pg">Sayfa 17 →</span></div>
+      </a>
+      <a class="card" href="oku.html#10">
+        <div class="thumb"><img src="e1.png" alt=""></div>
+        <div class="cb"><span class="tag kesfet">Keşfet</span><h3>Sadece Burada: Endemik Canlılar</h3><span class="d">Yalnızca tek bir yerde</span><span class="pg">Sayfa 18–19 →</span></div>
+      </a>
+      <a class="card" href="oku.html#11">
+        <div class="thumb"><img src="t2.png" alt=""></div>
+        <div class="cb"><span class="tag kose">Köşe</span><h3>Tehlike Çanları</h3><span class="d">Yok olma tehlikesindeki türler</span><span class="pg">Sayfa 20–21 →</span></div>
+      </a>
+      <a class="card" href="oku.html#12">
+        <div class="thumb"><img src="ic-besin.png" alt=""></div>
+        <div class="cb"><span class="tag kesfet">Keşfet</span><h3>Doğanın Zinciri: Besin Ağı</h3><span class="d">Kim kimi yer?</span><span class="pg">Sayfa 22–23 →</span></div>
+      </a>
+      <a class="card" href="oku.html#13">
+        <div class="thumb"><img src="k2.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Deney</span><h3>Şişede Mini Ekosistem</h3><span class="d">Kendin yap deneyi</span><span class="pg">Sayfa 24–25 →</span></div>
+      </a>
+      <a class="card" href="oku.html#14">
+        <div class="thumb"><img src="s1.png" alt=""></div>
+        <div class="cb"><span class="tag kose">Söyleşi</span><h3>Bir Biyologla Tanışalım</h3><span class="d">Merak edilen her şey</span><span class="pg">Sayfa 26–27 →</span></div>
+      </a>
+      <a class="card" href="oku.html#15">
+        <div class="thumb"><img src="ic-bulmaca.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Eğlence</span><h3>Bulmaca Bahçesi</h3><span class="d">Bul, eşleştir, çöz</span><span class="pg">Sayfa 28–29 →</span></div>
+      </a>
+      <a class="card" href="oku.html#16">
+        <div class="thumb"><img src="ic-sende.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Etkinlik</span><h3>Sen de Yapabilirsin: 10 Adım</h3><span class="d">Doğayı korumak elinde</span><span class="pg">Sayfa 30 →</span></div>
+      </a>
+      <a class="card" href="oku.html#17">
+        <div class="thumb"><img src="ic-gozlem.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Etkinlik</span><h3>Gözlem Defterim</h3><span class="d">Çevreni keşfet</span><span class="pg">Sayfa 31 →</span></div>
+      </a>
+      <a class="card" href="oku.html#18">
+        <div class="thumb"><img src="ic-sizden.png" alt=""></div>
+        <div class="cb"><span class="tag kose">Okur Köşesi</span><h3>Sizden Gelenler</h3><span class="d">Çizimler ve mektuplar</span><span class="pg">Sayfa 32 →</span></div>
+      </a>
+      <a class="card" href="oku.html#21">
+        <div class="thumb"><img src="patara_board.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Teknoloji</span><h3>Patara: Kaplumbağa Kart</h3><span class="d">Teknoloji &amp; doğa</span><span class="pg">Sayfa 35 →</span></div>
+      </a>
+      <a class="card" href="oku.html#22">
+        <div class="thumb"><img src="ic-gulumser.png" alt=""></div>
+        <div class="cb"><span class="tag fun">Mizah</span><h3>Doğa Gülümser</h3><span class="d">Fıkralar &amp; çizgi roman</span><span class="pg">Sayfa 36 →</span></div>
+      </a>
+      <a class="card" href="oku.html#23">
+        <div class="thumb"><img src="ic-first.png" alt=""></div>
+        <div class="cb"><span class="tag fun">FIRST</span><h3>FIRST Canopy &amp; BIOBUZZ</h3><span class="d">Robotik sezonu ve doğa</span><span class="pg">Sayfa 37 →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMES ============ -->
+<section id="oyunlar">
+  <div class="wrap">
+    <span class="sec-kick" style="background:var(--orange)">İnteraktif Bölge</span>
+    <h2 class="sec-title">Oyna &amp; Öğren 🎮</h2>
+    <p class="sec-lead">Dergiden öğrendiklerini test etme zamanı! Dört mini oyunun hepsini bitirebilecek misin?</p>
+
+    <!-- ===== QUIZ ===== -->
+    <div class="game" id="quiz">
+      <h3><span class="e">🕵️</span> Dedektif Sınavı</h3>
+      <p class="gd">Dergiyi dikkatli okudun mu? 8 soruluk sınavı çöz, dedektif rütbeni öğren!</p>
+      <div id="quiz-box"></div>
+    </div>
+
+    <!-- ===== FOOD CHAIN ===== -->
+    <div class="game" id="besin">
+      <h3><span class="e">🔗</span> Besin Zincirini Kur</h3>
+      <p class="gd">Enerji doğada nasıl yolculuk eder? Aşağıdaki canlılara <b>doğru sırayla</b> tıklayarak besin zincirini tamamla. İpucu: Her şey Güneş'le başlar!</p>
+      <div class="fc-chain" id="fc-chain"><span style="font-weight:700;color:#8aa478;font-size:13.5px;">Zincir burada oluşacak…</span></div>
+      <div class="fc-pool" id="fc-pool"></div>
+      <div class="fc-msg" id="fc-msg"></div>
+      <button class="mini-btn alt" onclick="fcReset()">↺ Yeniden Başla</button>
+    </div>
+
+    <!-- ===== CANOPY LAYERS ===== -->
+    <div class="game" id="katman">
+      <h3><span class="e">🌳</span> Yağmur Ormanı Katmanları</h3>
+      <p class="gd">Kapak konumuz Canopy'yi hatırlıyor musun? Katmanlara tıkla, her katta kimler yaşıyor keşfet!</p>
+      <div class="cl-wrap">
+        <div class="cl-layers" id="cl-layers"></div>
+        <div class="cl-info" id="cl-info"></div>
+      </div>
+    </div>
+
+    <!-- ===== MEMORY ===== -->
+    <div class="game" id="hafiza">
+      <h3><span class="e">🧠</span> Doğa Hafıza Oyunu</h3>
+      <p class="gd">Kartları çevir, aynı canlıların eşini bul. En az hamlede bitirmeye çalış!</p>
+      <div class="mem-top">
+        <span class="score">Hamle: <b id="mem-moves">0</b></span>
+        <span class="score">Eşleşme: <b id="mem-pairs">0</b>/6</span>
+        <button class="mini-btn alt" onclick="memReset()">↺ Karıştır</button>
+      </div>
+      <div class="mem-grid" id="mem-grid"></div>
+      <div class="mem-done" id="mem-done"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTEBOOK ============ -->
+<section id="defter">
+  <div class="wrap">
+    <span class="sec-kick" style="background:var(--teal-d)">Dijital Etkinlik</span>
+    <h2 class="sec-title">Gözlem Defterim 📒</h2>
+    <p class="sec-lead">Dergideki 31. sayfanın dijital hâli! Bahçede, parkta ya da pencerenden gördüğün canlıları buraya kaydet. Notların bu bilgisayarda saklanır.</p>
+    <div class="game">
+      <div class="nb-form">
+        <input id="nb-name" type="text" maxlength="60" placeholder="Ne gördün? (ör. Uğur böceği)">
+        <select id="nb-type">
+          <option value="🐦">🐦 Kuş</option>
+          <option value="🐞">🐞 Böcek</option>
+          <option value="🌸">🌸 Bitki / Çiçek</option>
+          <option value="🌳">🌳 Ağaç</option>
+          <option value="🐿️">🐿️ Memeli</option>
+          <option value="🦎">🦎 Sürüngen / Kurbağa</option>
+          <option value="🍄">🍄 Mantar</option>
+          <option value="✨">✨ Başka bir şey</option>
+        </select>
+        <input id="nb-place" type="text" maxlength="60" placeholder="Nerede gördün? (ör. Okul bahçesi)">
+        <input id="nb-date" type="date">
+        <textarea id="nb-note" maxlength="300" placeholder="Notların: Ne yapıyordu? Rengi, sesi, büyüklüğü nasıldı?"></textarea>
+        <div class="nb-actions">
+          <button class="mini-btn" onclick="nbAdd()">➕ Deftere Ekle</button>
+          <span id="nb-count" style="font-weight:700;font-size:13px;color:#7a8a6e;"></span>
+        </div>
+      </div>
+      <div class="nb-list" id="nb-list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section id="ekip">
+  <div class="wrap">
+    <span class="sec-kick" style="background:var(--orange)">Bu dergiyi kim hazırladı?</span>
+    <h2 class="sec-title">FTC 24230 AG Robotik</h2>
+    <p class="sec-lead"></p>
+    <div class="team">
+      <div class="logos">
+        <img src="ag-robotik-logo.png" alt="AG Robotik logo">
+        <img src="takim-logo.png" alt="Takım logo">
+      </div>
+      <div>
+        <p><b>Doğa Dedektifleri</b>, <b>FTC 24230 AG Robotik</b> takımı tarafından çocuklar için eğitim amacıyla hazırlanan bir biyoçeşitlilik dergisidir. Bu yılki <b>FIRST Tech Challenge</b> sezonunun teması olan <b>Canopy</b> — yani ağaçların tepe örtüsü — ilk sayımızın da ilham kaynağı oldu.</p>
+        <p>Amacımız; robotik yolculuğumuzda öğrendiklerimizi doğa sevgisiyle birleştirip çevremizdeki inanılmaz canlı çeşitliliğini tanımak, sevdirmek ve korumak. Çünkü sen de artık bir doğa dedektifisin! 🔍🌿</p>
+        <div class="btns">
+          <a class="btn primary" href="oku.html#23">🤖 FIRST &amp; BIOBUZZ Sayfamız</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Doğa Dedektifleri</b> · Sayı 1 · 2026 — <span class="m">Merak Et · Keşfet · Koru</span><br>
+  FTC 24230 AG Robotik takımı tarafından eğitim amacıyla hazırlanmıştır. Görseller yapay zekâ desteğiyle üretilmiştir.
+</footer>
+
+<script>
+/* ==================== QUIZ ==================== */
+const QUIZ = [
+  {q:"Canopy (tepe örtüsü) neresidir?", o:["Ormanın en üst, güneş gören katmanı","Orman zeminindeki yapraklar","Ağaç köklerinin altı","Nehir kenarındaki çalılar"], a:0, tip:"Canopy, ağaç tepelerinin oluşturduğu güneş gören en üst katmandır. (sf. 6)"},
+  {q:"Endemik canlı ne demektir?", o:["Çok hızlı koşan canlı","Yalnızca belirli bir bölgede doğal yaşayan canlı","Gece uyanık olan canlı","Suda ve karada yaşayan canlı"], a:1, tip:"Endemik türler dünyada sadece tek bir bölgede bulunur. (sf. 18)"},
+  {q:"Tozlaşmada baş kahraman hangisidir?", o:["Kartal","Yılan","Bal arısı","Kaplumbağa"], a:2, tip:"Arılar polen taşıyarak çiçeklerin meyve ve tohum yapmasını sağlar. (sf. 14)"},
+  {q:"Besin zincirinin ilk halkasında hep kim vardır?", o:["Yırtıcılar","Mantarlar","Otçullar","Üreticiler (bitkiler)"], a:3, tip:"Bitkiler güneş enerjisiyle besin üretir; zincir onlarla başlar. (sf. 22)"},
+  {q:"Mikroorganizmaları nasıl görebiliriz?", o:["Dürbünle","Mikroskopla","Büyüteçsiz gözle","Teleskopla"], a:1, tip:"Bir damla suda mikroskopla koca bir dünya görünür! (sf. 13)"},
+  {q:"Biyom (yaşam bölgesi) nedir?", o:["Bir hayvanın yuvası","Benzer iklim ve canlılara sahip büyük doğa bölgesi","Bitkilerin kök sistemi","Deniz altındaki mağara"], a:1, tip:"Orman, çöl, kutup, okyanus... hepsi birer biyomdur. (sf. 10)"},
+  {q:"Epifit bitkiler nasıl yaşar?", o:["Başka bitkinin üzerinde, ona zarar vermeden","Toprağın derinliklerinde","Sadece suyun içinde","Başka bitkileri yiyerek"], a:0, tip:"Orkide ve bromelyalar ağaçların üzerinde zarar vermeden yaşar. (sf. 17)"},
+  {q:"Ekosistem neyi kapsar?", o:["Sadece hayvanları","Sadece bitkileri","Canlılar + su, toprak, hava gibi cansız çevre","Sadece insanları"], a:2, tip:"Ekosistem = canlılar ve cansız çevrenin oluşturduğu sistem. (sf. 17)"}
+];
+let qIdx=0, qScore=0;
+const qBox=document.getElementById('quiz-box');
+function qRender(){
+  const q=QUIZ[qIdx];
+  qBox.innerHTML = `
+    <div class="q-progress">${QUIZ.map((_,i)=>`<i class="${i<qIdx?'done':i===qIdx?'cur':''}"></i>`).join('')}</div>
+    <p class="q-question">Soru ${qIdx+1}/${QUIZ.length} — ${q.q}</p>
+    <div class="q-opts">${q.o.map((o,i)=>`<button class="q-opt" onclick="qAnswer(${i})">${o}</button>`).join('')}</div>
+    <div class="q-feedback" id="q-fb"></div>`;
+}
+function qAnswer(i){
+  const q=QUIZ[qIdx];
+  const btns=qBox.querySelectorAll('.q-opt');
+  btns.forEach(b=>b.disabled=true);
+  btns[q.a].classList.add('correct');
+  const fb=document.getElementById('q-fb');
+  if(i===q.a){ qScore++; fb.className='q-feedback ok'; fb.innerHTML='✔️ Doğru! '+q.tip; }
+  else{ btns[i].classList.add('wrong'); fb.className='q-feedback no'; fb.innerHTML='✖️ Olmadı. '+q.tip; }
+  fb.insertAdjacentHTML('afterend', `<button class="mini-btn q-next" onclick="qNext()">${qIdx<QUIZ.length-1?'Sıradaki Soru →':'Sonucu Gör 🏅'}</button>`);
+}
+function qNext(){
+  qIdx++;
+  if(qIdx<QUIZ.length){ qRender(); return; }
+  let e,r,d;
+  if(qScore===8){e='🏆';r='Usta Doğa Dedektifi!';d='Mükemmel! Dergiyi satır satır okumuşsun. Rozetini hak ettin!';}
+  else if(qScore>=6){e='🥇';r='Kıdemli Dedektif';d='Harikasın! Birkaç ipucu daha ve zirvedesin.';}
+  else if(qScore>=4){e='🔍';r='Çaylak Dedektif';d='İyi başlangıç! Dergiye bir daha göz at, cevaplar orada saklı.';}
+  else{e='🌱';r='Dedektif Adayı';d='Her dedektif bir yerden başlar! Dergiyi oku ve tekrar dene.';}
+  qBox.innerHTML=`<div class="q-result"><div class="big">${e}</div><h4>${r}</h4><p>${qScore}/${QUIZ.length} doğru — ${d}</p>
+    <button class="mini-btn" onclick="qReset()">↺ Tekrar Dene</button>
+    <a class="mini-btn alt" style="text-decoration:none" href="oku.html">📖 Dergiye Dön</a></div>`;
+}
+function qReset(){ qIdx=0; qScore=0; qRender(); }
+qRender();
+
+/* ==================== FOOD CHAIN ==================== */
+const FC=[{e:'☀️',n:'Güneş'},{e:'🌿',n:'Bitki'},{e:'🦗',n:'Çekirge'},{e:'🐸',n:'Kurbağa'},{e:'🐍',n:'Yılan'},{e:'🦅',n:'Kartal'}];
+let fcStep=0;
+function fcReset(){
+  fcStep=0;
+  document.getElementById('fc-msg').textContent='';
+  document.getElementById('fc-msg').className='fc-msg';
+  document.getElementById('fc-chain').innerHTML='<span style="font-weight:700;color:#8aa478;font-size:13.5px;">Zincir burada oluşacak…</span>';
+  const pool=document.getElementById('fc-pool');
+  pool.innerHTML='';
+  [...FC].sort(()=>Math.random()-.5).forEach(item=>{
+    const idx=FC.indexOf(item);
+    const b=document.createElement('button');
+    b.className='fc-item'; b.innerHTML=`<span class="e">${item.e}</span>${item.n}`;
+    b.onclick=()=>fcPick(idx,b);
+    pool.appendChild(b);
+  });
+}
+function fcPick(idx,btn){
+  const msg=document.getElementById('fc-msg');
+  if(idx!==fcStep){
+    btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake');
+    msg.className='fc-msg no';
+    msg.textContent = fcStep===0 ? '🤔 Her şeyin enerjisi nereden geliyor? Oradan başla!' : `🤔 Hımm... ${FC[fcStep-1].n}'den sonra kim gelir?`;
+    return;
+  }
+  const chain=document.getElementById('fc-chain');
+  if(fcStep===0) chain.innerHTML='';
+  if(fcStep>0) chain.insertAdjacentHTML('beforeend','<span class="fc-arrow">→</span>');
+  chain.insertAdjacentHTML('beforeend',`<span class="fc-slot"><span class="e">${FC[idx].e}</span>${FC[idx].n}</span>`);
+  btn.classList.add('used');
+  fcStep++;
+  const msgEl=document.getElementById('fc-msg');
+  if(fcStep===FC.length){ msgEl.className='fc-msg ok'; msgEl.textContent='🎉 Harika! Enerjinin Güneş\'ten kartala yolculuğunu tamamladın. İşte doğanın görünmez bağları!'; }
+  else{ msgEl.className='fc-msg ok'; msgEl.textContent='✔️ Doğru! Devam et…'; }
+}
+fcReset();
+
+/* ==================== CANOPY LAYERS ==================== */
+const LAYERS=[
+  {c:'cl-1', e:'🦅', n:'Zirve Katı', en:'Emergent', p:'En cesur ağaçlar buraya, 60 metreye kadar uzanır! Rüzgâr güçlü, güneş bol. Dev kartallar ve rengârenk kelebekler bu katın sakinleri.', who:['🦅 Harpi kartalı','🦋 Kelebekler','🦇 Yarasalar']},
+  {c:'cl-2', e:'🐒', n:'Tepe Örtüsü', en:'Canopy — Kapak Konumuz!', p:'Ormanın çatısı! Canlıların çoğu burada yaşar ve bazıları yere hiç inmez. Yapraklar güneşi yakalar, meyveler boldur. Dergimizin kapak konusu tam da burası!', who:['🐒 Maymunlar','🦥 Tembel hayvan','🦜 Papağanlar','🐸 Ağaç kurbağaları','🌺 Orkideler (epifit)']},
+  {c:'cl-3', e:'🐆', n:'Alt Kat', en:'Understory', p:'Loş ve nemli bir dünya. Güneş ışığının çok azı buraya ulaşır. Geniş yapraklı bitkiler, avını bekleyen jaguarlar ve vızıldayan böcekler burada.', who:['🐆 Jaguar','🐍 Yılanlar','🦎 Kertenkeleler','🌿 Geniş yapraklılar']},
+  {c:'cl-4', e:'🍄', n:'Orman Zemini', en:'Forest Floor', p:'Karanlık ama capcanlı! Düşen yapraklar burada mantarlar ve minik canlılar tarafından toprağa dönüştürülür. Doğanın geri dönüşüm merkezi!', who:['🍄 Mantarlar','🐜 Karıncalar','🪱 Solucanlar','🐗 Tapir']}
+];
+const clLayers=document.getElementById('cl-layers');
+LAYERS.forEach((l,i)=>{
+  const b=document.createElement('button');
+  b.className=`cl-layer ${l.c}`+(i===1?' active':'');
+  b.innerHTML=`<span class="e">${l.e}</span><span>${l.n}<small>${l.en}</small></span>`;
+  b.onclick=()=>{ document.querySelectorAll('.cl-layer').forEach(x=>x.classList.remove('active')); b.classList.add('active'); clShow(i); };
+  clLayers.appendChild(b);
+});
+function clShow(i){
+  const l=LAYERS[i];
+  document.getElementById('cl-info').innerHTML=`<h4>${l.e} ${l.n} <span style="font-weight:700;font-size:13px;color:var(--teal-d)">· ${l.en}</span></h4><p>${l.p}</p><div class="chips">${l.who.map(w=>`<span class="chip">${w}</span>`).join('')}</div>`;
+}
+clShow(1);
+
+/* ==================== MEMORY ==================== */
+const MEM=['🐝','🦋','🌳','🐢','🦉','💧'];
+let memFirst=null, memLock=false, memMoves=0, memFound=0;
+function memReset(){
+  memFirst=null; memLock=false; memMoves=0; memFound=0;
+  document.getElementById('mem-moves').textContent='0';
+  document.getElementById('mem-pairs').textContent='0';
+  document.getElementById('mem-done').textContent='';
+  const grid=document.getElementById('mem-grid');
+  grid.innerHTML='';
+  [...MEM,...MEM].sort(()=>Math.random()-.5).forEach(e=>{
+    const c=document.createElement('button');
+    c.className='mem-card'; c.dataset.v=e;
+    c.innerHTML=`<span class="mem-in"><span class="mem-face mem-front">?</span><span class="mem-face mem-back">${e}</span></span>`;
+    c.onclick=()=>memFlip(c);
+    grid.appendChild(c);
+  });
+}
+function memFlip(c){
+  if(memLock||c.classList.contains('flip'))return;
+  c.classList.add('flip');
+  if(!memFirst){ memFirst=c; return; }
+  memMoves++; document.getElementById('mem-moves').textContent=memMoves;
+  if(memFirst.dataset.v===c.dataset.v){
+    memFirst.classList.add('matched'); c.classList.add('matched');
+    memFound++; document.getElementById('mem-pairs').textContent=memFound;
+    memFirst=null;
+    if(memFound===MEM.length){
+      document.getElementById('mem-done').textContent=`🎉 Tebrikler! ${memMoves} hamlede bitirdin${memMoves<=9?' — inanılmaz bir hafıza!':memMoves<=13?' — çok iyi!':' — bir dahakine daha az hamle dene!'}`;
+    }
+  }else{
+    memLock=true;
+    const f=memFirst;
+    setTimeout(()=>{ f.classList.remove('flip'); c.classList.remove('flip'); memFirst=null; memLock=false; },750);
+  }
+}
+memReset();
+
+/* ==================== NOTEBOOK ==================== */
+const NB_KEY='dd-gozlem-defteri';
+function nbLoad(){ try{return JSON.parse(localStorage.getItem(NB_KEY))||[];}catch(e){return[];} }
+function nbSave(list){ localStorage.setItem(NB_KEY, JSON.stringify(list)); }
+function nbRender(){
+  const list=nbLoad();
+  const box=document.getElementById('nb-list');
+  document.getElementById('nb-count').textContent = list.length ? `Defterinde ${list.length} gözlem var 🌟` : '';
+  if(!list.length){ box.innerHTML='<div class="nb-empty">Defterin henüz boş. İlk gözlemini ekle — belki penceredeki bir kuş? 🐦</div>'; return; }
+  box.innerHTML=list.map((n,i)=>`
+    <div class="nb-entry">
+      <span class="e">${n.type}</span>
+      <div class="t">
+        <b>${n.name}</b>
+        <div class="meta">${n.place?'📍 '+n.place:''} ${n.date?' · 🗓️ '+n.date:''}</div>
+        ${n.note?`<p>${n.note}</p>`:''}
+      </div>
+      <button class="nb-del" title="Sil" onclick="nbDel(${i})">🗑️</button>
+    </div>`).join('');
+}
+function esc(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+function nbAdd(){
+  const name=document.getElementById('nb-name').value.trim();
+  if(!name){ document.getElementById('nb-name').focus(); return; }
+  const list=nbLoad();
+  list.unshift({
+    name:esc(name),
+    type:document.getElementById('nb-type').value,
+    place:esc(document.getElementById('nb-place').value.trim()),
+    date:document.getElementById('nb-date').value,
+    note:esc(document.getElementById('nb-note').value.trim())
+  });
+  nbSave(list);
+  ['nb-name','nb-place','nb-note'].forEach(id=>document.getElementById(id).value='');
+  nbRender();
+}
+function nbDel(i){ const list=nbLoad(); list.splice(i,1); nbSave(list); nbRender(); }
+document.getElementById('nb-date').valueAsDate=new Date();
+nbRender();
+</script>
+</body>
+</html>

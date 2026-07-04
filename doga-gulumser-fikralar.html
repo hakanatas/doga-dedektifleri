@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğa Gülümser: Fıkralar & Çizgi Roman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#C4560A;--yellow:#F3D308;--teal:#2BB6B0;--teal-d:#0E867F;--green:#1f6b32;--pink:#DD3762;--mx:16mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+  .page{position:relative; width:210mm; min-height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+  .band{padding:11mm var(--mx) 7mm; background:var(--orange);}
+  .kick{display:inline-block; color:var(--orange-d); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#fff;}
+  h1.disp{font-weight:800; text-transform:uppercase; font-size:33px; letter-spacing:-.01em; line-height:1.05; margin:0; color:#fff;}
+  .lead{font-size:15.5px; line-height:1.5; font-weight:700; color:#1e1e1e; margin:0 0 6px;}
+  h2.sub{font-weight:800; text-transform:uppercase; font-size:17px; color:var(--orange-d); margin:0 0 7px; display:flex; align-items:center; gap:9px;}
+  h2.sub svg{width:26px; height:26px;}
+
+  /* jokes */
+  .jokes{display:grid; grid-template-columns:1fr 1fr; gap:7px;}
+  .joke{background:#fff7e6; border:2px solid #f6d99a; border-radius:12px; padding:8px 12px; display:flex; gap:11px; align-items:center;}
+  .joke .cr{width:40px; height:40px; flex-shrink:0; object-fit:contain;}
+  .joke .q{font-weight:800; color:#8a5a12; font-size:12.8px; line-height:1.35;}
+  .joke .a{font-weight:700; color:var(--orange-d); font-size:12.8px; line-height:1.35; margin-top:3px;}
+
+  /* comic */
+  .comic{margin-top:2.5mm;}
+  .strip4{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:9px;}
+  .panel{position:relative; background:#eaf6ee; border:3px solid var(--green); border-radius:12px; padding:10px 9px 9px; min-height:47mm; display:flex; flex-direction:column;}
+  .panel .no{position:absolute; top:-11px; left:-11px; width:24px; height:24px; border-radius:50%; background:var(--green); color:#fff; font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 5px rgba(0,0,0,.2);}
+  .bubble{background:#fff; border:2px solid #cfe0d4; border-radius:12px; padding:7px 9px; font-size:11.2px; font-weight:700; color:#26382b; line-height:1.32; position:relative;}
+  .bubble:after{content:""; position:absolute; bottom:-8px; left:16px; border-width:9px 8px 0 0; border-style:solid; border-color:#fff transparent transparent transparent;}
+  .scene{margin-top:auto; display:flex; align-items:flex-end; justify-content:center; padding-top:8px;}
+  .scene svg{width:100%; height:30mm;}
+  .scene img{width:100%; height:30mm; object-fit:cover; border-radius:8px; border:2px solid #fff; box-shadow:0 2px 7px rgba(0,0,0,.14);}
+  .cap{text-align:center; font-size:10.5px; font-weight:800; color:var(--green); margin-top:6px;}
+
+  .note{border-radius:12px; padding:11px 17px; background:var(--ink); color:#eee; margin-top:2.5mm;}
+  .note .nl{font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--yellow); margin-bottom:4px;}
+  .note p{margin:0; font-size:14px;} .note strong{color:#7AC22B;}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.joke,.note,.panel,.bubble,.panel .no{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Doğa Gülümser · Fıkralar &amp; Çizgi Roman</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Köşe · Gülümse</span>
+    <h1 class="disp">Doğa Gülümser</h1>
+  </div>
+  <div class="px fill" style="padding-top:4mm;">
+    <p class="lead">Gerçek bir doğa dedektifi hem meraklıdır hem de gülmeyi bilir! İşte doğadan birbirinden komik fıkralar ve minik bir çizgi roman.</p>
+
+    <h2 class="sub">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#F3D308"/><circle cx="14" cy="17" r="2.4" fill="#3a2a10"/><circle cx="26" cy="17" r="2.4" fill="#3a2a10"/><path d="M12 24 q8 9 16 0" fill="none" stroke="#3a2a10" stroke-width="2.6" stroke-linecap="round"/></svg>
+      Doğa Fıkraları
+    </h2>
+    <div class="jokes">
+      <div class="joke">
+        <img class="cr" src="gk1.png" alt="">
+        <div><div class="q">En çalışkan böcek hangisiymiş?</div><div class="a">Arı, çünkü her işe “vız” diye koşarmış!</div></div>
+      </div>
+      <div class="joke">
+        <img class="cr" src="gk2.png" alt="">
+        <div><div class="q">Baykuş neden çok bilgeymiş?</div><div class="a">Çünkü bütün gece “kim? kim?” diye sorup araştırırmış!</div></div>
+      </div>
+      <div class="joke">
+        <img class="cr" src="gk3.png" alt="">
+        <div><div class="q">Karınca neden hiç yorulmazmış?</div><div class="a">Çünkü işini hep “adım adım” yaparmış!</div></div>
+      </div>
+      <div class="joke">
+        <img class="cr" src="gk4.png" alt="">
+        <div><div class="q">Çiçek arıya ne demiş?</div><div class="a">“Beni unutma… çünkü ben unutmabeniyim!”</div></div>
+      </div>
+      <div class="joke">
+        <img class="cr" src="gk5.png" alt="">
+        <div><div class="q">Kutup ayısı neden buzdolabı istemezmiş?</div><div class="a">Zaten evi buz gibiymiş!</div></div>
+      </div>
+      <div class="joke">
+        <img class="cr" src="gk6.png" alt="">
+        <div><div class="q">Kurbağa telefonda ne dermiş?</div><div class="a">“Vrak vrak, çekmiyorsun, gölete gel!”</div></div>
+      </div>
+    </div>
+
+    <div class="comic">
+      <h2 class="sub">
+        <svg viewBox="0 0 40 40"><rect x="5" y="7" width="30" height="26" rx="3" fill="#2BB6B0"/><rect x="5" y="7" width="15" height="26" rx="3" fill="#51C2E7"/><path d="M20 7 v26" stroke="#0E867F" stroke-width="2"/><g stroke="#fff" stroke-width="1.6"><path d="M8 13 h9M8 18 h9M8 23 h7M23 13 h9M23 18 h9M23 23 h7"/></g></svg>
+        Mini Çizgi Roman — “Dedektif Defne ve Kayıp Polen”
+      </h2>
+      <div class="strip4">
+        <div class="panel"><span class="no">1</span>
+          <div class="bubble">Bir dakika… Bu çiçeğin poleni kaybolmuş!</div>
+          <div class="scene"><img src="ck1_t.png" alt=""></div>
+          <div class="cap">Dedektif işbaşında!</div>
+        </div>
+        <div class="panel"><span class="no">2</span>
+          <div class="bubble">Vızzz! Merak etme, poleni ben taşıyorum!</div>
+          <div class="scene"><img src="ck2_t.png" alt=""></div>
+          <div class="cap">Bir tanık geliyor…</div>
+        </div>
+        <div class="panel"><span class="no">3</span>
+          <div class="bubble">Çiçekten alıp diğerine bırakırım — buna tozlaşma denir!</div>
+          <div class="scene"><img src="ck3_t.png" alt=""></div>
+          <div class="cap">Çiçekten çiçeğe!</div>
+        </div>
+        <div class="panel"><span class="no">4</span>
+          <div class="bubble">Vaka çözüldü! Meyveler senin sayende Vızıl!</div>
+          <div class="scene"><img src="ck4_t.png" alt=""></div>
+          <div class="cap">Teşekkürler arı!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="nl">Gülmek de doğal!</div>
+      <p>Bu çizgi romandaki gibi, arılar poleni bir çiçekten diğerine taşıyarak <strong>meyvelerin</strong> oluşmasını sağlar. Sen de bir doğa şakası uydur, bir sonraki sayıya gönder — belki <strong>senin fıkran</strong> burada yayımlanır!</p>
+    </div>
+  </div>
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">35</span></div>
+</section>
+
+</body>
+</html>

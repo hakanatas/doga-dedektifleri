@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğa Gülümser — sf. 36</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#2BB6B0;--coral:#DD3762;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+
+  .band{padding:10mm var(--mx) 7mm; background:var(--yellow);}
+  .kick{display:inline-block; color:#fff; background:var(--orange); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px;}
+  h1.disp{font-weight:900; text-transform:uppercase; font-size:33px; line-height:1.02; letter-spacing:-.01em; color:#5a4a00; margin:0;}
+  .lead{font-size:14.5px; line-height:1.45; font-weight:700; color:var(--orange-d); margin:0;}
+
+  .sec-h{font-weight:900; text-transform:uppercase; font-size:14px; letter-spacing:.03em; color:var(--green); margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+  .sec-h::before{content:""; width:18px; height:4px; border-radius:3px; background:var(--orange);}
+
+  /* çizgi roman */
+  .comic{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  .panel{background:#fff; border:3px solid #2b2b2b; border-radius:8px; overflow:hidden; position:relative;}
+  .panel img{display:block; width:100%; height:38mm; object-fit:cover;}
+  .panel .num{position:absolute; top:5px; left:5px; width:19px; height:19px; border-radius:50%; background:var(--orange); color:#fff; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center; border:2px solid #fff;}
+  .panel .cap{padding:6px 9px; font-size:11.6px; font-weight:600; line-height:1.3; color:#333; background:#fffdf3;}
+  .panel .cap b{color:var(--orange-d);}
+
+  /* bilmeceler */
+  .riddles{display:flex; gap:9px;}
+  .rid{flex:1; background:#eef8e6; border:2px solid #cfe8b8; border-radius:12px; padding:9px 8px 10px; text-align:center;}
+  .rid img{width:100%; height:22mm; object-fit:contain; margin-bottom:5px;}
+  .rid .q{font-size:10.8px; font-weight:600; line-height:1.32; color:#2f4a2f;}
+  .rid .n{display:inline-block; width:18px; height:18px; border-radius:50%; background:var(--green); color:#fff; font-weight:900; font-size:11px; line-height:18px; margin-bottom:4px;}
+
+  .answer{display:flex; align-items:center; gap:12px; background:var(--ink); color:#eee; border-radius:12px; padding:11px 15px;}
+  .answer .e{width:16px;height:16px;border-radius:50%;background:var(--yellow);flex:none;font-size:0;}
+  .answer .al{font-weight:900; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--yellow); margin-bottom:3px;}
+  .answer p{margin:0; font-size:12.8px; line-height:1.4; font-weight:600;}
+  .answer b{color:var(--lime);}
+
+  .joke{display:flex; align-items:center; gap:13px; background:#fff3e6; border:2px solid #f6c98f; border-radius:13px; padding:11px 15px;}
+  .joke .e{width:16px;height:16px;border-radius:50%;background:var(--orange);flex:none;font-size:0;}
+  .joke .jl{font-weight:900; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--orange-d); margin-bottom:2px;}
+  .joke p{margin:0; font-size:13px; line-height:1.42; font-weight:600; color:#5a4326;}
+  .joke b{color:var(--orange-d);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.panel,.panel .num,.rid,.answer,.joke,.rid .n{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Doğa Gülümser · sf. 36</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Eğlence · Çizgi Roman & Bilmeceler</span>
+    <h1 class="disp">Doğa Gülümser</h1>
+  </div>
+
+  <div class="px fill" style="padding-top:7mm;">
+    <p class="lead">Dedektiflik yorucu iş — biraz gülelim, biraz da kafa yoralım!</p>
+
+    <div style="margin-top:9px;">
+      <h2 class="sec-h">Dedektif Defne ve Küçük Arı</h2>
+      <div class="comic">
+        <div class="panel"><span class="num">1</span><img src="ck1.png" alt=""><div class="cap">Dedektif Defne, çiçeğin içini büyütecle inceliyor…</div></div>
+        <div class="panel"><span class="num">2</span><img src="ck2.png" alt=""><div class="cap">Derken vızıldayan bir konuk gelir: bir <b>arı!</b></div></div>
+        <div class="panel"><span class="num">3</span><img src="ck3.png" alt=""><div class="cap">Arı çiçekten çiçeğe uçarken <b>poleni</b> taşır…</div></div>
+        <div class="panel"><span class="num">4</span><img src="ck4.png" alt=""><div class="cap">Birkaç gün sonra: mis gibi <b>domatesler!</b> Teşekkürler arı!</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <h2 class="sec-h">Kim Olduğumu Bil Bakalım?</h2>
+      <div class="riddles">
+        <div class="rid"><span class="n">1</span><img src="gk3.png" alt=""><div class="q">Minicik ama çok güçlüyüm; kendi ağırlığımın kat kat fazlasını taşırım.</div></div>
+        <div class="rid"><span class="n">2</span><img src="gk2.png" alt=""><div class="q">Gece görürüm, başımı geriye çevirebilirim, "huu huu" öterim.</div></div>
+        <div class="rid"><span class="n">3</span><img src="gk6.png" alt=""><div class="q">Zıp zıp zıplarım; hem suda hem karada yaşar, sinek yerim.</div></div>
+        <div class="rid"><span class="n">4</span><img src="gk5.png" alt=""><div class="q">Bembeyaz kürküm var; buzların üstünde yaşarım.</div></div>
+      </div>
+    </div>
+
+    <div class="answer" style="margin-top:8px;">
+      <span class="e"></span>
+      <div>
+        <div class="al">Cevaplar</div>
+        <p>1. <b>Karınca</b> &nbsp;·&nbsp; 2. <b>Baykuş</b> &nbsp;·&nbsp; 3. <b>Kurbağa</b> &nbsp;·&nbsp; 4. <b>Kutup ayısı</b></p>
+      </div>
+    </div>
+
+    <div class="joke" style="margin-top:8px;">
+      <span class="e"></span>
+      <div>
+        <div class="jl">Günün Şakası</div>
+        <p>Öğretmen sormuş: "Arılar bal yapar, ya siz ne yaparsınız?" Küçük dedektif gülerek cevaplamış: <b>"Biz de balı yeriz!"</b></p>
+      </div>
+    </div>
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">36</span></div>
+</section>
+
+</body>
+</html>

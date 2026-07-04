@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRST Canopy & BIOBUZZ — sf. 37</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#2BB6B0;--teal-d:#0e7d8a;--teal-dd:#06545e;--blue:#1f8fbf;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+
+  .band{padding:10mm var(--mx) 7mm; background:var(--green);}
+  .kick{display:inline-block; color:var(--green); background:var(--yellow); font-weight:800; font-size:11px; letter-spacing:.13em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px;}
+  h1.disp{font-weight:900; text-transform:uppercase; font-size:30px; line-height:1.02; letter-spacing:-.01em; color:#fff; margin:0;}
+  h1.disp .y{color:var(--yellow);}
+  .lead{font-size:15px; line-height:1.45; font-weight:700; color:var(--green-d); margin:0;}
+
+  .duo{display:grid; grid-template-columns:56mm 1fr; gap:0 11mm; align-items:center;}
+  .duo .robot{width:100%; height:auto; border-radius:14px; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,.16); outline:1px solid #e7e7e7;}
+  .duo h2{font-weight:900; text-transform:uppercase; font-size:18px; color:var(--green); margin:0 0 6px;}
+  .duo p{font-size:13.4px; line-height:1.5; margin:0 0 8px; color:#333;}
+  .duo p strong{color:var(--orange-d); font-weight:800;}
+
+  .two{display:flex; gap:11px;}
+  .box{flex:1; border-radius:13px; padding:12px 14px;}
+  .box h3{margin:0 0 6px; font-weight:900; text-transform:uppercase; font-size:13.5px; letter-spacing:.02em; display:flex; align-items:center; gap:8px;}
+  .box p{margin:0; font-size:12.6px; line-height:1.48; color:#333;}
+  .box.biobuzz{background:#fff8e0; border:2px solid #f3d98f;} .box.biobuzz h3{color:var(--orange-d);} .box.biobuzz strong{color:var(--orange-d);}
+  .box.canopy{background:#eef8e6; border:2px solid #cfe8b8;} .box.canopy h3{color:var(--green);} .box.canopy strong{color:var(--green);}
+  .bee{width:16mm; height:auto; float:right; margin:0 0 4px 8px;}
+
+  .steps{display:flex; gap:9px;}
+  .step{flex:1; background:#eaf7f8; border:2px solid #bfe3e7; border-radius:12px; padding:11px 9px; text-align:center;}
+  .step .e{font-size:24px; line-height:1;}
+  .step p{margin:5px 0 0; font-size:11.4px; font-weight:700; color:var(--teal-dd); line-height:1.28;}
+
+  .cta{display:flex; align-items:center; gap:13px; background:var(--ink); color:#eee; border-radius:14px; padding:13px 16px;}
+  .cta .e{font-size:30px; flex:none;}
+  .cta .cl{font-weight:900; font-size:12.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--yellow); margin-bottom:3px;}
+  .cta p{margin:0; font-size:13px; line-height:1.42; font-weight:600;}
+  .cta b{color:var(--lime);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.box,.step,.cta,.duo .robot{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  .step .e{width:14px; height:14px; border-radius:50%; background:var(--teal-d); display:inline-block; margin:0 auto 2px; font-size:0 !important;}
+  .cta .e{width:18px; height:18px; border-radius:50%; background:var(--yellow); flex:none; font-size:0 !important;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>FIRST Canopy & BIOBUZZ · sf. 37</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <span class="kick">Teknoloji & Doğa · FTC 24230</span>
+    <h1 class="disp">FIRST Canopy &amp; <span class="y">BIOBUZZ</span> </h1>
+  </div>
+
+  <div class="px fill" style="padding-top:7mm;">
+    <p class="lead">Robotlar ve doğa yan yana gelince ne olur? Takımımızın hikâyesi tam da burada başlıyor!</p>
+
+    <div class="duo" style="margin-top:10px;">
+      <figure style="margin:0"><img class="robot" src="ic-first.png" alt="Yapraklar arasında bir robot"></figure>
+      <div>
+        <h2>FIRST Tech Challenge Nedir?</h2>
+        <p><strong>FIRST Tech Challenge (FTC)</strong>, dünyanın dört bir yanından gençlerin takımlar kurup <strong>kendi robotlarını</strong> tasarladığı, ürettiği ve programladığı büyük bir robotik yarışmasıdır. Her yıl yeni bir tema açıklanır ve takımlar o tema etrafında hem robot yapar hem de topluma faydalı projeler geliştirir.</p>
+        <p>Biz de <strong>FTC 24230 AG Robotik</strong> takımı olarak bu yolculuğun içindeyiz — hem robot yapıyor hem de doğayı anlatan bu dergiyi hazırlıyoruz!</p>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:12px;">
+      <div class="box biobuzz">
+        <h3>BIOBUZZ Nedir?</h3>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <p style="flex:1;"><strong>BIOBUZZ</strong>, takımımızın doğa temalı projesi. Tıpkı bir arının çiçekten çiçeğe polen taşıması gibi, biz de teknolojiyle <strong>doğa sevgisini</strong> ve biyoçeşitlilik bilincini çocuklara taşıyoruz!</p>
+          <img src="gk1.png" alt="BIOBUZZ arı" style="width:15mm; height:auto; flex:none;">
+        </div>
+      </div>
+      <div class="box canopy">
+        <h3>Neden Canopy?</h3>
+        <p>Bu yıl bizi ağaçların <strong>tepe örtüsü (canopy)</strong> ilham verdi. Yağmur ormanlarının bu gizli katı, gezegenimizin en zengin yaşam alanlarından biri. İşte bu yüzden derginin kapak konusu da <strong>Canopy</strong> oldu — teknoloji ve doğa aynı dalda buluştu!</p>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <div class="steps">
+        <div class="step"><div class="e"></div><p>Robot tasarla &amp; programla</p></div>
+        <div class="step"><div class="e"></div><p>Takım olarak çalış</p></div>
+        <div class="step"><div class="e"></div><p>Doğaya sahip çık</p></div>
+        <div class="step"><div class="e"></div><p>Öğren &amp; paylaş</p></div>
+      </div>
+    </div>
+
+    <div class="cta" style="margin-top:12px;">
+      <span class="e"></span>
+      <div>
+        <div class="cl">Sen de Katıl!</div>
+        <p>Robotları ve doğayı seviyorsan, sen de bir gün bir robotik takımında yer alabilirsin. Belki de doğayı koruyan yeni bir icat <b>senden gelir!</b> Merak et, üret, paylaş.</p>
+      </div>
+    </div>
+
+    <div class="box canopy" style="margin-top:13px;">
+      <h3>Doğadan İlham Alan Robotlar</h3>
+      <p>Mühendisler robotları çoğu zaman doğadan öğrenir: <strong>arılardan</strong> uçan minik dronlar, kuşlardan hızlı uçaklar, kertenkelelerden duvara tırmanan robotlar, köpekbalığı derisinden sürtünmesi az yüzücü kıyafetleri, örümcek ağından çelikten güçlü ipler doğdu. Buna <strong>biyomimikri</strong> denir — yani "doğayı taklit etmek". Milyonlarca yıldır doğa en zor problemleri çözmüş; mühendisler de bu hazır çözümlerden ilham alıyor. Doğa, gezegenin en tecrübeli mühendisi! İşte tam da bu yüzden bir robotik takımının doğayı yakından tanıması çok değerli: <strong>daha iyi gözlemleyen, daha iyi mühendis olur.</strong> Biz de BIOBUZZ ile hem robot yapıyor hem de bu bağı çocuklara anlatıyoruz.</p>
+    </div>
+
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1 · Robotistan işbirliğiyle</span><span class="pg">37</span></div>
+</section>
+
+</body>
+</html>

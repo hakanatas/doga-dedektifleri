@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İçindekiler — sf. 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#1f9aa6;--teal-d:#0e6b75;--blue:#1f8fbf;--coral:#DD3762;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+
+  .band{padding:10mm var(--mx) 7mm; background:var(--green); display:flex; align-items:flex-end; justify-content:space-between;}
+  .band .l .kick{display:inline-block; color:var(--green); font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:var(--yellow);}
+  .band .l h1{font-weight:900; text-transform:uppercase; font-size:38px; line-height:.95; letter-spacing:-.01em; color:#fff; margin:0;}
+  .band .r{color:#bfe3c4; font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase; text-align:right; line-height:1.5;}
+  .band .r b{color:#fff; font-size:15px;}
+
+  .body{flex:1; display:flex; flex-direction:column; justify-content:space-between; padding-top:6mm; padding-bottom:31mm;}
+  .item{padding:2.5px 0 !important;}
+
+  /* ---- kapak konusu (featured) ---- */
+  .feature{display:flex; gap:14px; background:#f3faf3; border:2px solid #cfe6cf; border-radius:14px; padding:9px; align-items:center;}
+  .feature .thumb{width:66mm; height:35mm; flex:none; border-radius:10px; overflow:hidden; box-shadow:0 5px 14px rgba(0,0,0,.16);}
+  .feature .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .feature .ft{flex:1;}
+  .feature .lbl{display:inline-block; background:var(--orange); color:#fff; font-weight:800; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:6px;}
+  .feature h2{margin:0 0 5px; font-weight:900; font-size:21px; line-height:1.05; color:var(--green-d); text-transform:uppercase;}
+  .feature p{margin:0; font-size:12.8px; line-height:1.45; font-weight:600; color:#3c4a3c;}
+  .feature .pg{flex:none; text-align:center; padding-left:6px;}
+  .feature .pg .n{font-weight:900; font-size:40px; color:var(--orange); line-height:.9;}
+  .feature .pg .s{font-weight:800; font-size:9px; letter-spacing:.1em; color:#9aa59a; text-transform:uppercase;}
+
+  /* ---- iki kolon ---- */
+  .cols{display:flex; gap:11mm;}
+  .col{flex:1;}
+  .sec-h{font-weight:900; text-transform:uppercase; font-size:13.5px; letter-spacing:.04em; margin:0 0 7px; display:flex; align-items:center; gap:8px;}
+  .sec-h .sq{width:16px; height:16px; border-radius:5px; flex:none;}
+  .sec-h.kesfet{color:var(--green);} .sec-h.kesfet .sq{background:var(--green);}
+  .sec-h.kose{color:var(--teal-d);} .sec-h.kose .sq{background:var(--teal);}
+  .sec-h.fun{color:var(--orange-d);} .sec-h.fun .sq{background:var(--orange);}
+  .sec + .sec{margin-top:11px;}
+
+  .item{display:flex; align-items:center; gap:10px; padding:3.5px 0; border-bottom:1px dashed #e3e7e0;}
+  .item:last-child{border-bottom:0;}
+  .item .ic{width:13mm; height:13mm; flex:none; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:18px; background:#eef4ee;}
+  .item .ic img{width:100%; height:100%; object-fit:cover; display:block;}
+  .item .tx{flex:1; min-width:0;}
+  .item .tx .h{font-weight:800; font-size:13px; line-height:1.12; color:#222;}
+  .item .tx .d{font-weight:600; font-size:10.3px; color:#7a847a; margin-top:1px;}
+  .item .pg{flex:none; font-weight:900; font-size:19px; color:var(--green); width:28px; text-align:right;}
+  .sec.kose .item .pg{color:var(--teal-d);}
+  .sec.fun .item .pg{color:var(--orange-d);}
+
+  /* ---- alt teaser ---- */
+  .teaser{display:flex; align-items:center; gap:12px; background:var(--ink); color:#eee; border-radius:13px; padding:9px 15px;}
+  .teaser .e{font-size:26px; flex:none;}
+  .teaser p{margin:0; font-size:13px; line-height:1.4; font-weight:600;}
+  .teaser p b{color:var(--yellow);} .teaser p strong{color:var(--lime);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center; justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-weight:800; font-size:14px; color:#fff; background:var(--green); width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.feature,.feature .lbl,.item .ic,.teaser,.sec-h .sq{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>İçindekiler · sf. 3</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+  <div class="band">
+    <div class="l">
+      <span class="kick">Bu Sayıda Neler Var?</span>
+      <h1>İçindekiler</h1>
+    </div>
+    <div class="r">Doğa Dedektifleri<br><b>Sayı 1 · 2026</b></div>
+  </div>
+
+  <div class="px body">
+
+    <!-- KAPAK KONUSU -->
+    <div class="feature">
+      <div class="thumb"><img src="g1_crop.png" alt=""></div>
+      <div class="ft">
+        <span class="lbl">★ Kapak Konusu</span>
+        <h2>Canopy: Ağaçların Tepesindeki Gizli Dünya</h2>
+        <p>Yağmur ormanının en üst katında, yere hiç inmeden yaşayan binlerce canlıyı keşfediyoruz.</p>
+      </div>
+      <div class="pg"><div class="n">06</div><div class="s">Sayfa</div></div>
+    </div>
+
+    <!-- İKİ KOLON -->
+    <div class="cols">
+
+      <!-- SOL: KEŞFET -->
+      <div class="col">
+        <div class="sec kesfet">
+          <h3 class="sec-h kesfet"><span class="sq"></span>Keşfet</h3>
+
+          <div class="item">
+            <div class="ic"><img src="b2.png" alt=""></div>
+            <div class="tx"><div class="h">Dünyanın Yaşam Bölgeleri</div><div class="d">Ormandan çöle, biyomlar</div></div>
+            <div class="pg">10</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="damla.png" alt=""></div>
+            <div class="tx"><div class="h">Bir Damla Suda Koca Bir Dünya</div><div class="d">Mikroskobik yaşam</div></div>
+            <div class="pg">14</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="a1.png" alt=""></div>
+            <div class="tx"><div class="h">Çalışkan Bal Arıları</div><div class="d">Doğanın tozlayıcıları</div></div>
+            <div class="pg">15</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="e1.png" alt=""></div>
+            <div class="tx"><div class="h">Sadece Burada: Endemik Canlılar</div><div class="d">Yalnızca tek bir yerde</div></div>
+            <div class="pg">19</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-besin.png" alt=""></div>
+            <div class="tx"><div class="h">Doğanın Zinciri: Besin Ağı</div><div class="d">Kim kimi yer?</div></div>
+            <div class="pg">23</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="k2.png" alt=""></div>
+            <div class="tx"><div class="h">Şişede Mini Ekosistem</div><div class="d">Kendin yap deneyi</div></div>
+            <div class="pg">25</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAĞ: KÖŞELER + EĞLENCE -->
+      <div class="col">
+        <div class="sec kose">
+          <h3 class="sec-h kose"><span class="sq"></span>Köşeler</h3>
+
+          <div class="item">
+            <div class="ic"><img src="g3.png" alt=""></div>
+            <div class="tx"><div class="h">Ne Var Ne Yok?</div><div class="d">Doğadan haberler</div></div>
+            <div class="pg">04</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-sozluk.png" alt=""></div>
+            <div class="tx"><div class="h">Biyoçeşitlilik Sözlüğüm</div><div class="d">18 yeni sözcük</div></div>
+            <div class="pg">18</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="t2.png" alt=""></div>
+            <div class="tx"><div class="h">Tehlike Çanları</div><div class="d">Yok olan türler</div></div>
+            <div class="pg">21</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="s1.png" alt=""></div>
+            <div class="tx"><div class="h">Söyleşi: Bir Doğa Bilimciyle</div><div class="d">Merak edilenler</div></div>
+            <div class="pg">27</div>
+          </div>
+        </div>
+
+        <div class="sec fun">
+          <h3 class="sec-h fun"><span class="sq"></span>Eğlence & Etkinlik</h3>
+
+          <div class="item">
+            <div class="ic"><img src="ic-bulmaca.png" alt=""></div>
+            <div class="tx"><div class="h">Bulmaca Köşesi</div><div class="d">Bul, eşleştir, çöz</div></div>
+            <div class="pg">29</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-sende.png" alt=""></div>
+            <div class="tx"><div class="h">Sen de Yapabilirsin: 10 Adım</div><div class="d">Doğayı koru</div></div>
+            <div class="pg">31</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-gozlem.png" alt=""></div>
+            <div class="tx"><div class="h">Gözlem Defterim</div><div class="d">Çevreni keşfet</div></div>
+            <div class="pg">32</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-sizden.png" alt=""></div>
+            <div class="tx"><div class="h">Sizden Gelenler</div><div class="d">Okur köşesi</div></div>
+            <div class="pg">33</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="patara_board.png" alt=""></div>
+            <div class="tx"><div class="h">Patara: Kaplumbağa Kart</div><div class="d">Teknoloji &amp; doğa (Robotistan)</div></div>
+            <div class="pg">35</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-gulumser.png" alt=""></div>
+            <div class="tx"><div class="h">Doğa Gülümser</div><div class="d">Fıkralar &amp; çizgi roman</div></div>
+            <div class="pg">36</div>
+          </div>
+          <div class="item">
+            <div class="ic"><img src="ic-first.png" alt=""></div>
+            <div class="tx"><div class="h">FIRST Canopy &amp; BIOBUZZ</div><div class="d">FTC sezonuna hazırlık</div></div>
+            <div class="pg">37</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALT TEASER -->
+    <div class="teaser">
+      <span class="e" style="width:11px;height:11px;border-radius:50%;background:var(--yellow);flex:none;font-size:0;"></span>
+      <p>Bu sayıyı bitirdiğinde gerçek bir <b>doğa dedektifi</b> olacaksın. Kalemini, büyütecini ve merakını hazırla — <strong>macera başlıyor!</strong></p>
+    </div>
+
+  </div>
+
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">03</span></div>
+</section>
+
+</body>
+</html>

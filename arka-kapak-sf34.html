@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arka Kapak — sf. 34</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1a1a;--body:#2b2b2b;--orange:#F36F0D;--orange-d:#b3560a;--yellow:#F3D308;
+        --green:#1f6b32;--green-d:#155026;--lime:#7AC22B;--teal:#2BB6B0;--blue:#1f8fbf;--coral:#DD3762;--mx:15mm;}
+  *{box-sizing:border-box; font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body); -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; justify-content:center; align-items:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff; font-weight:700;}
+  .toolbar button{font-weight:800; font-size:13px; border:0; border-radius:6px; padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase;}
+
+  .page{position:relative; width:210mm; height:297mm; background:#fff; margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.2); display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+
+  /* ---- üst künye / masthead ---- */
+  .masthead{background:var(--green); color:#fff; padding:9mm var(--mx) 7mm; position:relative;}
+  .brandrow{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:center; gap:11px;}
+  .logo{width:40px; height:40px; flex:none;}
+  .wm{line-height:1;}
+  .wm .t1{font-weight:900; font-size:24px; letter-spacing:.01em; text-transform:uppercase;}
+  .wm .t2{font-weight:600; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#bfe3c4; margin-top:3px;}
+  .issue{text-align:right; line-height:1;}
+  .issue .big{font-weight:900; font-size:26px;}
+  .issue .sm{font-weight:700; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#bfe3c4; margin-top:3px;}
+
+  .body{flex:1; display:flex; flex-direction:column; justify-content:space-between; padding-top:6mm; padding-bottom:5mm;}
+
+  .hero h1{font-weight:900; text-transform:uppercase; font-size:31px; line-height:1.04; letter-spacing:-.01em; color:var(--green-d); margin:0;}
+  .hero h1 em{font-style:normal; color:var(--orange);}
+  .hero p{font-size:14.5px; line-height:1.5; font-weight:600; color:#333; margin:7px 0 0; max-width:165mm;}
+
+  .sec-h{font-weight:800; text-transform:uppercase; font-size:14px; letter-spacing:.04em; color:var(--green); margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+  .sec-h::before{content:""; width:18px; height:4px; border-radius:3px; background:var(--yellow);}
+
+  /* ---- galeri ---- */
+  .gallery{display:flex; flex-wrap:wrap; gap:4mm;}
+  .gtile{width:55mm; background:#fff; border-radius:9px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.13); border:1px solid #ececec;}
+  .gtile img{display:block; width:100%; height:33mm; object-fit:cover;}
+  .gtile .cap{padding:6px 8px; text-align:center; font-weight:800; font-size:11.5px; color:#2f6b33; background:#f3faf3;}
+  .gtile:nth-child(2n) .cap{color:var(--orange-d); background:#fff5ec;}
+
+  /* ---- bunu biliyor muydun ---- */
+  .facts{background:#0e4a22; border-radius:15px; padding:13px 15px 14px;}
+  .facts .fh{display:flex; align-items:center; gap:9px; margin-bottom:10px;}
+  .facts .fh .ic{font-size:20px;}
+  .facts .fh .ti{font-weight:900; text-transform:uppercase; font-size:15px; letter-spacing:.02em; color:#fff;}
+  .facts .fh .ti b{color:var(--yellow);}
+  .fcards{display:flex; gap:9px;}
+  .fcard{flex:1; background:#fff; border-radius:11px; padding:10px 9px 11px; text-align:center;}
+  .fcard .e{font-size:26px; line-height:1;}
+  .fcard .big{font-weight:900; font-size:14px; color:var(--green-d); margin:5px 0 2px; line-height:1;}
+  .fcard p{margin:0; font-size:10.8px; line-height:1.32; font-weight:600; color:#444;}
+  .fcard p b{color:var(--orange-d); font-weight:800;}
+
+  /* ---- kapanış ---- */
+  .cta{display:flex; gap:13px; align-items:center; background:#fff8e8; border:2px solid #f3d98f; border-radius:14px; padding:12px 16px;}
+  .cta .e{font-size:34px; flex:none;}
+  .cta .tx h3{margin:0 0 2px; font-weight:900; text-transform:uppercase; font-size:15px; color:var(--orange-d);}
+  .cta .tx p{margin:0; font-size:13px; line-height:1.45; font-weight:600; color:#5a4a22;}
+  .cta .tx p strong{color:var(--green);}
+
+  /* ---- alt künye ---- */
+  .footer{background:var(--green); color:#dff0e2; padding:8mm var(--mx); display:flex; justify-content:space-between; align-items:flex-end; gap:14px;}
+  .footer .col .k{font-weight:800; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); margin-bottom:3px;}
+  .footer .col p{margin:0; font-size:11.5px; line-height:1.5; font-weight:500;}
+  .footer .right{text-align:right;}
+  .footer .right .web{font-weight:800; font-size:13px; color:#fff;}
+  .bar{display:flex; gap:2px; margin-top:7px; justify-content:flex-end;}
+  .bar i{display:block; width:2px; height:22px; background:#dff0e2;}
+  .bar i:nth-child(3n){width:4px;} .bar i:nth-child(4n){height:22px; opacity:.55;} .bar i:nth-child(5n){width:1px;}
+
+  @page{size:A4; margin:0;} @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.masthead,.footer,.gtile,.gtile .cap,.facts,.fcard,.cta{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+</style>
+</head>
+<body>
+<div class="toolbar"><span>Arka Kapak · sf. 34</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<section class="page">
+
+  <!-- ÜST KÜNYE -->
+  <div class="masthead">
+    <div class="brandrow">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="23" fill="#fff"/>
+          <path d="M24 38C16 34 12 27 13 16c8 0 15 3 18 9-3-1-7-1-10 0 4 1 8 3 11 7-3 0-6 0-8 1 4 1 7 3 9 6-3 0-6 0-9-1z" fill="#1f6b32"/>
+          <path d="M24 38C24 30 22 22 16 17" stroke="#7AC22B" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="33" cy="14" r="4" fill="#F3D308"/><circle cx="33" cy="14" r="1.7" fill="#F36F0D"/>
+        </svg>
+        <div class="wm">
+          <div class="t1">Doğa Dedektifleri</div>
+          <div class="t2">Çocuklar İçin Biyoçeşitlilik Dergisi</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="big">Sayı 1</div>
+        <div class="sm">2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GÖVDE -->
+  <div class="px body">
+
+    <div class="hero">
+      <h1>Doğanın Dedektifi <em>Sensin!</em></h1>
+      <p>Yağmur ormanlarının tepesinden bir damla suyun içine, arı kovanından kutup buzlarına… Bu sayıda gezegenimizin sayısız canlısının izini sürdük. Şimdi sıra sende: çevrene bak, merak et, koru.</p>
+    </div>
+
+    <!-- GALERİ -->
+    <div>
+      <h2 class="sec-h">Bu Sayıda Tanıştığımız Canlılar</h2>
+      <div class="gallery">
+        <div class="gtile"><img src="a1.png" alt=""><div class="cap">Bal Arıları</div></div>
+        <div class="gtile"><img src="b2.png" alt=""><div class="cap">Yaşam Bölgeleri</div></div>
+        <div class="gtile"><img src="g3.png" alt=""><div class="cap">Yağmur Ormanı</div></div>
+        <div class="gtile"><img src="e1.png" alt=""><div class="cap">Endemik Canlılar</div></div>
+        <div class="gtile"><img src="t2.png" alt=""><div class="cap">Tehlikedeki Türler</div></div>
+        <div class="gtile"><img src="k2.png" alt=""><div class="cap">Mini Ekosistem</div></div>
+      </div>
+    </div>
+
+    <!-- BUNU BİLİYOR MUYDUN -->
+    <div class="facts">
+      <div class="fh"><span class="ic">🤩</span><span class="ti">Bunu <b>Biliyor muydun?</b></span></div>
+      <div class="fcards">
+        <div class="fcard"><div class="e">🌸</div><div class="big">≈ 1 metre</div><p>Dünyanın en büyük çiçeği <b>Rafflesia</b> neredeyse bir araba lastiği kadar açar!</p></div>
+        <div class="fcard"><div class="e">🌳</div><div class="big">115+ metre</div><p>En uzun ağaç bir <b>sekoya</b> — 30 katlı bir binadan bile yüksek.</p></div>
+        <div class="fcard"><div class="e">🐋</div><div class="big">150+ ton</div><p>En büyük canlı <b>mavi balina</b>; boyu 30 metreyi aşar.</p></div>
+        <div class="fcard"><div class="e">🔬</div><div class="big">8 milyon+</div><p>Gezegendeki tahmini <b>tür</b> sayısı — çoğu daha keşfedilmeyi bekliyor!</p></div>
+      </div>
+    </div>
+
+    <!-- KAPANIŞ -->
+    <div class="cta">
+      <span class="e">🔭</span>
+      <div class="tx">
+        <h3>Sıradaki Sayıda Buluşalım!</h3>
+        <p>Doğa çizimlerini, gözlemlerini ve sorularını bize gönder; bir sonraki sayıda <strong>senin keşfin</strong> burada olsun.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALT KÜNYE -->
+  <div class="footer">
+    <div class="col">
+      <div class="k">Doğa Dedektifleri</div>
+      <p>9 yaş ve üzeri için iki aylık biyoçeşitlilik dergisi.<br>Sayı 1 · Tüm illüstrasyonlar özgün çizimdir.<br>Merak et · Keşfet · Koru</p>
+    </div>
+    <div class="col right" style="display:flex; align-items:center; gap:12px; text-align:left;">
+      <img src="ag-robotik-logo.png" alt="24230 AG Robotik" style="width:50px; height:auto; flex-shrink:0;">
+      <div style="white-space:nowrap;">
+        <div style="font-weight:800; font-size:8.5px; letter-spacing:.14em; color:var(--lime); text-transform:uppercase;">Hazırlayan</div>
+        <div class="web" style="margin-bottom:3px;">24230 AG Robotik</div>
+        <p style="font-size:10.5px; line-height:1.6;"><b>www.alkevtech.com</b><br>Instagram · YouTube: <b>@AG-Robotik</b></p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

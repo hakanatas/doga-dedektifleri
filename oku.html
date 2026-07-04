@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dergiyi Oku — Doğa Dedektifleri · Sayı 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1f6b32; --green-d:#0e4a22; --yellow:#F3D308; --lime:#7AC22B; --orange:#F36F0D;
+}
+*{box-sizing:border-box; font-family:'Montserrat',system-ui,sans-serif;}
+html,body{margin:0; padding:0; height:100%;}
+body{display:flex; flex-direction:column; background:#dfe3da;}
+
+/* ===== TOP BAR ===== */
+.bar{flex:none; background:var(--green-d); color:#fff; display:flex; align-items:center; gap:10px; padding:9px 14px; box-shadow:0 2px 12px rgba(0,0,0,.3); z-index:10; flex-wrap:wrap;}
+.bar a.home{display:inline-flex; align-items:center; gap:8px; color:#fff; text-decoration:none; font-weight:800; font-size:14px; padding:7px 11px; border-radius:8px; background:rgba(255,255,255,.12);}
+.bar a.home:hover{background:rgba(255,255,255,.22);}
+.bar .title{font-weight:700; font-size:13px; color:#cfe6d2; margin-right:auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:40vw;}
+.bar .title b{color:#fff;}
+.nav-c{display:flex; align-items:center; gap:8px;}
+.nav-c button{border:0; cursor:pointer; font-weight:900; font-size:15px; width:38px; height:38px; border-radius:9px; background:var(--yellow); color:#3a2a00; transition:.12s;}
+.nav-c button:hover{background:#ffe33a;}
+.nav-c button:disabled{opacity:.35; cursor:default;}
+.nav-c select{font-weight:700; font-size:13px; padding:9px 10px; border-radius:9px; border:0; background:#fff; color:#1a1a1a; max-width:260px; cursor:pointer;}
+.nav-c .pg{font-weight:800; font-size:13px; color:#dff0e2; min-width:64px; text-align:center;}
+
+/* ===== VIEWER ===== */
+.viewer{flex:1; position:relative; overflow:hidden;}
+.viewer iframe{position:absolute; inset:0; width:100%; height:100%; border:0; background:#dfe3da;}
+
+/* side arrows on wide screens */
+.side{position:absolute; top:50%; transform:translateY(-50%); z-index:5; border:0; cursor:pointer; width:52px; height:76px; font-size:24px; font-weight:900; color:#fff; background:rgba(14,74,34,.6); backdrop-filter:blur(3px); transition:.15s;}
+.side:hover{background:rgba(14,74,34,.9);}
+.side:disabled{opacity:0; pointer-events:none;}
+.side.prev{left:0; border-radius:0 14px 14px 0;}
+.side.next{right:0; border-radius:14px 0 0 14px;}
+@media(max-width:700px){.side{display:none;} .bar .title{display:none;}}
+
+/* progress */
+.prog{flex:none; height:5px; background:#0a3518;}
+.prog i{display:block; height:100%; background:linear-gradient(90deg,var(--lime),var(--yellow)); width:0; transition:width .3s;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="home" href="index.html">🏠 Ana Sayfa</a>
+  <span class="title"><b>Doğa Dedektifleri</b> · Sayı 1 — <span id="cur-name"></span></span>
+  <div class="nav-c">
+    <button id="b-prev" onclick="go(-1)" title="Önceki (←)">‹</button>
+    <select id="sel" onchange="show(+this.value)"></select>
+    <span class="pg" id="pg"></span>
+    <button id="b-next" onclick="go(1)" title="Sonraki (→)">›</button>
+  </div>
+</div>
+<div class="prog"><i id="prog-i"></i></div>
+
+<div class="viewer">
+  <button class="side prev" id="s-prev" onclick="go(-1)" title="Önceki bölüm">‹</button>
+  <iframe id="frame" title="Dergi sayfası"></iframe>
+  <button class="side next" id="s-next" onclick="go(1)" title="Sonraki bölüm">›</button>
+</div>
+
+<script>
+const PAGES=[
+  {f:'kapak-sf1.html',            n:'Kapak',                              p:'sf. 1'},
+  {f:'editorden-sf2.html',        n:'Editörden',                          p:'sf. 2'},
+  {f:'icindekiler-sf3.html',      n:'İçindekiler',                        p:'sf. 3'},
+  {f:'ne-var-ne-yok-sf4-5.html',  n:'Ne Var Ne Yok?',                     p:'sf. 4–5'},
+  {f:'canopy-sf6-9-LPR.html',     n:'★ Canopy: Gizli Dünya',              p:'sf. 6–9'},
+  {f:'yasam-bolgeleri-sf10-12.html', n:'Dünyanın Yaşam Bölgeleri',        p:'sf. 10–12'},
+  {f:'bir-damla-su-sf13.html',    n:'Bir Damla Suda Koca Bir Dünya',      p:'sf. 13'},
+  {f:'bal-arilari-sf14-16.html',  n:'Çalışkan Bal Arıları',               p:'sf. 14–16'},
+  {f:'sozluk-sf17.html',          n:'Biyoçeşitlilik Sözlüğüm',            p:'sf. 17'},
+  {f:'endemik-sf18-19.html',      n:'Endemik Canlılarımız',               p:'sf. 18–19'},
+  {f:'tehlike-sf20-21.html',      n:'Tehlike Çanları',                    p:'sf. 20–21'},
+  {f:'besin-agi-sf22-23.html',    n:'Besin Ağı',                          p:'sf. 22–23'},
+  {f:'mini-ekosistem-sf24-25.html', n:'Şişede Mini Ekosistem',            p:'sf. 24–25'},
+  {f:'soylesi-sf26-27.html',      n:'Söyleşi: Bir Biyologla Tanışalım',   p:'sf. 26–27'},
+  {f:'bulmaca-sf28-29.html',      n:'Bulmaca Bahçesi',                    p:'sf. 28–29'},
+  {f:'sen-de-yapabilirsin-sf30.html', n:'Sen de Yapabilirsin: 10 Adım',   p:'sf. 30'},
+  {f:'gozlem-defterim-sf31.html', n:'Gözlem Defterim',                    p:'sf. 31'},
+  {f:'sizden-gelenler-sf32.html', n:'Sizden Gelenler',                    p:'sf. 32'},
+  {f:'yanitlar-sf33.html',        n:'Yanıtlar',                           p:'sf. 33'},
+  {f:'arka-kapak-sf34.html',      n:'Arka Kapak',                         p:'sf. 34'},
+  {f:'patara-sf35.html',          n:'Patara: Kaplumbağa Kart',            p:'sf. 35'},
+  {f:'doga-gulumser-sf36.html',   n:'Doğa Gülümser',                      p:'sf. 36'},
+  {f:'first-biobuzz-sf37.html',   n:'FIRST Canopy & BIOBUZZ',             p:'sf. 37'}
+];
+let cur=0;
+const sel=document.getElementById('sel');
+PAGES.forEach((pg,i)=>{
+  const o=document.createElement('option');
+  o.value=i; o.textContent=`${i+1}. ${pg.n} (${pg.p})`;
+  sel.appendChild(o);
+});
+function show(i){
+  cur=Math.max(0,Math.min(PAGES.length-1,i));
+  const pg=PAGES[cur];
+  document.getElementById('frame').src=pg.f;
+  document.getElementById('cur-name').textContent=pg.n;
+  document.getElementById('pg').textContent=pg.p;
+  sel.value=cur;
+  document.getElementById('b-prev').disabled=document.getElementById('s-prev').disabled=(cur===0);
+  document.getElementById('b-next').disabled=document.getElementById('s-next').disabled=(cur===PAGES.length-1);
+  document.getElementById('prog-i').style.width=((cur+1)/PAGES.length*100)+'%';
+  history.replaceState(null,'','#'+(cur+1));
+}
+function go(d){ show(cur+d); }
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft') go(-1);
+  if(e.key==='ArrowRight') go(1);
+});
+window.addEventListener('hashchange',()=>{
+  const h=parseInt(location.hash.slice(1));
+  if(!isNaN(h) && h-1!==cur) show(h-1);
+});
+const start=parseInt(location.hash.slice(1));
+show(!isNaN(start)?start-1:0);
+</script>
+</body>
+</html>

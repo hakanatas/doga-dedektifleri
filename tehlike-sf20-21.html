@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehlike Çanları — sf. 20–21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a; --body:#2b2b2b;
+    --orange:#F36F0D; --yellow:#F3D308; --teal:#2BB6B0;
+    --green:#1f6b32; --green-mid:#4f9e4a; --red:#d6404f; --red-d:#b1242f;
+    --page-w:210mm; --page-h:297mm; --mx:16mm;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#dfe3da; color:var(--body);
+    font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased; padding:24px 0 60px;}
+
+  .toolbar{position:sticky; top:0; z-index:50; display:flex; gap:10px; align-items:center;
+    justify-content:center; padding:10px; margin:-24px 0 22px; background:#1f6b32; color:#fff;
+    font-weight:700; box-shadow:0 2px 14px rgba(0,0,0,.18);}
+  .toolbar span{opacity:.9; font-weight:600; font-size:14px;}
+  .toolbar button{font-family:'Archivo'; font-weight:800; font-size:13px; border:0; border-radius:6px;
+    padding:8px 16px; cursor:pointer; background:var(--yellow); color:#3a2a00; text-transform:uppercase; letter-spacing:.05em;}
+
+  .page{position:relative; width:var(--page-w); min-height:var(--page-h); background:#fff;
+    margin:0 auto 24px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.20);
+    display:flex; flex-direction:column;}
+  .px{padding-left:var(--mx); padding-right:var(--mx);}
+  .fill{flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-bottom:30mm;}
+  .fill > *{flex-shrink:0;}
+	
+
+  .band{padding:11mm var(--mx) 7mm; background:var(--red);}
+  .band .disp{color:#fff;}
+  .kick{display:inline-block; color:var(--red-d); font-weight:800; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; padding:5px 11px; border-radius:4px; margin-bottom:8px; background:#fff;}
+  h1.disp{font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase;
+    line-height:.96; letter-spacing:.005em; margin:0; font-size:38px;}
+  h2.sub{font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.01em;
+    font-size:22px; margin:0 0 7px; color:var(--red-d);}
+
+  p{font-size:14.5px; line-height:1.58; margin:0 0 10px; color:var(--body);}
+  .lead{font-size:15.5px; line-height:1.5; font-weight:600; color:#1e1e1e;}
+  .cols{column-count:2; column-gap:9mm;}
+  .cols p:first-child{margin-top:0;}
+  strong{color:var(--red-d); font-weight:800;}
+
+  .duo{display:grid; grid-template-columns:100mm 1fr; gap:0 7mm; align-items:center;}
+  .duo.rev{grid-template-columns:1fr 100mm;}
+  .duo img{display:block; width:100%; height:auto; border-radius:8px; border:5px solid #fff;
+    box-shadow:0 5px 16px rgba(0,0,0,.18); outline:1px solid #e7e7e7;}
+  .duo .txt p{margin-bottom:0;}
+
+  .bigstat{display:flex; align-items:center; gap:15px; background:#fdeef0; border:2px solid #f3b9c0;
+    border-radius:12px; padding:10px 16px;}
+  .bigstat .n{font-family:'Anton'; font-size:46px; line-height:.82; color:var(--red-d); flex:none;}
+  .bigstat p{margin:0; font-size:13.5px;}
+
+  .threats{display:flex; gap:9px;}
+  .threat{flex:1; background:#fdf1ec; border:2px solid #f6d4c4; border-radius:11px; padding:10px 7px; text-align:center;}
+  .threat .e{font-size:20px; line-height:1;}
+  .threat p{margin:5px 0 0; font-size:11px; font-weight:700; color:#9a3a1c; line-height:1.25;}
+  .redscale{display:flex; align-items:center; gap:6px; flex-wrap:wrap; background:#fff6f0; border:2px solid #f6d4c4; border-radius:12px; padding:10px 13px;}
+  .redscale .rl{font-weight:900; font-size:11.5px; color:var(--red-d); text-transform:uppercase; letter-spacing:.04em;}
+  .redscale .rs{color:#fff; font-weight:800; font-size:11px; padding:6px 11px; border-radius:16px; white-space:nowrap;}
+  .redscale .ar{color:#c79; font-weight:900;}
+
+  .goodnews{display:grid; grid-template-columns:60mm 1fr; gap:13px; align-items:center;
+    background:#eef7ee; border:2px solid #bfe0bd; border-radius:12px; padding:11px;}
+  .goodnews img{display:block; width:100%; height:auto; border-radius:8px; border:4px solid #fff; box-shadow:0 3px 10px rgba(0,0,0,.14);}
+  .goodnews .gl{font-family:'Archivo'; font-weight:900; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--green); margin-bottom:4px; display:flex; gap:7px;}
+  .goodnews p{margin:0; font-size:13px;}
+  .goodnews strong{color:var(--green);}
+
+  .note{border-radius:11px; padding:13px 17px;}
+  .note .nl{font-family:'Archivo'; font-weight:900; font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; display:flex; align-items:center; gap:7px;}
+  .note p{margin:0; font-size:13.5px;}
+  .note.next{background:var(--ink); color:#eee;} .note.next .nl{color:var(--yellow);} .note.next strong{color:var(--lime,#7AC22B);}
+
+  .strip{position:absolute; left:0; right:0; bottom:9mm; width:100%; height:20mm; display:block;}
+  .folio{position:absolute; left:0; right:0; bottom:0; height:9mm; display:flex; align-items:center;
+    justify-content:space-between; padding:0 var(--mx); font-weight:800; font-size:10px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--green);}
+  .folio .pg{font-family:'Anton'; font-size:15px; color:#fff; background:var(--green); width:24px; height:24px;
+    border-radius:6px; display:flex; align-items:center; justify-content:center;}
+
+  @page{size:A4; margin:0;}
+  @media print{ body{background:#fff; padding:0;} .toolbar{display:none;} .page{margin:0; box-shadow:none;} }
+  .page,.band,.note,.duo,.bigstat,.threat,.goodnews{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  /* === Font + doluluk: Montserrat === */
+  *{font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif !important;}
+  p{font-size:13.8px !important; line-height:1.5 !important;}
+  .lead{font-size:15.2px !important; line-height:1.42 !important;}
+  h1.disp{font-weight:800 !important; font-size:28px !important; letter-spacing:-.01em !important; line-height:1.04 !important;}
+  h1.disp.sm{font-size:24px !important;}
+  h2.sub{font-weight:800 !important; font-size:18px !important; line-height:1.08 !important; margin-bottom:6px !important;}
+  .note p, .goodnews p, .bigstat p{font-size:13.2px !important;}
+  .note .nl, .goodnews .gl{font-size:12.5px !important;}
+  .bigstat .n, .stat .num, .sb .num{font-weight:900 !important;}
+  .card h3{font-weight:800 !important; font-size:15px !important;}
+  .card p, .chip p, .threat p, .tip p, .role p{font-size:11.8px !important;}
+  .term .h{font-size:15px !important;} .term p{font-size:12.8px !important;} .cap{font-size:11.5px !important;}
+  .ph b{font-weight:800 !important;} .folio .pg{font-weight:800 !important;}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><span>Tehlike Çanları · sf. 20–21</span><button onclick="window.print()">🖨️ Yazdır / PDF</button></div>
+
+<!-- ================= SAYFA 20 ================= -->
+<section class="page">
+  <div class="band">
+    <span class="kick">Tehlike Çanları</span>
+    <h1 class="disp">Yok Olmak Üzere Olan Türler</h1>
+  </div>
+  
+  <div class="px fill" style="padding-top:7mm; padding-bottom:24mm; justify-content: space-between;">
+    <div class="cols">
+      <p class="lead" style="margin-bottom:8px;">Bazı canlılar doğadan hızla kayboluyor — "nesli tükenme tehlikesi" altındalar.</p>
+      <p>Bir tür tamamen yok olunca (son bireyi de ölünce) bir daha geri gelmez; tıpkı <strong>dodo kuşu</strong> ya da dinozorlar gibi. Bilim insanları hangi türlerin tehlikede olduğunu <strong>Kırmızı Liste</strong> ile izler: "az endişe verici"den "kritik tehlikede"ye kadar.</p>
+    </div>
+    
+    <div class="bigstat">
+      <div class="n">40.000+</div>
+      <p>Bugün dünyada <strong>40 binden fazla tür</strong> yok olma tehlikesi altında!</p>
+    </div>
+    
+    <div class="note" style="background: #f4f7f6; border-left: 5px solid var(--teal); padding: 10px 14px;">
+      <div class="nl" style="color: var(--teal); margin-bottom: 3px;">🔍 Kırmızı Liste Nedir?</div>
+      <p style="margin: 0; font-size: 13px !important; line-height: 1.4;">Dünya Doğayı Koruma Birliği (IUCN) tarafından tutulan, yeryüzündeki canlıların yok olma riskini gösteren resmi bir karnedir.</p>
+    </div>
+
+    <div>
+      <h2 class="sub">Neden Kayboluyorlar?</h2>
+      <div class="threats">
+        <div class="threat"><div class="e">🌳</div><p>Yaşam alanlarının yok olması</p></div>
+        <div class="threat"><div class="e">🎯</div><p>Avlanma ve kaçak avcılık</p></div>
+        <div class="threat"><div class="e">🛢️</div><p>Kirlilik (plastik, kimyasallar)</p></div>
+        <div class="threat"><div class="e">🌡️</div><p>İklim değişikliği</p></div>
+      </div>
+    </div>
+    
+    <div class="redscale">
+      <span class="rl">Kırmızı Liste:</span>
+      <span class="rs" style="background:#4f9e4a">Az endişe</span><span class="ar">→</span>
+      <span class="rs" style="background:#c9a21f">Hassas</span><span class="ar">→</span>
+      <span class="rs" style="background:#e0801e">Tehlikede</span><span class="ar">→</span>
+      <span class="rs" style="background:#d6404f">Kritik</span><span class="ar">→</span>
+      <span class="rs" style="background:#555">Yok oldu</span>
+    </div>
+    
+    <div style="background: #fff9e6; border: 1px dashed var(--orange); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 20px;">💡</span>
+      <p style="margin: 0; font-size: 12.8px !important; color: #555;"><strong>Unutma:</strong> Bir canlının Kırmızı Liste'deki rengi koyulaştıkça, dünyadaki zamanı azalıyor demektir!</p>
+    </div>
+
+    <div class="duo">
+      <figure><img src="t1.png" alt="Deniz kaplumbağası"></figure>
+      <div class="txt">
+        <h2 class="sub">Deniz Kaplumbağası</h2>
+        <p><strong>Caretta caretta</strong>, Türkiye'nin kumsallarına yumurta bırakır. Plastik kirliliği ve bozulan kumsallar onları tehdit ediyor; bu yüzden yuvaları koruma altında.</p>
+      </div>
+    </div>
+  </div>
+  
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">21</span></div>
+</section>
+
+<!-- ================= SAYFA 21 ================= -->
+<section class="page">
+  <div class="band">
+    <span class="kick">Tehlike Çanları · Devam</span>
+    <h1 class="disp">Onlar İçin Geç Değil</h1>
+  </div>
+  
+  <div class="px fill" style="padding-top:7mm; padding-bottom:24mm; justify-content: space-between;">
+    
+    <div class="duo">
+      <figure><img src="t2.png" alt="Akdeniz foku"></figure>
+      <div class="txt">
+        <h2 class="sub">Akdeniz Foku</h2>
+        <p>Dünyada yalnızca birkaç yüz tane kaldı — en nadir deniz memelilerinden. Türkiye kıyıları onlar için çok önemli bir sığınak.</p>
+      </div>
+    </div>
+    
+    <div class="duo rev">
+      <div class="txt">
+        <h2 class="sub">Orangutan</h2>
+        <p>Yağmur ormanları kesildikçe (çoğu zaman palmiye yağı için) bu zeki canlılar evsiz kalıyor.</p>
+      </div>
+      <figure><img src="t3.png" alt="Orangutan"></figure>
+    </div>
+
+    <div style="background: #f0f4f8; border-left: 5px solid #2BB6B0; border-radius: 4px; padding: 12px 16px;">
+      <div class="nl" style="font-family:'Archivo'; font-weight:900; font-size:12.5px; color:#1a5a6a; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px;">🔍 Biliyor muydun?</div>
+      <p style="margin:0; font-size:13.2px !important; line-height:1.45; color:#334e56;">Kutup ayıları da iklim değişikliği yüzünden tehlike altında! Deniz buzları eridikçe avlanma alanları daralıyor. Bilim insanları, dünyayı ısıtan gazları azaltarak onları kurtarabileceğimizi söylüyor.</p>
+    </div>
+    
+    <div class="goodnews">
+      <figure><img src="t4.png" alt="Dev panda"></figure>
+      <div>
+        <div class="gl">✅ İyi haber — koruma işe yarıyor!</div>
+        <p><strong>Dev panda</strong> bir zamanlar tükenmek üzereydi. Korunan bambu ormanları ve yıllarca süren çalışmalar sayesinde sayısı arttı; artık "tehlikede" sınıfında değil. Demek ki çabalarımız fark yaratıyor!</p>
+      </div>
+    </div>
+    
+    <div class="note next" style="background:#1a1a1a; color:#ffffff; border-radius:11px; padding:14px 18px;">
+      <div class="nl" style="color:#F3D308; font-family:'Archivo'; font-weight:900; font-size:13px !important; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px;">🌍 Sen de yardım et</div>
+      <p style="color:#ffffff !important; font-size:13.5px !important; line-height:1.5 !important; margin:0;">
+        Plastiği azalt · çöpü doğaya atma · doğal alanlara saygı göster · koruma kuruluşlarını destekle. Her tür doğanın yapbozunun bir parçası — onları korumak geleceği korumaktır. <strong style="color:#51C2E7 !important; font-weight:800;">Sıradaki sayfada: doğadaki görünmez bağlar — besin ağı!</strong>
+      </p>
+    </div>
+    
+  </div>
+  
+  <svg class="strip" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0,95 Q150,60 320,82 T660,80 T980,72 T1200,86 L1200,150 L0,150 Z" fill="#cde9a8"/><path d="M0,112 Q200,82 430,104 T840,98 T1200,112 L1200,150 L0,150 Z" fill="#8ccf49"/><path d="M0,150 L0,124 Q120,104 230,128 Q300,108 380,130 Q470,110 560,132 Q650,112 740,132 Q840,112 930,132 Q1030,114 1120,132 Q1170,124 1200,128 L1200,150 Z" fill="#1f6b32"/><g fill="#1f6b32"><path d="M120,128 q-6,-30 4,-46 q10,18 6,46z"/><path d="M150,128 q10,-34 22,-44 q-2,22 -12,44z"/><path d="M520,130 q-6,-28 4,-44 q10,16 6,44z"/><path d="M548,130 q10,-30 20,-40 q-2,20 -10,40z"/><path d="M905,130 q-6,-26 4,-42 q10,16 6,42z"/><path d="M932,130 q9,-30 19,-38 q-2,20 -9,38z"/></g><circle cx="160" cy="84" r="7" fill="#F3D308"/><circle cx="160" cy="84" r="3" fill="#F36F0D"/><circle cx="560" cy="86" r="7" fill="#DD3762"/><circle cx="560" cy="86" r="3" fill="#fff"/><circle cx="942" cy="86" r="7" fill="#F8A120"/><circle cx="942" cy="86" r="3" fill="#fff"/><g transform="translate(770,66)"><ellipse cx="-7" cy="0" rx="8" ry="6" fill="#2BB6B0"/><ellipse cx="7" cy="0" rx="8" ry="6" fill="#51C2E7"/><rect x="-1.5" y="-7" width="3" height="14" rx="1.5" fill="#06363a"/></g></svg>
+  <div class="folio"><span>Doğa Dedektifleri · Sayı 1</span><span class="pg">22</span></div>
+</section>
+
+</body>
+</html>
