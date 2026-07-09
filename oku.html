@@ -87,7 +87,7 @@ body{display:flex; flex-direction:column; background:#dfe3da;}
 
 <script>
 const PAGES=[
-  {f:'kapak-sf1.html',            n:'Kapak',                              p:'sf. 1'},
+  {f:'kapak-sf1.html',            n:'Kapak',                              p:'sf. 1',  poster:true},
   {f:'editorden-sf2.html',        n:'Editörden',                          p:'sf. 2'},
   {f:'icindekiler-sf3.html',      n:'İçindekiler',                        p:'sf. 3'},
   {f:'ne-var-ne-yok-sf4-5.html',  n:'Ne Var Ne Yok?',                     p:'sf. 4–5'},
@@ -106,8 +106,8 @@ const PAGES=[
   {f:'gozlem-defterim-sf31.html', n:'Gözlem Defterim',                    p:'sf. 31'},
   {f:'sizden-gelenler-sf32.html', n:'Sizden Gelenler',                    p:'sf. 32'},
   {f:'yanitlar-sf33.html',        n:'Yanıtlar',                           p:'sf. 33'},
-  {f:'arka-kapak-sf34.html',      n:'Arka Kapak',                         p:'sf. 34'},
-  {f:'patara-sf35.html',          n:'Patara: Kaplumbağa Kart',            p:'sf. 35'},
+  {f:'arka-kapak-sf34.html',      n:'Arka Kapak',                         p:'sf. 34', poster:true},
+  {f:'patara-sf35.html',          n:'Patara: Kaplumbağa Kart',            p:'sf. 35', poster:true},
   {f:'doga-gulumser-sf36.html',   n:'Doğa Gülümser',                      p:'sf. 36'},
   {f:'first-biobuzz-sf37.html',   n:'FIRST Canopy & BIOBUZZ',             p:'sf. 37'}
 ];
@@ -123,20 +123,38 @@ PAGES.forEach((pg,i)=>{
   sel.appendChild(o);
 });
 
-/* iframe içeriğini viewer genişliğine sığdır (zoom-to-fit) */
-function fit(){
-  let ch=1123; // varsayılan tek A4 yüksekliği
+const MOBILE_BP=760;
+function measureH(){
+  let ch=1123;
   try{
     const d=frame.contentDocument;
     if(d && d.body){ ch=Math.max(d.body.scrollHeight, d.documentElement.scrollHeight); }
   }catch(e){}
+  return ch;
+}
+/* iki mod:
+   - reflow: telefonda metin sayfaları tam genişlik, sayfa kendi mobil CSS'iyle akar
+   - fit: masaüstü + poster sayfalar (kapak vb.) A4'ü ekrana sığdırır (transform) */
+function fit(){
   const avail=viewer.clientWidth;
-  const scale=Math.min(1, avail/PAGE_W);
-  frame.style.width=PAGE_W+'px';
-  frame.style.height=ch+'px';
-  frame.style.transform='scale('+scale+')';
-  holder.style.width=(PAGE_W*scale)+'px';
-  holder.style.height=(ch*scale)+'px';
+  const isPoster=!!PAGES[cur].poster;
+  const reflow=(avail<MOBILE_BP && !isPoster);
+  if(reflow){
+    frame.style.width=avail+'px';      // iframe'i mobil genişliğe çek -> sayfanın @media'sı devreye girer
+    frame.style.transform='none';
+    const ch=measureH();
+    frame.style.height=ch+'px';
+    holder.style.width=avail+'px';
+    holder.style.height=ch+'px';
+  }else{
+    frame.style.width=PAGE_W+'px';
+    const ch=measureH();
+    const scale=Math.min(1, avail/PAGE_W);
+    frame.style.transform='scale('+scale+')';
+    frame.style.height=ch+'px';
+    holder.style.width=(PAGE_W*scale)+'px';
+    holder.style.height=(ch*scale)+'px';
+  }
 }
 
 function show(i){
